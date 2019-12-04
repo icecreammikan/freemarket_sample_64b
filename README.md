@@ -30,10 +30,10 @@ Things you may want to cover:
 |nickname|string|null: false, limit: 15|
 |email|string|null: false|
 |password|string|null: false|
-|first_name|string|null: false, limit: 50|
 |last_name|string|null: false, limit: 50|
-|first_name_kana|string|null: false, limit: 50|
+|first_name|string|null: false, limit: 50|
 |last_name_kana|string|null: false, limit: 50|
+|first_name_kana|string|null: false, limit: 50|
 |phone_number|integer|null: false, limit: 50, unique: true|
 |birthyear_id|reference|null: false, foreign_key: true|
 |birthmonth_id|reference|null: false, foreign_key: true|
@@ -41,7 +41,8 @@ Things you may want to cover:
 |icon|text|null: false|
 |header_image|text|null: false|
 |introduce|text||
-|prefecture_id|reference|null: false|
+|postcode|integer|null: false|
+|prefecture_id|reference|null: false, foreign_key: true|
 |city|text|null: false|
 |address|text|null: false|
 |building_name|text||
@@ -52,9 +53,9 @@ has_many :items
 has_many :comments
 has_many :messages
 has_many :sns_credentials, dependent: :destroy
-has_many :buyed_item, forign_key: ”buyer_id”, class_name: ‘Item’
-has_many :selling_item, -> { where(“buyer_id is NULL") }, foreign_key: “seller_id", class_name: “Item”
-has_many :sold_item, -> { where(“buyer_id is not NULL") }, foreign_key: “seller_id", class_name: “Item”
+has_many :buyed_items, forign_key: ”buyer_id”, class_name: ‘Item’
+has_many :selling_items, -> { where(“buyer_id is NULL") }, foreign_key: “seller_id", class_name: “Item”
+has_many :sold_items, -> { where(“buyer_id is not NULL") }, foreign_key: “seller_id", class_name: “Item”
 belongs_to_active_hash :prefecture
 belongs_to_active_hash :birthyear
 belongs_to_active_hash :birthmonth
@@ -106,13 +107,13 @@ belongs_to :transaction
 |Column|Type|Options|
 |------|----|-------|
 |name|text|null: false, add_index: true|
+|ancestry|string|null: false, add_index: true|
 
 ### Association
 has_many: items
-has_many: ancestry
 has_many: brands, through: :category_brands
 has_many: category_brands
-
+has_ancestry
 
 ## brandsテーブル
 |Column|Type|Options|
