@@ -75,7 +75,6 @@ belongs_to_active_hash :prefecture
 ### Association
 belongs_to :user, optional: true
 
-
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -122,7 +121,6 @@ has_many: items
 has_many: brands, through: :category_brands
 has_many: category_brands
 has_ancestry
-
 
 ## brandsテーブル
 |Column|Type|Options|
