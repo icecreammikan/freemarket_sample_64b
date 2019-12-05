@@ -25,14 +25,14 @@ Things you may want to cover:
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: false, limit: 15|
+|nickname|string|null: false|
 |email|string|null: false|
 |password|string|null: false|
-|last_name|string|null: false, limit: 50|
-|first_name|string|null: false, limit: 50|
-|last_name_kana|string|null: false, limit: 50|
-|first_name_kana|string|null: false, limit: 50|
-|phone_number|integer|null: false, limit: 50, unique: true|
+|last_name|string|null: false|
+|first_name|string|null: false|
+|last_name_kana|string|null: false|
+|first_name_kana|string|null: false|
+|phone_number|string|null: false, unique: true|
 |birthyear_id|reference|null: false, foreign_key: true|
 |birthmonth_id|reference|null: false, foreign_key: true|
 |birthday|integer|null: false|
@@ -55,12 +55,12 @@ has_one :user_address
 
 ## user_addressテーブル
 |user_id|reference|null: false, foreign_key: true|
-|postcode|integer|null: false|
+|postcode|string|null: false|
 |prefecture_id|reference|null: false, foreign_key: true|
-|city|text|null: false|
-|address|text|null: false|
-|building_name|text||
-|send_phone_number|integer||
+|city|string|null: false|
+|address|string|null: false|
+|building_name|string||
+|address_phone_number|string||
 
 ### Association
 belongs_to :user
@@ -97,6 +97,7 @@ belongs_to :user, optional: true
 has_many :images, dependent: :destroy
 accepts_nested_attributes_for :images, allow_destroy: true
 has_many :comments
+has_many :messages
 belongs_to :buyer, class_name: 'User', optional: true
 belongs_to :seller, class_name: 'User'
 belongs_to :category
@@ -107,7 +108,6 @@ belongs_to_active_hash :condition
 belongs_to_active_hash :sendingmethod
 belongs_to_active_hash :postageburden
 belongs_to_active_hash :shippingday
-has_one :transaction
 
 
 ## categoriesテーブル
@@ -166,19 +166,11 @@ belongs_to :user
 belongs_to :item
 
 
-## transactionsテーブル
-|item_id|reference|null: false, foreign_key: true|
-
-### Association
-belongs_to: item
-has_many: messages
-
-
 ## messagesテーブル
 |content|string|null: false|
-|transaction_id|reference|null: false, foreign_key: true|
+|item_id|reference|null: false, foreign_key: true|
 |user_id|reference|null: false, foreign_key: true|
 
 ### Association
 belongs_to :user
-belongs_to :transaction
+belongs_to :item
