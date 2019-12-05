@@ -71,5 +71,5 @@ group :production do
 end
 
 gem 'carrierwave'
-gem 'rmagick', require: 'RMagick'
-
+gem 'mini_magick'
+gem 'fog-aws'
