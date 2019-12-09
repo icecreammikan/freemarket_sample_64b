@@ -1,0 +1,23 @@
+%body.sign-up-body
+  .sign-up-header
+    .sign-up-header-logo
+      %a{href: "#"}
+        %img.sign-up-header-logo__mark{alt: "ロゴマーク", src: "fmarket_logo_red.svg"}/
+  .sign-up-main
+    .sign-up-container
+      %h2.sign-up-container__top 新規会員登録
+      %ul.sign-up-content
+        %li.sign-up-content__menu.mail
+          %a{href: "#"}
+            %i.far.fa-envelope.fa-large>
+            メールアドレスで登録する
+        %li.sign-up-content__menu.facebook
+          %a{href: "#"}
+            %i.fab.fa-facebook-square.fa-large>
+            Facebookで登録する
+        %li.sign-up-content__menu.google
+          %a.googletext{href: "#"}
+            %i.fab.fa-google.fa-large>
+            Googleで登録する
+  = render "footer"
+  
