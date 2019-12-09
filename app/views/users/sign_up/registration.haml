@@ -1,8 +1,8 @@
 %body.registration-body.user-sign-up-body
   .registration-header.user-sign-up-header
     .registration-logo.user-sign-up-logo
-      %a{href: "#"}
-        %img.registration-logo__mark.user-sign-up-logo__mark{alt: "ロゴマーク", src: "fmarket_logo_red.svg"}/
+      <%= link_to “＃” %>
+        <%= image_tag "fmarket_logo_red.svg", alt: "ロゴマーク", class: ".registration-logo__mark.user-sign-up-logo__mark" %>
     .registration-header-right.user-sign-up-header-right
       .progress
         %p.progress__pages.active 会員情報

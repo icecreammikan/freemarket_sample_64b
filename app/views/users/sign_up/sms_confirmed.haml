@@ -1,8 +1,8 @@
 %body.sms-confirmed-body.user-sign-up-body
   .sms-confirmed-header.user-sign-up-body
     .sms-confirmed-logo.user-sign-up-logo
-      %a{href: "#"}
-        %img.sms-confirmed-logo__mark.user-sign-up-logo__mark{alt: "ロゴマーク", src: "fmarket_logo_red.svg"}/
+      <%= link_to “＃” %>
+        <%= image_tag "fmarket_logo_red.svg", alt: "ロゴマーク", class: "sms-confirmed-logo__mark" %>
     .sms-confirmed-header-right.user-sign-up-header-right
       .progress
         %p.progress__pages 会員情報
