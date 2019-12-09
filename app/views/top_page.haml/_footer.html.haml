@@ -9,7 +9,7 @@
           %ul.banner__app
             %li.bunner__app__icon
               %a{href: "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", target: "_blank"}
-                %img{alt: "", height: "40", src: "SVG/images_apple.png", width: "133"}/
+                = image_tag "images_apple.png", size: "133x40", alt: ""
             %li.bunner__app__icon
               %a{href: "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", :target => "_blank"}
                 %img.app__icon{alt: "", height: "40", src: "SVG/google_EN.webp", width: "133"}/
@@ -23,15 +23,15 @@
         %h2 メルカリについて
         %ul.about__block
           %li.about__block__list
-            %a{href: "#"} 会社概要 (運営会社)
+            = link_to '会社概要 (運営会社)' ,href: "#"
           %li.about__block__list
-            %a{href: "#"} 採用情報
+            = link_to '採用情報' ,href: "#"
           %li.about__block__list
-            %a{href: "#"} プレスリリース
+            = link_to 'プレスリリース' ,href: "#"
           %li.about__block__list
-            %a{href: "#"} 公式ブログ
+            = link_to '公式ブログ' ,href: "#"
           %li.about__block__list
-            %a{href: "#"} メルカリロゴ利用ガイドライン
+            = link_to 'メルカリロゴ利用ガイドライン' ,href: "#"
           %a.footer__about__icon{href: "https://twitter.com/mercari_jp", target: "_blank"}
             %svg.sc-bRBYWo.sc-erNlkL.jruhZz{"aria-hidden" => "true", height: "26", viewbox: "0 0 21 16", width: "31"}
               %path{d: "M6.343 15.969c7.61 0 11.773-6.134 11.773-11.444 0-.172 0-.345-.008-.517a8.303 8.303 0 0 0 2.066-2.086 8.576 8.576 0 0 1-2.38.635A4.07 4.07 0 0 0 19.616.329a8.377 8.377 0 0 1-2.63.973 4.186 4.186 0 0 0-3.019-1.27c-2.283 0-4.14 1.803-4.14 4.023 0 .314.041.62.106.918A11.866 11.866 0 0 1 1.404.769a3.936 3.936 0 0 0-.557 2.023c0 1.396.735 2.628 1.84 3.35a4.278 4.278 0 0 1-1.872-.503v.055c0 1.945 1.428 3.577 3.317 3.945-.347.094-.71.141-1.09.141-.266 0-.524-.023-.774-.07.524 1.6 2.057 2.76 3.865 2.792a8.452 8.452 0 0 1-5.14 1.725 8.19 8.19 0 0 1-.985-.054 12.02 12.02 0 0 0 6.335 1.796", :fill => "currentColor", "fill-rule" => "evenodd"}
