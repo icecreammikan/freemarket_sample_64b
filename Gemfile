@@ -8,7 +8,7 @@ gem 'rails', '~> 5.2.4'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 4.3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -71,5 +71,6 @@ group :production do
 end
 
 gem 'carrierwave'
-gem 'rmagick', require: 'RMagick'
-
+gem 'mini_magick'
+gem 'fog-aws'
+gem 'haml-rails'
