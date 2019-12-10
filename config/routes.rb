@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  get 'post', to: 'posts#index'
+  get 'posts', to: 'posts#index'
 end
