@@ -1,7 +1,7 @@
 %body.sms-confirmation-body.user-sign-up-body
   .sms-confirmation-header.user-sign-up-body
     .sms-confirmation-logo.user-sign-up-logo
-      = link_to “＃”
+      = link_to "#"
         = image_tag "fmarket_logo_red.svg", alt: "ロゴマーク", class: "sms-confirmation-logo__mark"
     .sms-confirmation-header-right.user-sign-up-header-right
       .progress
@@ -37,7 +37,6 @@
             %br/
           %p.sms-confirmation-next__btn ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
           .sms-confirmation-registor
-             = link_to "#", class: "sms-confirmation-registor__link" do
-              電話番号が必要な理由
+             = link_to "電話番号が必要な理由", href:"#" class: "sms-confirmation-registor__link" do
               %i.fas.fa-angle-right.fa-large>
   = render "footer"

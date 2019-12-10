@@ -1,7 +1,7 @@
 %body.sign-up-body
   .sign-up-header
     .sign-up-header-logo
-      = link_to “＃”
+      = link_to href:"#"
         = image_tag "fmarket_logo_red.svg", alt: "ロゴマーク", class: "sign-up-header-logo__mark"
   .sign-up-main
     .sign-up-container
@@ -9,16 +9,13 @@
       %ul.sign-up-content
         %li.sign-up-content__menu.mail
             メールアドレスで登録する
-          = link_to “＃” do
+          = link_to "会員登録", href:"#" do
             %i.far.fa-envelope.fa-large>
-            会員登録
         %li.sign-up-content__menu.facebook
-          = link_to “＃” do
+          = link_to "Facebookで登録する", href:"#" do
             %i.fab.fa-facebook-square.fa-large>
-            Facebookで登録する
         %li.sign-up-content__menu.google
-          = link_to “＃” class:"googletext" do
+          = link_to "Googleで登録する", href:"#" class:"googletext" do
             %i.fab.fa-google.fa-large>
-            Googleで登録する
   = render "footer"
   

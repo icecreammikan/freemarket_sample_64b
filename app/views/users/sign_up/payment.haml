@@ -1,7 +1,7 @@
 %body.payment-body
   .payment-header
     .payment-header-logo
-      = link_to “＃”
+      = link_to href:"#"
         = image_tag "fmarket_logo_red.svg", alt: "ロゴマーク", class: "payment-header-logo__mark"
     .payment-header-right
       .progress
@@ -52,7 +52,7 @@
               %input.payment-securitycode__input.input{placeholder: "カード背面4桁もしくは3桁の番号", type: "text", value: ""}/
               %br/
             .payment-registor.payment-items
-              = link_to “＃” do
+              = link_to href:"#" do
                 %i.fas.fa-question-circle>
                 カード裏面の番号とは？
             .payment-next.payment-items
