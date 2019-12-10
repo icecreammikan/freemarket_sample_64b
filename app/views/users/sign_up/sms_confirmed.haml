@@ -1,8 +1,8 @@
 %body.sms-confirmed-body.user-sign-up-body
   .sms-confirmed-header.user-sign-up-body
     .sms-confirmed-logo.user-sign-up-logo
-      <%= link_to “＃” %>
-        <%= image_tag "fmarket_logo_red.svg", alt: "ロゴマーク", class: "sms-confirmed-logo__mark" %>
+      = link_to “＃”
+        = image_tag "fmarket_logo_red.svg", alt: "ロゴマーク", class: "sms-confirmed-logo__mark"
     .sms-confirmed-header-right.user-sign-up-header-right
       .progress
         %p.progress__pages 会員情報
@@ -35,4 +35,4 @@
             .sms-confirmed-next
               = f.submit "認証して完了", class: "sms-confirmed-next__btn"
               %br/
-= render "footer"
+    = render "footer"

@@ -1,8 +1,8 @@
 %body.registration-body.user-sign-up-body
   .registration-header.user-sign-up-header
     .registration-logo.user-sign-up-logo
-      <%= link_to “＃” %>
-        <%= image_tag "fmarket_logo_red.svg", alt: "ロゴマーク", class: ".registration-logo__mark.user-sign-up-logo__mark" %>
+      = link_to “＃”
+        = image_tag "fmarket_logo_red.svg", alt: "ロゴマーク", class: "registration-logo__mark user-sign-up-logo__mark"
     .registration-header-right.user-sign-up-header-right
       .progress
         %p.progress__pages.active 会員情報
@@ -85,18 +85,18 @@
                 私はロボットではあり
                 %br>/
                 ません
-              %img{src: ""}/
+              = image_tag ""
             .registration-robot__bottom
-              %a{href: "#"} プライバシー・利用規約
+              = link_to “＃” プライバシー・利用規約
           .registration-next.registration-items
             %p.registration-nextbtn-top.registration-items__p-element
               「次へ進む」のボタンを押すことにより、
-              %a.registration-nextbtn-top__terms{href: "#"}> 利用規約
+              = link_to "#", class: "registration-nextbtn-top__terms" > 利用規約
               に同意したものとみなします
             %input.registration-next__btn.btn{type: "submit", value: "次へ進む"}/
             %br/
           .registration-registor.registration-items
-            %a.registration-registor__terms{href: "#"}
+            = link_to "#", class: "registration-registor__terms" do
               本人情報の登録について
-              %i.fas.fa-angle-right.fa-large
-= render "footer"
+              %i.fas.fa-angle-right.fa-large>
+  = render "footer"

@@ -1,8 +1,8 @@
 %body.payment-body
   .payment-header
     .payment-header-logo
-      <%= link_to “＃” %>
-        <%= image_tag "fmarket_logo_red.svg", alt: "ロゴマーク", class: "payment-header-logo__mark" %>
+      = link_to “＃”
+        = image_tag "fmarket_logo_red.svg", alt: "ロゴマーク", class: "payment-header-logo__mark"
     .payment-header-right
       .progress
         %p.progress__pages 会員情報
@@ -49,13 +49,13 @@
               %p.payment-securitycode__top-left.info_item セキュリティコード
               %p.payment-securitycode__top-right.required 必須
               %br/
-              %input.payment-securitycode__input.input{:placeholder => "カード背面4桁もしくは3桁の番号", :type => "text", :value => ""}/
+              %input.payment-securitycode__input.input{placeholder: "カード背面4桁もしくは3桁の番号", type: "text", value: ""}/
               %br/
             .payment-registor.payment-items
-              %a{:href => "#"}
+              = link_to “＃” do
                 %i.fas.fa-question-circle>
                 カード裏面の番号とは？
             .payment-next.payment-items
-              %input.payment-next__btn{:type => "submit", :value => "次へ進む"}/
+              %input.payment-next__btn{type: "submit", value: "次へ進む"}/
               %br/
-= render "footer"
+  = render "footer"

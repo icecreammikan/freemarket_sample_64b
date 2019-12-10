@@ -1,8 +1,8 @@
 %body.adress-body
   .adress-header
     .adress-header-logo
-      <%= link_to “＃” %>
-        <%= image_tag "fmarket_logo_red.svg", alt: "ロゴマーク", class: "adress-header-logo__mark" %>
+      = link_to “＃”
+        = image_tag "fmarket_logo_red.svg", alt: "ロゴマーク", class: "adress-header-logo__mark"
     .adress-header-right
       .progress
         %p.progress__pages 会員情報
@@ -75,9 +75,9 @@
             %p.adress-phonenumber__top-left.info_item 電話
             %p.adress-phonenumber__top-right.any 任意
             %br/
-            %input.adress-phonenumber__input.input{:placeholder => "例）09012345678", :type => "text", :value => ""}/
+            %input.adress-phonenumber__input.input{placeholder: "例）09012345678", type: "text", value: ""}/
             %br/
           .adress-next.adress-items
-            %input.adress-next__btn.btn{:type => "submit", :value => "次へ進む"}/
+            %input.adress-next__btn.btn{type: "submit", value: "次へ進む"}/
             %br/
-= render "footer"
+  = render "footer"
