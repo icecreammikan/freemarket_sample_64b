@@ -88,7 +88,7 @@ gem 'active_hash'
 #日本語化
 gem 'rails-i18n'
 #omniauth認証関係
-gem 'omniauth'
+gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
