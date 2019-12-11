@@ -44,6 +44,13 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  #テストツール
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
+  gem 'capybara', '>= 2.15'
 end
 
 group :development do
@@ -74,3 +81,20 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
 gem 'haml-rails'
+#ユーザー管理
+gem 'devise'
+#active_hashの生成
+gem 'active_hash'
+#日本語化
+gem 'rails-i18n'
+#omniauth認証関係
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
+gem 'dotenv-rails'
+#pay.jpの導入
+gem 'payjp'
+#js
+gem 'jquery-rails'
+#mysqlの導入
+gem 'mysql2', '>= 0.4.4', '< 0.6.0'
