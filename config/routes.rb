@@ -25,5 +25,4 @@ Rails.application.routes.draw do
   #カード登録と変更のためのルーティング
   resources :card, only: [:create]
   get '/card/new', to: 'card#step5'
-
 end
