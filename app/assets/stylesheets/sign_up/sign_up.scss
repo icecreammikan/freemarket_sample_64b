@@ -1,0 +1,139 @@
+// Place all the styles related to the sign_up controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.user-sign-up-header{
+  top: 0;
+  left: 0;
+  height: 128px;
+  .user-sign-up-header-logo{
+    text-align: center;
+    margin-top: 40px;
+    &__mark{
+      width: 185px;
+      height: 49px;
+    }
+    &__mark:hover{
+      opacity: 0.7;
+    }
+  }
+}
+
+.sign-up-main{
+  .sign-up-container{
+    width: 700px;
+    background-color: #fff;
+    margin: 0 auto;
+    &__top{
+      text-align: center;
+      height: 33px;
+      padding: 32px;
+      margin: 0;
+      border-bottom: 0.5px solid #f3f3f3;
+      color: #333;
+    }
+    .sign-up-content{
+      margin: 0;
+      text-align: center;
+      padding: 40px 0;
+      list-style: none;
+      &__menu{
+        height: 48px;
+        width: 341px;
+        border-radius: 4px;
+        font-size: 14px;
+        margin: 0 auto;
+      }
+      &__menu:hover{
+        opacity: 0.7;
+        cursor: pointer;
+      }
+      .mail{
+        background-color: #ea352d;
+        border: 1px solid #ea352d;
+        position: relative;
+        a{
+          color: #fff;
+          line-height: 48px;
+        }
+        .fa-envelope{
+          position: absolute;
+          top: 28%;
+          left: 5%;
+          font-size: 24px;
+        }
+      }
+      .facebook{
+        background-color: rgb(56,81,133);
+        border: 1px solid rgb(56,81,133);
+        margin-top: 16px;
+        position: relative;
+        a{
+          color: #fff;
+          line-height: 48px;
+        }
+        .fa-facebook-square{
+          position: absolute;
+          top: 28%;
+          left: 5%;
+          font-size: 24px;
+        }
+      }
+      .google{
+        background-color: rgb(255,255,255);
+        border: 1px solid rgb(151,151,151);
+        margin-top: 16px;
+        position: relative;
+
+        .googletext{
+          color: rgb(51,51,51);
+          text-decoration: none;
+          line-height: 48px;
+
+          .fa-google{
+            position: absolute;
+            top: 28%;
+            left: 5%;
+            font-size: 24px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.sign-up-footer{
+  text-align: center;
+  padding: 40px 0;
+  &__menu{
+    text-decoration: none;
+    display: inline-block;
+    color: rgb(51,51,51);
+    font-size: 12px;
+    margin-bottom: 40px;
+    margin-left: 16px;
+  }
+  &__menu:hover{
+    opacity: 0.7;
+    text-decoration: underline;
+  }
+  .logo{
+    cursor: default;
+    &__mercari-logo{
+      display: block;
+      margin: 0 auto;
+      width: 80px;
+      height: 65px;
+    }
+    &__mercari-logo:hover{
+      opacity: 0.7;
+      cursor: pointer;
+    }
+  }
+  &__copymark{
+    font-size: 13px;
+    color: rgb(51,51,51);
+    margin-top: 8px;
+  }
+}
