@@ -1,11 +1,3 @@
-!!!
-%html
-  %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %meta{:charset => "UTF-8"}/
-    %link{:href => "style.css", :rel => "stylesheet"}/
-    %link{:href => "https://use.fontawesome.com/releases/v5.6.1/css/all.css", :rel => "stylesheet"}/
-  %body
     %header
     .main-container
       %main.l-container.clearfix
@@ -33,74 +25,27 @@
                 %p 1985/03/01
               .form-group
                 %label{:for => "zip_code"} 郵便番号
-                %span.form-arbitrary 任意
-                %input.input-default{:name => "zip_code", :placeholder => "例）1234567", :type => "text", :value => ""}/
+                %span__form-arbitrary 任意
+                %input__input-default{:name => "zip_code", :placeholder => "例）1234567", :type => "text", :value => ""}/
               .form-group
                 %label{:for => "prefecture"} 都道府県
-                %span.form-arbitrary 任意
+                %span__form-arbitrary 任意
                 .select-wrap
                   %i.icon-arrow-bottom
                   %select.select-default{:name => "prefecture"}
-                    %option --
-                    %option 北海道
-                    %option 青森県
-                    %option 岩手県
-                    %option 宮城県
-                    %option 秋田県
-                    %option 山形県
-                    %option 福島県
-                    %option 東京都
-                    %option 神奈川県
-                    %option 埼玉県
-                    %option 千葉県
-                    %option 茨城県
-                    %option 栃木県
-                    %option 群馬県
-                    %option 山梨県
-                    %option 新潟県
-                    %option 長野県
-                    %option 富山県
-                    %option 石川県
-                    %option 福井県
-                    %option 愛知県
-                    %option 岐阜県
-                    %option 静岡県
-                    %option 三重県
-                    %option 大阪府
-                    %option 兵庫県
-                    %option 京都府
-                    %option 滋賀県
-                    %option 奈良県
-                    %option 和歌山県
-                    %option 鳥取県
-                    %option 島根県
-                    %option 岡山県
-                    %option 広島県
-                    %option 山口県
-                    %option 徳島県
-                    %option 香川県
-                    %option 愛媛県
-                    %option 高知県
-                    %option 福岡県
-                    %option 佐賀県
-                    %option 長崎県
-                    %option 熊本県
-                    %option 大分県
-                    %option 宮崎県
-                    %option 鹿児島県
-                    %option 沖縄県
+                -# 都道府県
               .form-group
                 %label{:for => "city"} 市区町村
-                %span.form-arbitrary 任意
-                %input.input-default{:name => "city", :placeholder => "例) 大阪市浪速区", :type => "text", :value => ""}/
+                %span__form-arbitrary 任意
+                %input__input-default{:name => "city", :placeholder => "例) 大阪市浪速区", :type => "text", :value => ""}/
               .form-group
                 %label{:for => "address1_label"} 番地
-                %span.form-arbitrary 任意
-                %input.input-default{:name => "address1", :placeholder => "例) 難波中2-10-70", :type => "text", :value => ""}/
+                %span__form-arbitrary 任意
+                %input__input-default{:name => "address1", :placeholder => "例) 難波中2-10-70", :type => "text", :value => ""}/
               .form-group
                 %label{:for => "address2_label"} 建物名
-                %span.form-arbitrary 任意
-                %input.input-default{:name => "address2", :placeholder => "例) 難波パークス１９０１", :type => "text", :value => ""}/
+                %span__form-arbitrary 任意
+                %input__input-default{:name => "address2", :placeholder => "例) 難波パークス１９０１", :type => "text", :value => ""}/
               %button.btn-default.btn-red{:type => "submit"} 登録する
               .form-group.text-right
                 %p
@@ -109,5 +54,4 @@
                     本人情報の登録について
                     %i.fas.fa-chevron-right
               %input{:name => "__csrf_value", :type => "hidden", :value => "52a67f973c8d0396dc040577d6d862b1096a4a28c7aa398ad2098e515e51174c18f62cbf387b5752b85e9ced74d0511135cb705e056275544b1c65e9018f24e02"}/
-        .l-side
-          %nav.mypage-nav
+

@@ -1,30 +1,22 @@
-!!!
-%html
-  %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %meta{:charset => "UTF-8"}/
-    %link{:href => "style.css", :rel => "stylesheet"}/
-    %link{:href => "https://use.fontawesome.com/releases/v5.6.1/css/all.css", :rel => "stylesheet"}/
-  %body
-    %header
-    .main-container
-      %main.l-container.clearfix
-        .l-content
-          %section.l-chapter-container
-            %h2.l-title-head 支払い方法
-          .l-single-inner
-            %section
-              .l-single-content
-                %h3.l-chapter-sub-head クレジットカード一覧
-              %ul.settings-payment-list
-            %section.settings-add-card
-              .l-single-content
-                %a.btn-default.btn-red.submit_button{:href => "#"}
-                  %i.far.fa-credit-card>
-                  クレジットカードを追加する
-            .settings-not-regist
-              %p
-                %a.text-right
-                %a{:href => "#", :target => "_blank"}
-                  %span 支払い方法について
-                  %i.fas.fa-chevron-right
+%header
+.container
+  %container.clearfix
+    .l-content
+      %section.chapter-container
+        %h2.title-head 支払い方法
+      .single-inner
+        %section
+          .single-content
+            %h3.chapter-sub-head クレジットカード一覧
+          %ul.settings-payment-list
+        %section.settings-add-card
+          .l-single-content
+            %a.btn-default.btn-red.submit_button{:href => "#"}
+              %i.far.fa-credit-card>
+              クレジットカードを追加する
+        .settings-not-regist
+          %p
+            %a.text-right
+            %a{:href => "#", :target => "_blank"}
+              %span 支払い方法について
+              %i.fas.fa-chevron-right
