@@ -130,7 +130,7 @@
         %i.fas.fa-angle-left.fa-large>
         売主のその他の出品
       .seller-other-products__else__product
-        %img.seller-other-products__else__img{:alt => "seller-other-products-product__product__img", :src => "product.jpg"}/
+        = image_tag "product.jpg", class:"seller-other-products__else__img", alt:"seller-other-products-product__product__img"
         %p.seller-other-products__else__soldtag SOLD
         %p.seller-other-products__else__product-name 商品名
         %p.seller-other-products__else__price ¥17,800
@@ -139,7 +139,7 @@
         %i.fas.fa-angle-left.fa-large>
         カテゴリーのその他の出品
       .related-other-products__product
-        %img.related-other-products__img{:alt => "related-other-products-product__product__img", :src => "product.jpg"}/
+        = image_tag "product.jpg", class:"related-other-products__img", alt:"related-other-products-product__product__img"
         %p.related-other-products__soldtag SOLD
         %p.related-other-products__product-name 商品名
         %p.related-other-products__price ¥17,800
