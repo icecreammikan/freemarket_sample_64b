@@ -1,0 +1,126 @@
+.payment-main{
+  .payment-container{
+    width: 700px;
+    background-color: #fff;
+    margin: 0 auto;
+    &__top{
+      text-align: center;
+      height: 33px;
+      padding: 32px;
+      margin: 0;
+      border-bottom: 0.5px solid #f3f3f3;
+      color: #333;
+    }
+    .payment-contents{
+      padding: 24px 16px 40px;
+      &-form{
+        width: 343px;
+        margin: 0 auto;
+        .payment-items{
+          .info_item{
+            font-size: 14px;
+            font-weight: bold;
+            color: rgb(51,51,51);
+            cursor: default;
+            display: inline-block;
+          }
+          .required{
+            font-size: 12px;
+            margin-left: 8px;
+            padding: 2px 4px;
+            background-color: rgb(234,53,45);
+            border-radius: 2px;
+            color: rgb(255,255,255);
+            display: inline-block;
+          }
+          .input::-webkit-input-placeholder {
+            font-size: 16px;
+          }
+          .input{
+            width: 309px;
+            height: 28px;
+            margin-top: 8px;
+            padding: 10px 16px 8px;
+            border: 1px solid rgb(204,204,204);
+            border-radius: 4px;
+            font-size: 16px;
+          }
+        }
+        .payment-cardnum{
+          &__creditimg{
+            width: 100%;
+          }
+        }
+        //有効期限
+        .payment-expiration-date{
+          margin-top: 24px;
+          .ymd-block{
+            margin-top: 8px;
+            height: 50px;
+            display: flex;
+            &__cards{
+              width: 76px;
+              margin-right: 5px;
+              position: relative;
+              &:last-of-type{
+                margin-left: 5px;
+              }
+              select{
+                font-size: 16px;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                width: 100%;
+                height: 48px;
+                border: 1px solid rgb(204,204,204);
+                border-radius: 4px;
+                display: inline-block;
+                padding: 0 10px;
+                text-align: right;
+                background-color: #fff;
+                cursor: pointer;
+              }
+              .fas{
+                line-height: 48px;
+                font-size: 24px;
+                color: rgb(136,136,136);
+                position: absolute;
+                top: 0;
+                right: 10px;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+        .payment-securitycode{
+          margin-top: 24px;
+        }
+        .payment-register{
+          margin-top: 8px;
+          text-align: right;
+          font-size: 14px;
+          a{
+            color: rgb(0,153,232);
+            i{
+
+            }
+          }
+        }
+        .payment-next{
+          &__btn{
+            display: inline-block;
+            margin-top: 24px;
+            height: 50px;
+            width: 344px;
+            color: rgb(255,255,255);
+            background-color: rgb(234,53,45);
+            border: 1px solid rgb(234,53,45);
+            font-size: 14px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
