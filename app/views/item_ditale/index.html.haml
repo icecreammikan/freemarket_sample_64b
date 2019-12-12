@@ -27,7 +27,6 @@
             %th.product-listing__info__table__th 出品者
             %td.product-listing__info__table__td-seller
               =link_to '出品者名', "#",class:"product-listing__info__table__seller-name"
-              -# %a.product-listing__info__table__seller-name{:href => "#"} 出品者名
               .product-listing__info__table__evaluation
                 %p.product-listing__info__table__evaluation__good
                   %i.far.fa-smile-beam>
@@ -79,8 +78,8 @@
         %p.product-listing__info__hidden__price ¥1,500
         %p.product-listing__info__hidden__tax (税込)
         %p.product-listing__info__hidden__postage 送料込み
-      %input.product-listing__purchase-btn{:type => "submit", :value => "購入画面に進む"}/
-      %input.product-listing__sride-btn{:type => "submit", :value => "購入画面に進む"}/
+      %input.product-listing__purchase-btn{type:"submit", value:"購入画面に進む"}/
+      %input.product-listing__sride-btn{type:"submit", value:"購入画面に進む"}/
       %p.product-listing__puroduct-overview 商品説明、商品説明、商品説明、商品説明。商品説明、商品説明、商品説明、商品説明。商品説明、商品説明、商品説明、商品説明。商品説明、商品説明、商品説明、商品説明。商品説明、商品説明、商品説明、商品説明。商品説明、商品説明、商品説明、商品説明。商品説明、商品説明、商品説明、商品説明。商品説明、商品説明、商品説明、商品説明。商品説明、商品説明、商品説明、商品説明。商品説明、商品説明、商品説明、商品説明。
       .product-listing__product-info-bottom-btns
         .product-listing__product-info-bottom-btns__box
@@ -101,8 +100,8 @@
       %form
         %p.before-purchase-messages__comments__caution 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
       .before-purchase-messages__comments__brock
-        %textarea.before-purchase-messages__comments__brock__textarea{:name => "commenttext", :placeholder => ""}
-        %input.before-purchase-messages__comments__brock__send-btn{:type => "submit", :value => "コメントする"}/
+        %textarea.before-purchase-messages__comments__brock__textarea{name:"commenttext", placeholder:""}
+        %input.before-purchase-messages__comments__brock__send-btn{type:"submit", value:"コメントする"}/
   .related-products-transition
     =link_to "#",class:"related-products-transition__before" do
       %i.fas.fa-angle-left.fa-large>
