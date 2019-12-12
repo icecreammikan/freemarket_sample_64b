@@ -1,0 +1,22 @@
+//footer
+.signup__footer{
+  text-align: center;
+  padding: 40px 0;
+  &__detail{
+    a{
+      text-decoration: none;
+      color: #333333;
+      font-size: 12px;
+      margin: 0 7px;
+    }
+  }
+  &__logo{
+    a{
+      img{
+        width: 80px;
+        height: 65px;
+        margin: 40px auto 0;
+      }
+    }
+  }
+}
