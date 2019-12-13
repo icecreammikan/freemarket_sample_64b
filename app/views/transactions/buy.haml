@@ -1,7 +1,7 @@
 .confirm____container
   .confirm__simple__header
     = link_to "#" do
-      = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3791839826"
+      = image_tag 'SVG/fmarket_logo_red.svg'
   .buy-main
     .buy-main__box
       .buy-content
@@ -11,7 +11,7 @@
           .buy-content__product__inner
             .buy-content__product__inner__box
               .buy-content__product__inner__box--image
-                = image_tag "https://static.mercdn.net/thumb/photos/m74972418570_1.jpg?1575855810", height: "64px" , width: "64px"
+                = image_tag "sample.jpg", height: "64px" , width: "64px"
               .buy-content__product__inner__box--detail
                 .buy-content__product__inner__box--detail--name
                   CHANEL ポーチ
@@ -44,7 +44,7 @@
                     %br/
                     有効期限 00 / 00
                   %figure
-                    %img{:alt => "visa", :height => "15", :src => "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?2356214421", :width => "49"}/
+                    = image_tag "visacard.png", width: "47px"
               .buy-content__product
                 .buy-content__user-info__inner
                   .buy-content__user-info__inner--header
@@ -66,6 +66,6 @@
       = link_to "特定商取引に関する表記"
     .signup__footer__logo
       = link_to "#" do
-        = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2482339763", width: "80px"
+        = image_tag "SVG/logo_gray.svg"
     %p
       %small © Mercari, Inc.
