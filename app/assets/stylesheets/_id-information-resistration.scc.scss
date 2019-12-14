@@ -2,13 +2,11 @@
 * {
   box-sizing: border-box;
 }
-.id-header {
+header {
   height: 40px;
   background-color: rgb(245, 245, 245);
 }
-
 .id-main {
-  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   background-color: rgb(245, 245, 245);
   padding-bottom: 40px;
   font-size: 14px;
@@ -99,10 +97,6 @@
     margin: 40px 0 0 0;
     padding: 0px 30px;
     transition: all 0.3s ease-out 0s;
-  }
-
-  .btn-red:hover {
-    opacity: 0.7;
   }
 }
 .text-right{
