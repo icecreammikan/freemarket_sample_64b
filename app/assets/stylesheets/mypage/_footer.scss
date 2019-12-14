@@ -9,18 +9,20 @@
   overflow: hidden;
   margin: 0 auto;
   display: flex;
-  &__left__app{
-    margin-top: 50px;
-    margin-bottom: 0px;
-  }
-  &__left__text{
-    font-size: 34px;
-    font-weight: bold;
-    margin: 0 0 5px 0;
-    width: 130%;
-  }
-  &__left__icon{
-    display: flex;
+  &__left{
+    &__app{
+      margin-top: 50px;
+      margin-bottom: 0px;
+    }
+    &__text{
+      font-size: 34px;
+      font-weight: bold;
+      margin: 0 0 5px 0;
+      width: 130%;
+    }
+    &__icon{
+      display: flex;
+    }
   }
 }
 
@@ -137,10 +139,11 @@
       margin: 0 auto;
       width: 700px;
     }
+    &__inc{
+      margin: 0;
+    }
   }
-  .footer-bottom__inc{
-    margin: 0;
-  }
+
 }
 
 @media screen and (max-width: 767px) {
@@ -161,8 +164,8 @@
       margin: 0 auto;
       width: 100%;
     }
-  }
-  .footer-bottom__inc{
-    margin: 0;
+    &__inc{
+      margin: 0;
+    }
   }
 }
