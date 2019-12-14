@@ -19,11 +19,12 @@
     margin: 0 0 5px 0;
     width: 130%;
   }
+  &__left__icon{
+    display: flex;
+  }
 }
 
-.banner__block__left__icon{
-  display: flex;
-}
+
 .mercari__icon{
   height: 68px;
   margin-right: 20px;
@@ -82,11 +83,12 @@
 }
 .footer-about{
   width: 20%;
+  &__icon{
+    padding: 20px 10px 0 0;
+    display: inline-block;
+  }
 }
-.about-blocks__icon{
-  padding: 20px 10px 0 0;
-  display: inline-block;
-}
+
 .sc-bRBYWo{
   color: #FFF;
 }
