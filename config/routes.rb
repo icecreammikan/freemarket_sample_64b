@@ -25,4 +25,7 @@ Rails.application.routes.draw do
   #カード登録と変更のためのルーティング
   resources :card, only: [:create]
   get '/card/new', to: 'card#step5'
+
+  #取引ページ関連のルーティング（仮置き。商品購入の機能を実装時に修正の必要有り！）
+  get '/transactions/buy', to: 'transactions#buy'
 end
