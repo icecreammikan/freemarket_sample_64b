@@ -7,7 +7,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session[:uid] = session[:uid]
   end
   
-  def step2 
+  def step2
     #step1で入力した値をsession保持
     session[:nickname] = params[:user][:nickname]
     session[:email] = params[:user][:email]
@@ -67,11 +67,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     #oath認証の場合
     if session[:provider].present? && session[:uid].present?
       #passwordをDeviseのヘルパーメソッドで自動生成
-      password = Devise.friendly_token.first(7)
       @user = User.new(
         nickname:session[:nickname],
         email: session[:email],
-        password: "password",
+        password: session[:password],
         last_name: session[:last_name],
         first_name: session[:first_name],
         last_name_kana: session[:last_name_kana], 
@@ -82,11 +81,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
         phone_number: session[:phone_number],
         authentication_number: params[:user][:authentication_number]
       )
-      #snscredentialデータを作成
-      sns = SnsCredential.create(
-        user_id: @user.id,
-        uid: session[:uid],
-        provider: session[:provider])
+      render 'step3' and return unless @user.valid?
+      @user.icon = "default_icon.png"
+      if @user.save
+        #snscredentialデータを作成
+        sns = SnsCredential.create!(
+          user_id: @user.id,
+          uid: session[:uid],
+          provider: session[:provider]
+        )
+        sign_in(@user)
+        bypass_sign_in(@user)
+        redirect_to controller: '/user_address', action: 'step4'
+      else
+        render "step1"
+      end
     #email認証の場合
     else
       @user = User.new(
@@ -103,17 +112,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
         phone_number: session[:phone_number],
         authentication_number: params[:user][:authentication_number]
       )
-    end
-    render 'step3' unless @user.valid?
-    #ユーザーにデフォルトアイコンを設定。
-    @user.icon = "default_icon.png"
-    if @user.save
-      #user情報をいったんデータベースへ保存し、住所情報の登録へ
-      redirect_to controller: '/user_address', action: 'step4'
-      sign_in(@user)
-      bypass_sign_in(@user)
-    else
-      render "step1"
+      render 'step3' and return unless @user.valid?
+      #ユーザーにデフォルトアイコンを設定。
+      @user.icon = "default_icon.png"
+      if @user.save
+        sns.save
+        #user情報をいったんデータベースへ保存し、住所情報の登録へ
+        redirect_to controller: '/user_address', action: 'step4'
+        sign_in(@user)
+        bypass_sign_in(@user)
+      else
+        render "step1"
+      end
     end
 
   end
