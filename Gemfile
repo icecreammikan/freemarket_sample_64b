@@ -96,3 +96,4 @@ gem 'payjp'
 gem 'jquery-rails'
 #mysqlの導入
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
+gem "font-awesome-rails"

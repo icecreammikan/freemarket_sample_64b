@@ -2,29 +2,30 @@
   background-image: url("cookie0I9A9685_TP_V.jpg");
   background-position: center;
   background-size: cover;
-}
-.banner__block{
-  width: 750px;
-  height: 260px;
-  overflow: hidden;
-  margin: 0 auto;
-  display: flex;
-  &__left{
-    &__app{
-      margin-top: 50px;
-      margin-bottom: 0px;
-    }
-    &__text{
-      font-size: 34px;
-      font-weight: bold;
-      margin: 0 0 5px 0;
-      width: 130%;
-    }
-    &__icon{
-      display: flex;
+  .banner__block{
+    width: 750px;
+    height: 260px;
+    overflow: hidden;
+    margin: 0 auto;
+    display: flex;
+    &__left{
+      &__app{
+        margin-top: 50px;
+        margin-bottom: 0px;
+      }
+      &__text{
+        font-size: 34px;
+        font-weight: bold;
+        margin: 0 0 5px 0;
+        width: 130%;
+      }
+      &__icon{
+        display: flex;
+      }
     }
   }
 }
+
 
 
 .mercari__icon{
