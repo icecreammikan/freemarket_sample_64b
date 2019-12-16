@@ -100,7 +100,7 @@ class Birthyear < ActiveHash::Base
     {id: 98, name: 1997},
     {id: 99, name: 1998},
     {id: 100, name: 1999},
-    {id: 2000, name: 2000},
+    {id: 101, name: 2000},
     {id: 102, name: 2001},
     {id: 103, name: 2002},
     {id: 104, name: 2003},
