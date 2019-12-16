@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     get 'users/sign_up/sms_confirmation',  to: 'users/registrations#step2'
     get 'users/sign_up/sms_confirmed', to: 'users/registrations#step3'
   end
+
   #sign_upのindexとdone画面のルーティング
   get '/sign_up/index', to: 'sign_up#index'
   get '/sign_up/done', to: 'sign_up#done'
@@ -38,6 +39,7 @@ Rails.application.routes.draw do
 
   #mypageのindex画面のルーティング
   get '/mypage/index', to: 'mypage#index'
+  get '/mypage/exhibit', to: 'mypage#exhibit'
 
   #取引ページ関連のルーティング（仮置き。商品購入の機能を実装時に修正の必要有り！）
   get '/transactions/buy', to: 'transactions#buy'

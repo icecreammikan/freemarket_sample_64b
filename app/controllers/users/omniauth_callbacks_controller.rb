@@ -32,8 +32,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
     #userがDBに未登録の場合(find_oauthメソッドでsnscredentialとuserインスタンスが返ってきた場合)
     else
-      #@snsにfind_oauthで作成されたsnsvredentialインスタンスを代入 → sessionの生成
+      #@snsにfind_oauthで作成されたsnscredentialインスタンスを代入 → sessionの生成
       @sns = info[:sns]
+      session[:provider] = @sns[:provider]
+      session[:uid] = @sns[:uid]
       render template: "devise/registrations/step1" 
     end
   end
