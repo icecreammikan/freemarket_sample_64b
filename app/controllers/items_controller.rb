@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
 
-  
+  def index
+  end
+
   def new
     @item = Item.new
     @item.images.build
@@ -13,6 +15,19 @@ class ItemsController < ApplicationController
   rescue
     render action: "new"
   end
+
+  def show
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
+  end
+
 
   
   

@@ -85,11 +85,6 @@
                 .select-wrapp
                   %i.icon-arrow-bottom
                   = f.select :postageburden, [[ "---",""], [ "1~2日で発送", "2" ], [ "2~3日で発送", "3" ],[ "4~7日で発送", "4"]],{}, {class: "select-default"}
-                  -# %select.select-default
-                  -#   %option{value:  ""} ---
-                  -#   %option{value:  "1"} 1~2日で発送
-                  -#   %option{value:  "2"} 2~3日で発送
-                  -#   %option{value:  "3"} 4~7日で発送
           .sell__block__form__price
             %h3.sell__price 販売価格(300〜9,999,999)
             = link_to "?", "/jp/help_center/article/68/", class:"form-question",target: "_blank"
