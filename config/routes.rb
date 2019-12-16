@@ -15,9 +15,6 @@ Rails.application.routes.draw do
   # resources :images
   # end
 
-  #仮置き
-  get 'posts', to: 'posts#index'
-
   devise_scope :user do
     get 'users/sign_up/registration',  to: 'users/registrations#step1'
     get 'users/sign_up/sms_confirmation',  to: 'users/registrations#step2'
@@ -36,9 +33,7 @@ Rails.application.routes.draw do
   resources :card, only: [:create]
   get '/card/new', to: 'card#step5'
 
-  #mypageのindex画面のルーティング
-  get '/mypage/index', to: 'mypage#index'
-  get '/mypage/exhibit', to: 'mypage#exhibit'
+  #mypage関連のルーティング
 
   #取引ページ関連のルーティング（仮置き。商品購入の機能を実装時に修正の必要有り！）
   get '/transactions/buy', to: 'transactions#buy'
