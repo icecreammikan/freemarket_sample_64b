@@ -116,6 +116,9 @@
   line-height: 36px;
   white-space: nowrap;
   padding: 8px;
+  &__in{
+    display: flex;
+  }
 
 .li-heart {
   color: rgb(204, 204, 204);
