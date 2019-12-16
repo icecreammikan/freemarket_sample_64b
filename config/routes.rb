@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  #top_pageのindex画面のルーティング
+  root 'top_page#index' 
+
   devise_for :users,
   controllers: {
     sessions: 'users/sessions',
@@ -13,10 +16,6 @@ Rails.application.routes.draw do
     get 'users/sign_up/sms_confirmation',  to: 'users/registrations#step2'
     get 'users/sign_up/sms_confirmed', to: 'users/registrations#step3'
   end
-
-  #top_pageのindex画面のルーティング
-  get '/top_page/index', to: 'top_page#index'
-
   #sign_upのindexとdone画面のルーティング
   get '/sign_up/index', to: 'sign_up#index'
   get '/sign_up/done', to: 'sign_up#done'
