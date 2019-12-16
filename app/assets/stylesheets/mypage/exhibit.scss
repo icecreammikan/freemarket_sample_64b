@@ -26,3 +26,17 @@
     line-height: 72px;
   }
 }
+.mypage-exhibit__box{
+  display: flex;
+  justify-content: space-between;
+  &__a{
+    background-color: white;
+    color:black;
+    border:1px solid;
+    border-color:lightgray;
+    border-radius: 4px;
+    padding:0 8px;
+    margin-top:40px;
+    cursor: pointer;
+  }
+}
