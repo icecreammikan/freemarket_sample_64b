@@ -24,7 +24,8 @@
       
       .sell__block__form{
         border-top: 1px solid #eee;
-        width: 620px;
+        width: 700px;
+        margin: 0 auto;
         .require{
           background: #ea352d;
           margin: 0 0 0 8px;
@@ -58,6 +59,7 @@
             line-height: 1.3;
             margin-top: 16px;
             width: 100%;
+            padding-top: 50px;
             .display__upload{
               input{
                 display: none;
@@ -257,8 +259,8 @@
             text-align: center;
             text-decoration: none;
             position: absolute;
-            left: 230px;
-            top: 63px;
+            left: 205px;
+            top: 43px;
           }
           .sell__form__box{
             width: 400px;

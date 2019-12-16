@@ -94,8 +94,7 @@ gem 'dotenv-rails'
 gem 'payjp'
 #js
 gem 'jquery-rails'
-#mysqlの導入
-gem 'mysql2', '0.5.3'
+
 #カテゴリでの多階層のgem
 gem 'ancestry'
 
