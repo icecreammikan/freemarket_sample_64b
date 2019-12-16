@@ -22,4 +22,17 @@ ja:
     city: 市
     address: 番地
     send_phone_number: 電話番号
-    
+
+    image: 画像
+    name : 商品名
+    discription : 商品の説明
+    category_id : カテゴリー
+    size_id : サイズ
+    brand_id : ブランド
+    condition_id : 商品の状態
+    pefecture_id : 地域
+    sendingmehod_id : 配送方法
+    postageburden_id : 配送料の負担
+    shippingday_id : 発送までの日数
+    price : 価格
+    profit : 販売利益
