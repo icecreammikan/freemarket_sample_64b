@@ -1,0 +1,28 @@
+.mypage-exhibit{
+  display:flex;
+  margin: 40px auto 0;
+  padding: 0 0 40px;
+  width: 1020px;
+}
+.exhibit-mypage-tabs{
+  display:flex;
+  border: 0;
+  background: #eee;
+  font-size: 0px;
+  width:700px;
+  li {
+    width: 50%;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    list-style: none;
+  }
+
+  a {
+    position: relative;
+    display: block;
+    color: #333;
+    font-size: 16px;
+    line-height: 72px;
+  }
+}
