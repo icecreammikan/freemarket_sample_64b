@@ -15,7 +15,6 @@ $(function(){
     var lastday = new Array("--", 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
     if((year%4 == 0) && (year%100 != 0) || (year%400 == 0)){
       lastday[2] = 29;
-      console.log(lastday)
       return lastday[month]  
     }else{
       console.log("閏年ではありません")
