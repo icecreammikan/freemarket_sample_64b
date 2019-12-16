@@ -8,6 +8,14 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     omniauth_callbacks: "users/omniauth_callbacks"
   }
+
+
+  #itemsの仮root
+  resources :items 
+  # resources :images
+  # end
+  
+  
   #仮置き
   get 'posts', to: 'posts#index'
 
