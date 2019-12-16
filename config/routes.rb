@@ -1,10 +1,21 @@
 Rails.application.routes.draw do
+  #top_pageのindex画面のルーティング
+  root 'top_page#index' 
+
   devise_for :users,
   controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
     omniauth_callbacks: "users/omniauth_callbacks"
   }
+
+
+  #itemsの仮root
+  resources :items 
+  # resources :images
+  # end
+  
+  
   #仮置き
   get 'posts', to: 'posts#index'
 

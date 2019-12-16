@@ -96,4 +96,7 @@ gem 'payjp'
 gem 'jquery-rails'
 #mysqlの導入
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
+#カテゴリでの多階層のgem
+gem 'ancestry'
+
 gem "font-awesome-rails"
