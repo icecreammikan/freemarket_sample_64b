@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   #top_pageのindex画面のルーティング
-  root 'top_page#index' 
+  root 'items#index'
 
   devise_for :users,
   controllers: {
@@ -11,11 +11,10 @@ Rails.application.routes.draw do
 
 
   #itemsの仮root
-  resources :items 
+  resources :items
   # resources :images
   # end
-  
-  
+
   #仮置き
   get 'posts', to: 'posts#index'
 
