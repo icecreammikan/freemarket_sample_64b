@@ -25,7 +25,7 @@
   .payment-container
     %h2.payment-container__top お支払い方法
     .payment-contents
-      = form_with id: "charge-form", url: "/card", method: :post, local: true, class: "payment-contents-form" do |f|
+      = form_with id: "card_form", url: "/card", method: :post, local: true, class: "payment-contents-form" do |f|
         .payment-cardnum.payment-items
           %p.payment-cardnum__top-left.info_item カード番号
           %p.payment-cardnum__top-right.required 必須
@@ -50,13 +50,13 @@
           %p.payment-securitycode__top-left.info_item セキュリティコード
           %p.payment-securitycode__top-right.required 必須
           %br/
-          = f.text_field :cvc, class: "payment-securitycode__input input", placeholder: "カード背面4桁もしくは3桁の番号", id: "cvc"
+          = f.text_field :cvc, class: "payment-securitycode__input input", placeholder: "カード背面4桁もしくは3桁の番号", id: "card_cvc"
           %br/
         .payment-register.payment-items
           = link_to href:"#" do
             %i.fas.fa-question-circle>
             カード裏面の番号とは？
         .payment-next.payment-items
-          = f.submit "次へ進む", class:"payment-next__btn",id: "token_submit", type: "submit"
+          = f.submit "次へ進む", class:"payment-next__btn",id: "token_submit"
           %br/
 = render "sign_up/login_footer"

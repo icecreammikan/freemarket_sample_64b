@@ -1,0 +1,246 @@
+.confirm____container{
+  background-color: #f5f5f5;
+  height: 100%;
+  width: 100%;
+}
+.confirm__simple__header{
+  height: 128px;
+  text-align: center;
+  background-color: #f5f5f5;
+  a{
+  width: 185px;
+  line-height: 49px;
+    img{
+      margin: 0 auto;
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      width: 300px;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}
+
+.buy-main {
+  &__box {
+    width: 700px;
+    background-color: #fff;
+    margin: 0 auto;
+  }
+}
+
+//購入内容の確認題名欄
+.buy-content {
+
+  &__header {
+    margin: 0;
+    padding: 32px;
+    font-size: 22px;
+    text-align: center;
+  }
+}
+
+//購入内容の写真欄
+.buy-content__product {
+  padding: 32px 0;
+  border-top: 1px solid #f5f5f5;
+  &__inner {
+    max-width: 343px;
+    margin: 0 auto;
+    &__box{
+      display: flex;
+      &--image{
+        height: 80px;
+        width: 80px;
+        img{
+          height: 100%;
+          width: 100%;
+        }
+      }
+      &--detail{
+        margin-left: 16px;
+        &--name{
+          font-size: 14px;
+          margin: 0;
+          padding: 0 0 8px;
+          line-height: 1.5;
+          text-align: left;
+        }
+        &--price{
+          margin: 0;
+          text-align: left;
+          font-size: 15px;
+          font-weight: 600;
+          span{
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}
+
+//支払金額の確認
+.buy-price{
+  &__table{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    &__pay{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      &--money{
+        font-size: 18px;
+        font-weight: 600;
+      }
+      div{
+        span{
+          font-size: 30px;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+  &__accordion{
+    padding: 0;
+    list-style: none;
+    margin: 24px 0 32px;
+    &__point{
+      position: relative;
+      &--confirmation{
+        label{
+          font-size: 14px;
+          font-weight: 400;
+          vertical-align: middle;
+          display: inline-block;
+          padding-left: 8px;
+          color: #888888;
+        }
+        input{ 
+        }
+        .icon-check{
+          background-color: #ccc;
+          color: #ccc;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          z-index: 1;
+          width: 20px;
+          height: 20px;
+          border-radius: 2px;
+          border: 1px solid #ccc;
+          font-size: 10px;
+          line-height: 17px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+//クレジットカード情報
+.buy-content__product__inner{
+  &--info{
+    height: 16px;
+    display: flex;
+    justify-content: space-between;
+    h3{
+      margin: 0;
+      padding: 0;
+      font-size: 14px;
+    }
+    a{
+      font-size: 14px;
+      color: #0099e8;
+    }
+  }
+  p{
+    font-size: 14px;
+    margin: 8px 0 0;
+  }
+  figure{
+    margin: 8px 0 0;
+    img{
+    }
+  }
+}
+
+//住所情報
+.buy-content__user-info {
+  margin: 40px 0 0;
+  padding: 24px 12.5% 0;
+  border-top: 1px solid #f5f5f5;
+  &__inner {
+    max-width: 343px;
+    margin: 0 auto;
+    &--header{
+      display: flex;
+      justify-content: space-between;
+      height: 16px;
+      h3 {
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+      }
+      a {
+        color: #0099e8;
+        font-size: 14px;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+        opacity: 0.6;
+      }
+    }
+  }
+}
+
+.user-info-text{
+  text-align: left;
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+//送信ボタン
+.buy-content__product{
+  .btn-default{
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    text-align: center;
+    background: #ea352d;
+    border: 1px solid #ea352d;
+    color: #fff;
+  }
+}
+
+//footer
+.signup__footer{
+  text-align: center;
+  padding: 40px 0;
+  &__detail{
+    a{
+      text-decoration: none;
+      color: #333333;
+      font-size: 12px;
+      margin: 0 7px;
+    }
+  }
+  &__logo{
+    a{
+      img{
+        width: 80px;
+        height: 65px;
+        margin: 40px auto 0;
+      }
+    }
+  }
+}
