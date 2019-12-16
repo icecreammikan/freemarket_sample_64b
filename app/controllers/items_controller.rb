@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
 
   def index
+    @items each do |img|
+      
   end
 
   def new
