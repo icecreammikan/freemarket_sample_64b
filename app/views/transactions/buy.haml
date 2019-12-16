@@ -1,0 +1,71 @@
+.confirm____container
+  .confirm__simple__header
+    = link_to "#" do
+      = image_tag 'SVG/fmarket_logo_red.svg'
+  .buy-main
+    .buy-main__box
+      .buy-content
+        %h2.buy-content__header
+          購入内容の確認
+        %section.buy-content__product
+          .buy-content__product__inner
+            .buy-content__product__inner__box
+              .buy-content__product__inner__box--image
+                = image_tag "sample.jpg", height: "64px" , width: "64px"
+              .buy-content__product__inner__box--detail
+                .buy-content__product__inner__box--detail--name
+                  CHANEL ポーチ
+                .buy-content__product__inner__box--detail--price
+                  ¥3,400
+                  %span （税込）送料込み
+        %section.buy-content__product
+          .buy-content__product__inner
+            %form.buy-price
+              %ul.buy-price__table
+                %li.buy-price__table__pay
+                  .buy-price__table__pay--money 支払い金額
+                  %div
+                    %span ¥3,400
+              %ul.buy-price__accordion
+                %li.buy-price__accordion__point
+                  .buy-price__accordion__point--confirmation
+                    %input{:type => "checkbox"}/
+                    %i.icon-check
+                    %label ポイントを使用 (所持ポイント: P0)
+              %section.buy-content__product
+                .buy-content__product__inner
+                  .buy-content__product__inner--info
+                    %h3 支払方法
+                    %a 変更する
+                  %p
+                    クレジットカード
+                    %br/
+                    ************0000
+                    %br/
+                    有効期限 00 / 00
+                  %figure
+                    = image_tag "visacard.png", width: "47px"
+              .buy-content__product
+                .buy-content__user-info__inner
+                  .buy-content__user-info__inner--header
+                    %h3 配送先
+                    %a 変更する
+                  .user-info-text
+                    〒〇〇〇-〇〇〇〇
+                    %br/
+                    〇〇県 〇〇市 〇〇0000-0 〇〇マンション 〇〇号室
+                    %br/
+                    〇〇 〇〇
+              %section.buy-content__product
+                %button.btn-default{:type => "submit"}
+                  購入する
+  .signup__footer
+    .signup__footer__detail
+      = link_to "プライバシーポリシー"
+      = link_to "メルカリ利用規約"
+      = link_to "特定商取引に関する表記"
+    .signup__footer__logo
+      = link_to "#" do
+        = image_tag "SVG/logo_gray.svg"
+    %p
+      %small © Mercari, Inc.
