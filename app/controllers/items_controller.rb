@@ -10,10 +10,13 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @item.save!
-    redirect_to item_path  #仮置き
-  rescue
-    render action: "new"
+    if @item.save!
+      redirect_to item_path  #仮置き
+      # notice: 'Event was successfully created.'
+    else
+      # 戻り値がfalseなので失敗
+      render :new
+    end
   end
 
   def show
@@ -33,7 +36,7 @@ class ItemsController < ApplicationController
   
   
   private
-  def find_item
+  def set_item
     @item = Item.find(params[:id])
   end
   
