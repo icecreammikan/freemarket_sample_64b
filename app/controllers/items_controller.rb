@@ -9,7 +9,6 @@ class ItemsController < ApplicationController
   end
 
   def create
-    binding.pry
     # @item = Item.new(item_params)
     # if @item.save
     #   params[:image]['image_url'].each do |a|
