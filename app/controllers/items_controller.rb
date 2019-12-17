@@ -11,10 +11,10 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save!
-      redirect_to item_path  #仮置き
+      redirect_to root_path  #仮置き
       # notice: 'Event was successfully created.'
     else
-      # 戻り値がfalseなので失敗
+
       render :new
     end
   end
@@ -41,6 +41,6 @@ class ItemsController < ApplicationController
   end
   
   def  item_params
-    params.require(:item).permit(:name, :description, :category_id, :size_id, :brand_id, :condition_id, :prefecture_id, :sendingmethod_id, :postageburden_id, :shippingday_id, :price, :profit, images_attributes:[:id, :image_url]).marge(seller_id: current_user.id,)
+    params.require(:item).permit(:name, :description, :category_id, :size_id, :brand_id, :condition_id, :prefecture_id, :sendingmethod_id, :postageburden_id, :shippingday_id, :price, images_attributes: [:image_url]).merge(seller_id: current_user.id,)
   end
 end
