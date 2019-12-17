@@ -1,0 +1,59 @@
+.confirm____container
+  .confirm__simple__header
+    = link_to "#" do
+      = image_tag 'fmarket_logo_red.svg'
+  .buydone-main
+    .wait
+      %p.please_wait
+        %i.far.fa-clock
+        発想をお待ちください
+      %p.under-please_wait 出品者からの発想通知をお待ちください
+    .buy-complete
+      %h2.buy-complete-text 購入が完了しました
+    .buy-complete-img
+      %img{:alt => "", :src => ""}/
+      %p.buy-done-itemname グラマラススパッツMサイズ
+    .buy-complete-price
+      %p.buy-done-price ¥10,000
+      %p.buy-done-postage 送料込み
+    .buy-complete-adress
+      %h3 配送先
+      %p.buy-done-adress
+        〒〇〇〇-〇〇〇〇
+        %br/
+        〇〇県 〇〇市 〇〇0000-0 〇〇マンション 〇〇号室
+        %br/
+        〇〇 〇〇
+    .buy-complete-paymethod
+      %h3 支払い方法
+      %p.buy-done-cardinfo
+        クレジットカード
+        %br/
+        ************0000
+        %br/
+        有効期限 00 / 00
+    .after-buy-done-flow
+      %h3 発送通知後の流れ
+      %i.fas.fa-smile-beam
+      %i.fas.fa-meh
+      %i.fas.fa-tired
+      %p
+        商品を受け取ったら
+        %br>/
+        出品者の評価をしましょう。
+        %br>/
+        購入代金が出品者に振り込まれます。
+        %br>/
+        評価後に取引は完了です
+      %a.redirect-mypage{:href => "#"} マイページへもどる
+
+  .signup__footer
+    .signup__footer__detail
+      = link_to "プライバシーポリシー"
+      = link_to "メルカリ利用規約"
+      = link_to "特定商取引に関する表記"
+    .signup__footer__logo
+      = link_to "#" do
+        = image_tag "logo_gray.svg"
+    %p
+      %small © Mercari, Inc.
