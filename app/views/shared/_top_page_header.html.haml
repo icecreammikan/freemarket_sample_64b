@@ -28,7 +28,7 @@
               = fa_icon 'check check-click fa-lg'
               %h2.todo-chapter.fa-check-click やることリスト
               //マイページコントローラー作成後リンクを貼り付けてください
-            =link_to "#", class:"li-user-circle" do
+            =link_to mypage_index_path, class:"li-user-circle" do
               = image_tag "#{current_user.icon}",class:"li-user-circle__img"
               %h2.mypage-chapter.fa-user-circle-click マイページ
         - else
