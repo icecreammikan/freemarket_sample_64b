@@ -1,5 +1,3 @@
--# = render "header"
--# = render "navibar"
 = render "shared/top_page_header"
 = render "sidebar"
 .logout-main
@@ -8,7 +6,3 @@
       =link_to destroy_user_session_path, class:"logout-signout__btn", method: :delete do
         %button ログアウト
 = render "shared/top_page_footer"
--#   = render "sidebar"
--# = render "banner"
--# = render "footer"
--# %input.logout-signout__btn{type: "submit", value: "ログアウト"}
