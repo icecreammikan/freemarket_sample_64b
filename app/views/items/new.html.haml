@@ -17,9 +17,9 @@
             .sell__block__.image__0
               .sell__block__form__upload__box
                 .sell__block__upload__drop__have__item
-                = f.fields_for :image do |i|
+                = f.fields_for :images do |i|
                   = i.label :image, class: "display__upload" do
-                    = i.file_field :image, multiple: true, name: "item[images_attributes][iamge_url][]"
+                    = i.file_field :image, type: 'file', name: "item[images_attributes][0][image_url]"
                     %pre.display__upload
                       ドラッグアンドドロップ
                       %br>/

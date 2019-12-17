@@ -12,8 +12,6 @@ Rails.application.routes.draw do
 
   #itemsの仮root
   resources :items 
-  # resources :images
-  # end
   
   
   #仮置き

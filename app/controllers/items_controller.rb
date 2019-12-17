@@ -9,6 +9,13 @@ class ItemsController < ApplicationController
   end
 
   def create
+    # @item = Item.new(item_params)
+    # if @item.save
+    #   params[:image]['image_url'].each do |a|
+    #     @image = @item.images.create!(image_url: a)
+    #   end
+    #   redirect_to root_path, notice: '出品しました。'
+
     @item = Item.new(item_params)
     if @item.save!
       redirect_to root_path  #仮置き
@@ -17,6 +24,7 @@ class ItemsController < ApplicationController
 
       render :new
     end
+    
   end
 
   def show
