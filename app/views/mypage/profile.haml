@@ -1,5 +1,4 @@
-= render "header"
-= render "navibar"
+= render "shared/top_page_header"
 .profile-main
   .profile-container
     .profile-contents
@@ -13,5 +12,5 @@
             %textarea.profile-blocks-under__profiletext{name: "profiletext", placeholder: "例）こんにちは☆ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるように心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
             %input.profile-blocks-under__submitbtn{type: "submit", value: "変更する"}/
   = render "sidebar"
-= render "banner"
-= render "footer"
+= render "shared/top_page_footer"
+= render "shared/exhibit_logo"
