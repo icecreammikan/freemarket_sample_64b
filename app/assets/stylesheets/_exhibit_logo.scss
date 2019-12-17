@@ -1,0 +1,23 @@
+.exhibit-logo{
+  height:160px;
+  width:160px;
+  border-radius: 50%;
+  background: #ea352d;
+  text-align: center;
+  position: fixed;
+  bottom: 25px;
+  right:25px;
+  z-index:1;
+  display: block;
+  cursor: pointer;
+  padding-top:28px;
+  &__text{
+    display:block;
+    font-size:22px;
+    color: #fff;
+  }
+}
+.fa-camera{
+  font-size:60px;
+  color: #fff;
+}

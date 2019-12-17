@@ -3,7 +3,7 @@
     .header-upper
       .header-upper-left
         .upper-logo
-          =link_to "http://localhost:3000/top_page/index#" do
+          =link_to root_path do
             = image_tag 'fmarket_logo_red.svg', class:'mercari-icon'
       .header-upper-right
         %input{type: 'text', placeholder: "何かお探しですか？", class:"search-bar"}
@@ -27,8 +27,9 @@
             =link_to "#", class:"li-check" do
               = fa_icon 'check check-click fa-lg'
               %h2.todo-chapter.fa-check-click やることリスト
-            =link_to "http://localhost:3000/mypage/index#", class:"li-user-circle" do
-              = fa_icon 'user-circle user-circle-click fa-lg'
+              //マイページコントローラー作成後リンクを貼り付けてください
+            =link_to "#", class:"li-user-circle" do
+              = image_tag "#{current_user.icon}",class:"li-user-circle__img"
               %h2.mypage-chapter.fa-user-circle-click マイページ
         - else
           .header-lower-right__out
