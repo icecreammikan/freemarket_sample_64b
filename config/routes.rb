@@ -10,10 +10,13 @@ Rails.application.routes.draw do
   }
 
 
-  #itemsの仮root
-  resources :items
-  # resources :images
-  # end
+  #itemsの仮root<<<<<<< 商品出品のサーバサイド
+  resources :items 
+  
+  
+  #仮置き
+  get 'posts', to: 'posts#index'
+
 
   devise_scope :user do
     get 'users/sign_up/registration',  to: 'users/registrations#step1'
