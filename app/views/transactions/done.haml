@@ -11,7 +11,7 @@
     .buy-complete
       %h2.buy-complete-text 購入が完了しました
     .buy-complete-img
-      %img{:alt => "", :src => ""}/
+      = image_tag ''
       %p.buy-done-itemname グラマラススパッツMサイズ
     .buy-complete-price
       %p.buy-done-price ¥10,000
@@ -45,8 +45,7 @@
         購入代金が出品者に振り込まれます。
         %br>/
         評価後に取引は完了です
-      %a.redirect-mypage{:href => "#"} マイページへもどる
-
+      = link_to "マイページへもどる", class:"redirect-mypage"
   .signup__footer
     .signup__footer__detail
       = link_to "プライバシーポリシー"
