@@ -38,6 +38,7 @@ Rails.application.routes.draw do
 
   #mypage関連のルーティング
   get '/mypage/index', to: 'mypage#index'
+  get '/mypage/card', to: 'mypage#card'
   get '/mypage/identification', to:'mypage#identification'
   get '/mypage/profile', to: 'mypage#profile'
   get '/mypage/logout', to: 'mypage#logout'
