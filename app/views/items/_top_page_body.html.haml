@@ -34,7 +34,7 @@
                   .item_figure__1
                     %span.item_figure__1__price{"aria-label" => "Price"}
                       ¥#{item.price}
-                    = image_tag "#{item.images[0].image_url}", class:"item_figure__1__img",width:"188",height:"188px"
+                    = image_tag "#{item.images[0].image_url}", class:"item_figure__1__img",width:"188",height:"188px",alt:"no_image"
                   .captionbox
                     %figcaption
                       %span
