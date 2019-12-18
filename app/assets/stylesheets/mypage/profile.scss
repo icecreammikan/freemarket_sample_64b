@@ -14,14 +14,16 @@
   font-weight: 600;
   font-size: 24px;
   padding: 8px 24px;
-  // margin: 0;
-  // color: rgb(51,51,51);
+  margin: 0;
+  color: rgb(51,51,51);
 }
+
+
 .profile-blocks-top{
   background: url(profilebackimg.jpeg);
   background-size: cover;
   height: 60px;
-  padding: 72px 16px 24px;
+  padding: 140px 16px 24px;
   position: relative;
   &__img{
     height: 60px;
@@ -32,8 +34,8 @@
     left:28%;
   }
   &__nickname{
-    height: 28px;
-    width: 186px;
+    height: 48px;
+    width: 220px;
     padding: 10px 16px 8px;
     border: 1px solid rgb(230,230,230);
     border-radius: 3% /9%;
@@ -43,6 +45,7 @@
     left: calc(28% + 68px);
   }
 }
+
 .profile-blocks-under{
   padding: 40px 16px;
   background-color: rgb(255,255,255);
