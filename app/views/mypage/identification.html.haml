@@ -1,3 +1,5 @@
+= render "shared/top_page_header"
+= render "sidebar"
 .id-header
 .id-main
   %main.id-container
@@ -49,6 +51,7 @@
             =link_to "#", class:"text-right__link" do
               本人情報の登録について
               = fa_icon 'chevron-right'
-      
+= render "shared/top_page_footer"
+= render "shared/exhibit_logo"
 
 
