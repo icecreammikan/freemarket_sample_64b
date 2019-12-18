@@ -1,8 +1,9 @@
 //プロフィール画面
 .profile-main{
-  margin-top: 24px;
-  padding-bottom: 40px;
-  background-color: rgb(230,230,230);
+  // margin-top: 24px;
+  // padding-bottom: 40px;
+  // background-color: rgb(230,230,230);
+  width: 700px;
 }
 .profile-container{
   background-color: rgb(235,235,235);
@@ -11,10 +12,10 @@
 .profile-contents__title{
   background-color: rgb(255,255,255);
   font-weight: 600;
-  font-size: 18px;
+  font-size: 24px;
   padding: 8px 24px;
-  margin: 0;
-  color: rgb(51,51,51);
+  // margin: 0;
+  // color: rgb(51,51,51);
 }
 .profile-blocks-top{
   background: url(profilebackimg.jpeg);
