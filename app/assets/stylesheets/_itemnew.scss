@@ -66,6 +66,11 @@
               }
             }
           }
+
+          /* .preview{
+            height: 100px;
+            width: 80px;
+          } */
         }
             
         &__name{
@@ -136,7 +141,7 @@
                   padding: 0 16px;
                   border-radius: 4px;
                   border: 1px solid #ccc;
-                  color: rgb(70, 70, 70);
+                  color: #888;
                   background: 0;
                   font-size: 16px;
                   line-height: 1.5;
@@ -153,7 +158,7 @@
                 padding: 0 16px;
                 border-radius: 4px;
                 border: 1px solid #ccc;
-                color: rgb(70, 70, 70);
+                color: #888;
                 background: 0;
                 font-size: 16px;
                 line-height: 1.5;
@@ -205,7 +210,7 @@
                 padding: 0 16px;
                 border-radius: 4px;
                 border: 1px solid #ccc;
-                color: rgb(70, 70, 70);
+                color: #888;
                 background: 0;
                 font-size: 16px;
                 line-height: 1.5;
@@ -222,7 +227,7 @@
                 padding: 0 16px;
                 border-radius: 4px;
                 border: 1px solid #ccc;
-                color: rgb(70, 70, 70);
+                color: #888;
                 background: 0;
                 font-size: 16px;
                 line-height: 1.5;
@@ -240,7 +245,7 @@
           font-weight: 600;
           display: flex;
           justify-content: space-between;
-          color: rgb(70, 70, 70);
+          color: #888;
           font-size: 14px;
           position: relative;
           .form-question{
@@ -270,7 +275,7 @@
               line-height: 48px;
               color: #333;
             }
-            #input-default{
+            .input-default{
               margin: 0;
               height: 48px;
               border-radius: 4px;
