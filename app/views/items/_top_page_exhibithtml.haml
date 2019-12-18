@@ -1,0 +1,12 @@
+%li.category__body__1__itemlist__itembox__item
+  %div{style:"visibility: visible; transition: all 0.5s ease 0s; opacity:1;"}
+    =link_to "#", class:"link_to_item__1" do
+      %figure.item_detail__1
+        .item_figure__1
+          %span.item_figure__1__pice{"aria-label" => "Price"}
+            %p ¥#{item.price}
+          = image_tag "#{item.images[0].image_url}", class:"item_figure__1__img",width:"188",height:"188px"
+        .captionbox
+          %figcaption
+            %span
+              = item.name
