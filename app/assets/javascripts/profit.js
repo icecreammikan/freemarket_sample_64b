@@ -7,9 +7,9 @@ $(function(){
     $('.l-right').prepend('¥ ');
     $('.profit__right').text(profit_result);
     $('.profit__right').prepend('¥ ')
-    if(profit_result == '') {   // もし､計算結果が''なら表示も消す｡
-    $('.l-right').text('');
-    $('.profit__right').text('');
+    if(profit_result == '') {
+    $('.l-right').text('-');
+    $('.profit__right').text('-');
     }
   });
 });
