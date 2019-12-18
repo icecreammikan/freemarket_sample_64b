@@ -1,6 +1,15 @@
 class ItemsController < ApplicationController
 
   def index
+    @ladys      = Item.all.order(id:"desc").where(category_id:1).limit(10)
+    @mans       = Item.all.order(id:"desc").where(category_id:2).limit(10)
+    @appliances = Item.all.order(id:"desc").where(category_id:3).limit(10)
+    @toys       = Item.all.order(id:"desc").where(category_id:4).limit(10)
+    @chanels    = Item.all.order(id:"desc").where(category_id:5).limit(10)
+    @vuittons   = Item.all.order(id:"desc").where(category_id:6).limit(10)
+    @supremes   = Item.all.order(id:"desc").where(category_id:7).limit(10)
+    @nikes      = Item.all.order(id:"desc").where(category_id:8).limit(10)
+    # categoly_idはそれぞれ該当のidへ書き換えてください
   end
 
   def new
@@ -9,6 +18,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+
     @item = Item.new(item_params)
     @item.profit = @item.price * 0.9
     if @item.save
@@ -17,7 +27,7 @@ class ItemsController < ApplicationController
       @item.images.build
       render :new
     end
-    
+
   end
 
   def show
@@ -33,14 +43,12 @@ class ItemsController < ApplicationController
   end
 
 
-  
-  
-  
+
   private
   def set_item
     @item = Item.find(params[:id])
   end
-  
+
   def  item_params
     params.require(:item).permit(
       :name,
