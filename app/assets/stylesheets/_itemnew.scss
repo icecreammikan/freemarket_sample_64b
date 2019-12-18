@@ -66,11 +66,6 @@
               }
             }
           }
-
-          /* .preview{
-            height: 100px;
-            width: 80px;
-          } */
         }
             
         &__name{
@@ -128,7 +123,7 @@
                   right: 16px;
                   top: 50%;
                   z-index: 2;
-                  color: #888;
+                  color: rgb(70, 70, 70);
                   font-size: 8px;
                   -webkit-transform: translate(0, -50%);
                   transform: translate(0, -50%);
@@ -141,7 +136,7 @@
                   padding: 0 16px;
                   border-radius: 4px;
                   border: 1px solid #ccc;
-                  color: #888;
+                  color: rgb(70, 70, 70);
                   background: 0;
                   font-size: 16px;
                   line-height: 1.5;
@@ -158,7 +153,7 @@
                 padding: 0 16px;
                 border-radius: 4px;
                 border: 1px solid #ccc;
-                color: #888;
+                color: rgb(70, 70, 70);
                 background: 0;
                 font-size: 16px;
                 line-height: 1.5;
@@ -178,7 +173,7 @@
           position: relative;
           h3{
             font-weight: 600;
-            color: #888;
+            color: rgb(70, 70, 70);
             font-size: 14px;
             margin: 0;
           }
@@ -210,7 +205,7 @@
                 padding: 0 16px;
                 border-radius: 4px;
                 border: 1px solid #ccc;
-                color: #888;
+                color: rgb(70, 70, 70);
                 background: 0;
                 font-size: 16px;
                 line-height: 1.5;
@@ -227,7 +222,7 @@
                 padding: 0 16px;
                 border-radius: 4px;
                 border: 1px solid #ccc;
-                color: #888;
+                color: rgb(70, 70, 70);
                 background: 0;
                 font-size: 16px;
                 line-height: 1.5;
@@ -245,7 +240,7 @@
           font-weight: 600;
           display: flex;
           justify-content: space-between;
-          color: #888;
+          color: rgb(70, 70, 70);
           font-size: 14px;
           position: relative;
           .form-question{
@@ -275,7 +270,7 @@
               line-height: 48px;
               color: #333;
             }
-            .input-default{
+            #input-default{
               margin: 0;
               height: 48px;
               border-radius: 4px;

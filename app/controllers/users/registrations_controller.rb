@@ -116,7 +116,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       #ユーザーにデフォルトアイコンを設定。
       @user.icon = "default_icon.png"
       if @user.save
-        sns.save
         #user情報をいったんデータベースへ保存し、住所情報の登録へ
         redirect_to controller: '/user_address', action: 'step4'
         sign_in(@user)

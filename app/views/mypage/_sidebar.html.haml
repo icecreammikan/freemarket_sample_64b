@@ -2,7 +2,7 @@
   .mypage-nav-list
     %ul.mypage-nav-blocks
       %li.mypage-nav-block
-        = link_to "http://localhost:3000/mypage/index#", class:"mypage-nav-block__item0" do
+        = link_to mypage_index_path, class:"mypage-nav-block__item0" do
           マイページ
           %i.fas.fa-chevron.fa-large
       %li.mypage-nav-block
@@ -18,7 +18,7 @@
           いいね！一覧
           %i.fas.fa-angle-right.fa-large
       %li.mypage-nav-block
-        = link_to "http://localhost:3000/mypage/exhibit#", class:"mypage-nav-block__item" do
+        = link_to "#", class:"mypage-nav-block__item" do
           出品した商品-出品中
           %i.fas.fa-angle-right.fa-large
       %li.mypage-nav-block
@@ -64,7 +64,7 @@
   .mypage-nav-list
     %ul.mypage-nav-blocks
       %li.mypage-nav-block
-        = link_to "#", class:"mypage-nav-block__item" do
+        = link_to mypage_profile_path , class:"mypage-nav-block__item" do
           プロフィール
           %i.fas.fa-angle-right.fa-large
       %li.mypage-nav-block
@@ -80,7 +80,7 @@
           メール/パスワード
           %i.fas.fa-angle-right.fa-large
       %li.mypage-nav-block
-        = link_to "#", class:"mypage-nav-block__item" do
+        = link_to mypage_identification_path, class:"mypage-nav-block__item" do
           本人情報
           %i.fas.fa-angle-right.fa-large
       %li.mypage-nav-block
@@ -88,6 +88,6 @@
           電話番号の確認
           %i.fas.fa-angle-right.fa-large
       %li.mypage-nav-block
-        = link_to "#", class:"mypage-nav-block__item" do
+        = link_to mypage_logout_path, class:"mypage-nav-block__item" do
           ログアウト
           %i.fas.fa-angle-right.fa-large
