@@ -27,13 +27,12 @@
             =link_to "#", class:"li-check" do
               = fa_icon 'check check-click fa-lg'
               %h2.todo-chapter.fa-check-click やることリスト
-              //マイページコントローラー作成後リンクを貼り付けてください
-            =link_to "#", class:"li-user-circle" do
+            =link_to mypage_index_path, class:"li-user-circle" do
               = image_tag "#{current_user.icon}",class:"li-user-circle__img"
               %h2.mypage-chapter.fa-user-circle-click マイページ
         - else
           .header-lower-right__out
-            =link_to "http://localhost:3000/sign_up/index", class:"li-check" do
+            =link_to sign_up_index_path, class:"li-check" do
               %span.header-lower-right__out__sign_up 新規会員登録
-            =link_to "http://localhost:3000/users/sign_in#", class:"li-user-circle" do
+            =link_to new_user_session_path, class:"li-user-circle",method: :new do
               %span.header-lower-right__out__sign_in ログイン

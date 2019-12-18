@@ -14,7 +14,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.references :postageburden, null:false
       t.references :shippingday, null:false
       t.integer :price, null:false
-      t.integer :profit
+      t.integer :profit, null:false
       t.timestamps
     end
   end

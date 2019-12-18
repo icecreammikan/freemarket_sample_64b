@@ -37,7 +37,10 @@ Rails.application.routes.draw do
   get '/card/new', to: 'card#step5'
 
   #mypage関連のルーティング
-
+  get '/mypage/index', to: 'mypage#index'
+  get '/mypage/identification', to:'mypage#identification'
+  get '/mypage/profile', to: 'mypage#profile'
+  get '/mypage/logout', to: 'mypage#logout'
   #取引ページ関連のルーティング（仮置き。商品購入の機能を実装時に修正の必要有り！）
   get '/transactions/buy', to: 'transactions#buy'
 end

@@ -20,6 +20,7 @@ class ItemsController < ApplicationController
   def create
 
     @item = Item.new(item_params)
+    @item.profit = @item.price * 0.9
     if @item.save
       redirect_to root_path  #仮置き
     else
