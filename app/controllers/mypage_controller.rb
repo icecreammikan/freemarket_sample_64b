@@ -6,6 +6,9 @@ class MypageController < ApplicationController
   def card
   end
 
+  def add
+  end
+
   def identification
   end
 
