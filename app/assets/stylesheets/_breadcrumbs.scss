@@ -1,0 +1,25 @@
+.bread {
+  position: relative;
+  border-top: 1px solid #eee;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  background-color: #fff;
+  &__name{
+    margin: 0 auto;
+    width: 1020px;
+    padding: 16px 0;
+    white-space: normal;
+    font-size: 14px;
+  }
+
+//   .bread-crumbs:after {
+//     display: block;
+//     content: '';
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     width: 24px;
+//     height: 100%;
+//     background: -webkit-gradient(linear, left top, right top, from(rgba(255,255,255,0)), to(#fff));
+//     background: linear-gradient(to right, rgba(255,255,255,0), #fff);
+// }
+}
