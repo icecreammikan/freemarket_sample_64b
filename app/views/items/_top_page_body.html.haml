@@ -28,7 +28,7 @@
       %ul.category__body__1__itemlist__itembox
         - @ladys.each do |item|
           %li.category__body__1__itemlist__itembox__item
-            =link_to "#", class:"link_to_item__1" do
+            =link_to "/items/#{item.id}", class:"link_to_item__1" do
               %figure.item_detail__1
                 .item_figure__1
                   %span.item_figure__1__price{"aria-label" => "Price"}

@@ -11,9 +11,9 @@ Rails.application.routes.draw do
 
 
   #itemsの仮root<<<<<<< 商品出品のサーバサイド
-  resources :items 
-  
-  
+  resources :items
+  get 'items/show', to: 'items#show'
+
   #仮置き
   get 'posts', to: 'posts#index'
 
