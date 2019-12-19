@@ -48,7 +48,7 @@
       %ul.category__body__1__itemlist__itembox
         - @mans.each do |item|
           %li.category__body__1__itemlist__itembox__item
-            =link_to "#", class:"link_to_item__1" do
+            =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
               %figure.item_detail__1
                 .item_figure__1
                   %span.item_figure__1__price{"aria-label" => "Price"}
@@ -69,7 +69,7 @@
       %ul.category__body__1__itemlist__itembox
         - @appliances.each do |item|
           %li.category__body__1__itemlist__itembox__item
-            =link_to "#", class:"link_to_item__1" do
+            =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
               %figure.item_detail__1
                 .item_figure__1
                   %span.item_figure__1__price{"aria-label" => "Price"}
@@ -90,7 +90,7 @@
       %ul.category__body__1__itemlist__itembox
         - @toys.each do |item|
           %li.category__body__1__itemlist__itembox__item
-            =link_to "#", class:"link_to_item__1" do
+            =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
               %figure.item_detail__1
                 .item_figure__1
                   %span.item_figure__1__price{"aria-label" => "Price"}
@@ -126,7 +126,7 @@
         %ul.category__body__1__itemlist__itembox
           - @chanels.each do |item|
             %li.category__body__1__itemlist__itembox__item
-              =link_to "#", class:"link_to_item__1" do
+              =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
                 %figure.item_detail__1
                   .item_figure__1
                     %span.item_figure__1__price{"aria-label" => "Price"}
@@ -147,7 +147,7 @@
         %ul.category__body__1__itemlist__itembox
           - @vuittons.each do |item|
             %li.category__body__1__itemlist__itembox__item
-              =link_to "#", class:"link_to_item__1" do
+              =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
                 %figure.item_detail__1
                   .item_figure__1
                     %span.item_figure__1__price{"aria-label" => "Price"}
@@ -168,7 +168,7 @@
         %ul.category__body__1__itemlist__itembox
           - @supremes.each do |item|
             %li.category__body__1__itemlist__itembox__item
-              =link_to "#", class:"link_to_item__1" do
+              =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
                 %figure.item_detail__1
                   .item_figure__1
                     %span.item_figure__1__price{"aria-label" => "Price"}
@@ -188,7 +188,7 @@
         %ul.category__body__1__itemlist__itembox
           - @nikes.each do |item|
             %li.category__body__1__itemlist__itembox__item
-              =link_to "#", class:"link_to_item__1" do
+              =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
                 %figure.item_detail__1
                   .item_figure__1
                     %span.item_figure__1__price{"aria-label" => "Price"}
