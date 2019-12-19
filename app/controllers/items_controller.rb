@@ -31,6 +31,13 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+    @user = User.find(@item.seller_id)
+    @items = Item.where(seller_id:@item.seller_id)
+    id1 = params[:id].to_i + 1
+    @item1 = Item.find(id1)
+    id2 = params[:id].to_i - 1
+    @item2 = Item.find(id2)
   end
 
   def edit
