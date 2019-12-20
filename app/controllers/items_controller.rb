@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
 
+  require 'payjp'
+
   def index
     @ladys      = Item.all.order(id:"desc").where(category_id:1).limit(10)
     @mans       = Item.all.order(id:"desc").where(category_id:2).limit(10)
@@ -56,6 +58,36 @@ class ItemsController < ApplicationController
   end
 
 
+  def buy
+    @card = Card.find_by(user_id: current_user.id)
+    # Cardテーブルからpayjpの顧客IDを検索
+    @item = Item.find(params[:id])
+    if @card.blank?
+      redirect_to controller: "card", action: "step5"
+      #登録された情報が無い場合にカード登録画面に移動
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      #保管した顧客IDでpayjpから情報取得
+      @default_card_information = customer.cards.retrieve(@card.card_id)
+      #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
+    end
+  end
+
+  def pay
+    @card = Card.find_by(user_id: current_user.id)
+    @item = Item.find(params[:id])
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    Payjp::Charge.create(
+      amount: @item.price,
+      customer: @card.customer_id,
+      currency: 'jpy'
+    )
+    redirect_to action: 'done'
+  end
+
+  def done
+  end
 
   private
   def set_item
@@ -77,4 +109,5 @@ class ItemsController < ApplicationController
       :price,
       images_attributes: [:image_url]).merge(seller_id: current_user.id,)
   end
+
 end
