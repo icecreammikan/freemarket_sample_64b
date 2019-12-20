@@ -14,4 +14,23 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shippingday
   belongs_to_active_hash :sendingmethod
   accepts_nested_attributes_for :images, allow_destroy: true
+
+  validates :seller_id,
+            :images,
+            :name,
+            :description,
+            :category_id,
+            :condition_id,
+            :prefecture_id,
+            :sendingmethod_id,
+            :postageburden_id,
+            :shippingday_id,
+            :price,
+            :profit, presence: true
+
+  #価格は7桁まで
+  validates :price,:profit, length: {maximum: 7}
+
+  belongs_to :category
+
 end

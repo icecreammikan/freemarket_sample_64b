@@ -263,12 +263,15 @@
             ul{
               list-style: none;
             }
-            &__price{
+            &__price:not(.error-message){
               display: flex;
               justify-content: space-between;
               padding: 0 0 24px;
               line-height: 48px;
               color: #333;
+            }
+            .sell-price-input{
+              display: flex;
             }
             #input-default{
               margin: 0;
