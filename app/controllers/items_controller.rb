@@ -53,7 +53,7 @@ class ItemsController < ApplicationController
 
 
   def buy
-    @card = Card.where(user_id: current_user.id).first
+    @card = Card.find_by(user_id: current_user.id)
     # Cardテーブルからpayjpの顧客IDを検索
     @item = Item.find(params[:id])
     if @card.blank?
@@ -69,7 +69,7 @@ class ItemsController < ApplicationController
   end
 
   def pay
-    @card = Card.where(user_id: current_user.id).first
+    @card = Card.find_by(user_id: current_user.id)
     @item = Item.find(params[:id])
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     Payjp::Charge.create(
