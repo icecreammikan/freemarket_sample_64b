@@ -132,7 +132,7 @@
         %i.fas.fa-angle-left.fa-large>
         売主のその他の出品
       .seller-other-products__else__product
-        - @items.each do |item|
+        - @items.last(6).each do |item|
           .seller-other-products__else__product__box
             = image_tag "#{item.images[0].image_url}", class:"seller-other-products__else__product__box__img", alt:"seller-other-products-product__product__img"
             %p.seller-other-products__else__product__box__name #{item.name}
