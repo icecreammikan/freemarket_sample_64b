@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
       @item.profit = @item.price * 0.9
     end
     if @item.save
-      redirect_to root_path  #仮置き
+      redirect_to "/mypage/index"
     else
       @item.images.build
       render :new
