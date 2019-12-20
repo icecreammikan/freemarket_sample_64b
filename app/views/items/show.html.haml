@@ -54,7 +54,8 @@
           %tr.product-listing__info__table__tr-brand
             %th.product-listing__info__table__th ブランド
             %td.product-listing__info__table__td
-              =link_to 'ブランド名',"#"
+              =link_to "#" do
+                %div
               /ブランドテーブルが完成後要修正↑
           %tr.product-listing__info__table__tr-product-status
             %th.product-listing__info__table__th 商品の状態
@@ -84,10 +85,22 @@
         .soldout__button
           %p 売り切れました。残念！       
       - else
-        = link_to "/items/buy/#{@item.id}" do
-          %input.product-listing__purchase-btn{type:"submit", value:"購入画面に進む"}/
-        = link_to "/items/buy/#{@item.id}" do
-          %input.product-listing__sride-btn{type:"submit", value:"購入画面に進む"}/
+        - if current_user.id == @item.seller_id
+          .listing-item-change-box
+            = link_to edit_item_path(@item.id) do
+              %button.btn-default.btn-red{type: "submit"} 商品の編集
+            %p.text-center or
+            
+            = link_to "#" do
+              %button.btn-default.btn-gray{:type => "submit"} 出品を一旦停止する
+
+            = link_to item_path(@item.id), method: :delete do
+              %button.btn-default.btn-gray{type: "submit"} この商品を削除する
+        - else
+          = link_to "/items/buy/#{@item.id}" do
+            %input.product-listing__purchase-btn{type:"submit", value:"購入画面に進む"}/
+          = link_to "/items/buy/#{@item.id}" do
+            %input.product-listing__sride-btn{type:"submit", value:"購入画面に進む"}/
       %p.product-listing__puroduct-overview #{@item.description}
       .product-listing__product-info-bottom-btns
         .product-listing__product-info-bottom-btns__box
@@ -109,7 +122,12 @@
         %p.before-purchase-messages__comments__caution 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
       .before-purchase-messages__comments__brock
         %textarea.before-purchase-messages__comments__brock__textarea{name:"commenttext", placeholder:""}
-        %input.before-purchase-messages__comments__brock__send-btn{type:"submit", value:"コメントする"}/
+        - if @item.buyer_id.present?
+          .soldout__button
+            %p 売り切れのためコメントできません
+        - else
+          %input.before-purchase-messages__comments__brock__send-btn{type:"submit", value:"コメントする"}/
+
   .related-products-transition
     - if @item.id != @maxid
       =link_to "/items/#{@item.id + 1}",class:"related-products-transition__before" do
@@ -150,12 +168,4 @@
         カテゴリーのその他の出品
       .related-other-products__product
         /カテゴリーテーブル実装後
-.produdts-edit
-  - if current_user.id == @item.seller_id
-    .produdts-edit-link
-      =link_to "#{edit_item_path}" do
-        %span.produdts-edit-link__text 商品の編集
-      =link_to "#" do
-        %span.produdts-edit-link__
-  - else
 = render "shared/top_page_footer"
