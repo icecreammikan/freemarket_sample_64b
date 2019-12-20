@@ -122,3 +122,26 @@
   left: 0;
   bottom: 0;
 }
+
+//売り切れラベル
+.buied_label{
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 80px 80px 0 0;
+  border-color: red transparent transparent transparent;
+  position: absolute;
+  top: 0;
+  left: 10px;
+  padding-top: 10px;
+  &:after{
+    content: "SOLD";
+    display: block;
+    color: #fff;
+    transform: rotate(-45deg);
+    letter-spacing: 2px;
+    font-weight: 600;
+    position: absolute;
+    top: -65px;
+  }
+}

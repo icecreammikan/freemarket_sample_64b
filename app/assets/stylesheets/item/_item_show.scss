@@ -37,6 +37,29 @@
     height: 300px;
     width: 100%;
     display: block;
+    position: relative;
+    .buied_item{
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 100px 100px 0 0;
+      border-color: red transparent transparent transparent;
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding-top: 10px;
+      &:after{
+        content: "SOLD";
+        display: block;
+        color: #fff;
+        transform: rotate(-45deg);
+        letter-spacing: 2px;
+        font-weight: 600;
+        position: absolute;
+        top: -80px;
+        left: 10px;
+      }
+    }
   }
   &__small{
     display: flex;
@@ -391,4 +414,15 @@
   }
 }
 
+//売り切れボタン
+.soldout__button{
+  background-color: #AAAAAA;
+  height: 50px;
+  line-height: 50px;
+  margin: 20px 0;
+  p{
+    color: #fff;
+    font-weight: 600;
+  }
+}
 
