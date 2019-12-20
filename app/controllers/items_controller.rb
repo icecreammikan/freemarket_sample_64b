@@ -27,7 +27,7 @@ before_action :authenticate_user!, only: [:new, :create, :buy, :pay]
       @item.profit = @item.price * 0.9
     end
     if @item.save
-      redirect_to "/mypage/index"
+      redirect_to mypage_index_path
     else
       @item.images.build
       render :new
@@ -61,10 +61,13 @@ before_action :authenticate_user!, only: [:new, :create, :buy, :pay]
 
   def destroy
     @item = Item.find(params[:id])
-    if @item.seller_id == current_user.id
-      @item.destroy
+    if @item.destroy
+      redirect_to  mypage_index_path
+    else
+      redirect_to  edit_item_path(@item.id)
+      :javascript
+        alert('削除できませんでした。');
     end
-    redirect_to  mypage_index_path
   end
 
 
