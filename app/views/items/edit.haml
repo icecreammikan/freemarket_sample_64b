@@ -101,7 +101,7 @@
         %form{:action => "", :method => "POST", :novalidate => "novalidate"}
           %input{:name => "__csrf_value", :type => "hidden", :value => ""}/
           %button.btn-default.btn-gray{:type => "submit"} 出品を一旦停止する
-          -# = link_to("/items/#{@item.id}/destroy"),{method:"item"} do
+          = link_to("/items/#{@item.id}/destroy"),{method:"item"} do
             %button.btn-default.btn-gray{type: "submit"} この商品を削除する
     .before-purchase-content
       .before-purchase-messe
