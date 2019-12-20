@@ -18,9 +18,7 @@ class ItemsController < ApplicationController
     else
       @item.images.build
       render :new
-      return
     end
-    
   end
 
   def show
