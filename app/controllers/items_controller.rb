@@ -87,10 +87,14 @@ class ItemsController < ApplicationController
       customer: @card.customer_id,
       currency: 'jpy'
     )
-    redirect_to action: 'done'
+    redirect_to "/items/done/#{@item.id}"
   end
 
   def done
+    @card = Card.find_by(user_id: current_user.id)
+    @item = Item.find(params[:id])
+    customer = Payjp::Customer.retrieve(@card.customer_id)
+    @default_card_information = customer.cards.retrieve(@card.card_id)
   end
 
   private
