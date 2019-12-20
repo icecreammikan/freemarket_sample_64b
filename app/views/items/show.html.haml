@@ -107,11 +107,10 @@
       =link_to "/items/#{@item.id + 1}",class:"related-products-transition__before" do
         %i.fas.fa-angle-left.fa-large
         #{@item1.name}
-    - else
-      .blank
-    =link_to "/items/#{@item.id - 1}",class:"related-products-transition__next" do
-      #{@item2.name}
-      %i.fas.fa-angle-right.fa-large
+    - if @item.id != @minimumid
+      =link_to "/items/#{@item.id - 1}",class:"related-products-transition__next" do
+        #{@item2.name}
+        %i.fas.fa-angle-right.fa-large
   .sns-btns
     %ul.sns-btns__box
       %li.sns-btns__box__facebook
