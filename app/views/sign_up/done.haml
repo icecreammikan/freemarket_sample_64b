@@ -29,7 +29,7 @@
         %br>/
         会員登録が完了しました。
     .done-nextbtn
-      %form.done-form
+      =link_to root_path, class:"done-form" do
         .done-next
           %input.done-next__btn{type: "submit", value: "メルカリをはじめる"}/
           %br/
