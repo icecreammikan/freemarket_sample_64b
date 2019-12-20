@@ -1,3 +1,4 @@
+= render "shared/top_page_header"
 .exhibition-header
   %nav.bread-crumbs
 %main.exhibition-main
@@ -9,19 +10,10 @@
           .exhibition-listing__info__img
             .exhibition-listing__info__img__p
               .exhibition-listing__info__img__big
-                = image_tag "stunninglure1.jpg", class:"exhibition-listing__info__img__big__img", alt:"stunninglure1-img"
+                = image_tag "#{@item.images[0].image_url}", class:"exhibition-listing__info__img__big__img", alt:"stunninglure1-img"
               .exhibition-listing__info__img__small
-                = image_tag "stunninglure2.jpg", class:"exhibition-listing__info__img__small__low", alt:"product-img"
-                = image_tag "stunninglure3.jpg", class:"exhibition-listing__info__img__small__low", alt:"product-img"
-                = image_tag "stunninglure4.jpg", class:"exhibition-listing__info__img__small__low", alt:"product-img"
-                = image_tag "stunninglure1.jpg", class:"exhibition-listing__info__img__small__low", alt:"product-img"
-                = image_tag "stunninglure1.jpg", class:"exhibition-listing__info__img__small__low", alt:"product-img"
-                = image_tag "stunninglure1.jpg", class:"exhibition-listing__info__img__small__low", alt:"product-img"
-                = image_tag "stunninglure1.jpg", class:"exhibition-listing__info__img__small__low", alt:"product-img"
-                = image_tag "stunninglure1.jpg", class:"exhibition-listing__info__img__small__low", alt:"product-img"
-                = image_tag "stunninglure1.jpg", class:"exhibition-listing__info__img__small__low", alt:"product-img"
-                = image_tag "stunninglure1.jpg", class:"exhibition-listing__info__img__small__low", alt:"product-img"
-                
+                - @item.images.each do |image|
+                  = image_tag "#{image.image_url}", class:"exhibition-listing__info__img__small__low", alt:"product-img"
             %table.exhibition-listing__info__table
 
               %tr.exhibition-listing__info__table__tr-seller
