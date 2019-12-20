@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :buy, :pay]
+# before_action :set_item
+before_action :authenticate_user!, only: [:new, :create, :buy, :pay]
   
   require 'payjp'
 
@@ -26,7 +27,7 @@ class ItemsController < ApplicationController
       @item.profit = @item.price * 0.9
     end
     if @item.save
-      redirect_to root_path  #仮置き
+      redirect_to mypage_index_path
     else
       @item.images.build
       render :new
@@ -59,6 +60,14 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    @item = Item.find(params[:id])
+    if @item.destroy
+      redirect_to  mypage_index_path
+    else
+      redirect_to  edit_item_path(@item.id)
+      :javascript
+        alert('削除できませんでした。');
+    end
   end
 
 
