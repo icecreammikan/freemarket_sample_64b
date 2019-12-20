@@ -87,6 +87,7 @@ class ItemsController < ApplicationController
       customer: @card.customer_id,
       currency: 'jpy'
     )
+    @item.update(buyer_id: current_user.id)
     redirect_to action: 'done'
   end
 

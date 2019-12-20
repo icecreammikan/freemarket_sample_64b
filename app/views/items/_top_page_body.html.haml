@@ -28,17 +28,31 @@
       / ##商品１
       %ul.category__body__1__itemlist__itembox
         - @ladys.each do |item|
-          %li.category__body__1__itemlist__itembox__item
-            =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
-              %figure.item_detail__1
-                .item_figure__1
-                  %span.item_figure__1__price{"aria-label" => "Price"}
-                    ¥#{item.price}
-                  = image_tag "#{item.images[0].image_url}", class:"item_figure__1__img",width:"188",height:"188px",alt:"no_image"
-                .captionbox
-                  %figcaption
-                    %span
-                      = item.name
+          - if item.buyer_id.present?
+            %li.category__body__1__itemlist__itembox__item
+              =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
+                %figure.item_detail__1
+                  .item_figure__1
+                    %span.item_figure__1__price{"aria-label" => "Price"}
+                      ¥#{item.price}
+                    = image_tag "#{item.images[0].image_url}", class:"item_figure__1__img",width:"188",height:"188px",alt:"no_image"
+                    .buied_label
+                  .captionbox
+                    %figcaption
+                      %span
+                        = item.name
+          - else
+            %li.category__body__1__itemlist__itembox__item
+              =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
+                %figure.item_detail__1
+                  .item_figure__1
+                    %span.item_figure__1__price{"aria-label" => "Price"}
+                      ¥#{item.price}
+                    = image_tag "#{item.images[0].image_url}", class:"item_figure__1__img",width:"188",height:"188px",alt:"no_image"
+                  .captionbox
+                    %figcaption
+                      %span
+                        = item.name
     / ##メンズ
     .category__body__1
       .category__body__1__text
@@ -48,17 +62,31 @@
           %i.fas.fa-angle-right.fa-large
       %ul.category__body__1__itemlist__itembox
         - @mans.each do |item|
-          %li.category__body__1__itemlist__itembox__item
-            =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
-              %figure.item_detail__1
-                .item_figure__1
-                  %span.item_figure__1__price{"aria-label" => "Price"}
-                    %p ¥#{item.price}
-                  = image_tag "#{item.images[0].image_url}", class:"item_figure__1__img",width:"188",height:"188px"
-                .captionbox
-                  %figcaption
-                    %span
-                      = item.name
+          - if item.buyer_id.present?
+            %li.category__body__1__itemlist__itembox__item
+              =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
+                %figure.item_detail__1
+                  .item_figure__1
+                    %span.item_figure__1__price{"aria-label" => "Price"}
+                      %p ¥#{item.price}
+                    = image_tag "#{item.images[0].image_url}", class:"item_figure__1__img",width:"188",height:"188px"
+                    .buied_label
+                  .captionbox
+                    %figcaption
+                      %span
+                        = item.name
+          - else
+            %li.category__body__1__itemlist__itembox__item
+              =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
+                %figure.item_detail__1
+                  .item_figure__1
+                    %span.item_figure__1__price{"aria-label" => "Price"}
+                      %p ¥#{item.price}
+                    = image_tag "#{item.images[0].image_url}", class:"item_figure__1__img",width:"188",height:"188px"
+                  .captionbox
+                    %figcaption
+                      %span
+                        = item.name
 
     / ##家電
     .category__body__1
@@ -69,17 +97,31 @@
           %i.fas.fa-angle-right.fa-large
       %ul.category__body__1__itemlist__itembox
         - @appliances.each do |item|
-          %li.category__body__1__itemlist__itembox__item
-            =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
-              %figure.item_detail__1
-                .item_figure__1
-                  %span.item_figure__1__price{"aria-label" => "Price"}
-                    %p ¥#{item.price}
-                  = image_tag "#{item.images[0].image_url}", class:"item_figure__1__img",width:"188",height:"188px"
-                .captionbox
-                  %figcaption
-                    %span
-                      = item.name
+          - if item.buyer_id.present?
+            %li.category__body__1__itemlist__itembox__item
+              =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
+                %figure.item_detail__1
+                  .item_figure__1
+                    %span.item_figure__1__price{"aria-label" => "Price"}
+                      %p ¥#{item.price}
+                    = image_tag "#{item.images[0].image_url}", class:"item_figure__1__img",width:"188",height:"188px"
+                    .buied_label
+                  .captionbox
+                    %figcaption
+                      %span
+                        = item.name
+          - else
+            %li.category__body__1__itemlist__itembox__item
+              =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
+                %figure.item_detail__1
+                  .item_figure__1
+                    %span.item_figure__1__price{"aria-label" => "Price"}
+                      %p ¥#{item.price}
+                    = image_tag "#{item.images[0].image_url}", class:"item_figure__1__img",width:"188",height:"188px"
+                  .captionbox
+                    %figcaption
+                      %span
+                        = item.name
 
     / ##ホビー
     .category__body__1
@@ -90,18 +132,31 @@
           %i.fas.fa-angle-right.fa-large
       %ul.category__body__1__itemlist__itembox
         - @toys.each do |item|
-          %li.category__body__1__itemlist__itembox__item
-            =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
-              %figure.item_detail__1
-                .item_figure__1
-                  %span.item_figure__1__price{"aria-label" => "Price"}
-                    %p ¥#{item.price}
-                  = image_tag "#{item.images[0].image_url}", class:"item_figure__1__img",width:"188",height:"188px"
-                .captionbox
-                  %figcaption
-                    %span
-                      = item.name
-
+          - if item.buyer_id.present?
+            %li.category__body__1__itemlist__itembox__item
+              =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
+                %figure.item_detail__1
+                  .item_figure__1
+                    %span.item_figure__1__price{"aria-label" => "Price"}
+                      %p ¥#{item.price}
+                    = image_tag "#{item.images[0].image_url}", class:"item_figure__1__img",width:"188",height:"188px"
+                    .buied_label
+                  .captionbox
+                    %figcaption
+                      %span
+                        = item.name
+          - else
+            %li.category__body__1__itemlist__itembox__item
+              =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
+                %figure.item_detail__1
+                  .item_figure__1
+                    %span.item_figure__1__price{"aria-label" => "Price"}
+                      %p ¥#{item.price}
+                    = image_tag "#{item.images[0].image_url}", class:"item_figure__1__img",width:"188",height:"188px"
+                  .captionbox
+                    %figcaption
+                      %span
+                        = item.name
     / ##人気のブランドリンク
     .popular__link
       %h2.popular__link__h 人気のカテゴリー
@@ -126,18 +181,31 @@
             %i.fas.fa-angle-right.fa-large
         %ul.category__body__1__itemlist__itembox
           - @chanels.each do |item|
-            %li.category__body__1__itemlist__itembox__item
-              =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
-                %figure.item_detail__1
-                  .item_figure__1
-                    %span.item_figure__1__price{"aria-label" => "Price"}
-                      %p ¥#{item.price}
-                    = image_tag "#{item.images[0].image_url}", class:"item_figure__1__img",width:"188",height:"188px"
-                  .captionbox
-                    %figcaption
-                      %span
-                        = item.name
-
+            - if item.buyer_id.present?
+              %li.category__body__1__itemlist__itembox__item
+                =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
+                  %figure.item_detail__1
+                    .item_figure__1
+                      %span.item_figure__1__price{"aria-label" => "Price"}
+                        %p ¥#{item.price}
+                      = image_tag "#{item.images[0].image_url}", class:"item_figure__1__img",width:"188",height:"188px"
+                      .buied_label
+                    .captionbox
+                      %figcaption
+                        %span
+                          = item.name
+            - else
+              %li.category__body__1__itemlist__itembox__item
+                =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
+                  %figure.item_detail__1
+                    .item_figure__1
+                      %span.item_figure__1__price{"aria-label" => "Price"}
+                        %p ¥#{item.price}
+                      = image_tag "#{item.images[0].image_url}", class:"item_figure__1__img",width:"188",height:"188px"
+                    .captionbox
+                      %figcaption
+                        %span
+                          = item.name
       / ##ルイヴィトン
       .category__body__1
         .category__body__1__text
@@ -147,18 +215,31 @@
             %i.fas.fa-angle-right.fa-large
         %ul.category__body__1__itemlist__itembox
           - @vuittons.each do |item|
-            %li.category__body__1__itemlist__itembox__item
-              =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
-                %figure.item_detail__1
-                  .item_figure__1
-                    %span.item_figure__1__price{"aria-label" => "Price"}
-                      %p ¥#{item.price}
-                    = image_tag "#{item.images[0].image_url}", class:"item_figure__1__img",width:"188",height:"188px"
-                  .captionbox
-                    %figcaption
-                      %span
-                        = item.name
-
+            - if item.buyer_id.present?
+              %li.category__body__1__itemlist__itembox__item
+                =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
+                  %figure.item_detail__1
+                    .item_figure__1
+                      %span.item_figure__1__price{"aria-label" => "Price"}
+                        %p ¥#{item.price}
+                      = image_tag "#{item.images[0].image_url}", class:"item_figure__1__img",width:"188",height:"188px"
+                      .buied_label
+                    .captionbox
+                      %figcaption
+                        %span
+                          = item.name
+            - else
+              %li.category__body__1__itemlist__itembox__item
+                =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
+                  %figure.item_detail__1
+                    .item_figure__1
+                      %span.item_figure__1__price{"aria-label" => "Price"}
+                        %p ¥#{item.price}
+                      = image_tag "#{item.images[0].image_url}", class:"item_figure__1__img",width:"188",height:"188px"
+                    .captionbox
+                      %figcaption
+                        %span
+                          = item.name
       / ##シュプリーム
       .category__body__1
         .category__body__1__text
@@ -168,17 +249,31 @@
             %i.fas.fa-angle-right.fa-large
         %ul.category__body__1__itemlist__itembox
           - @supremes.each do |item|
-            %li.category__body__1__itemlist__itembox__item
-              =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
-                %figure.item_detail__1
-                  .item_figure__1
-                    %span.item_figure__1__price{"aria-label" => "Price"}
-                      %p ¥#{item.price}
-                    = image_tag "#{item.images[0].image_url}", class:"item_figure__1__img",width:"188",height:"188px"
-                  .captionbox
-                    %figcaption
-                      %span
-                        = item.name
+            - if item.buyer_id.present?
+              %li.category__body__1__itemlist__itembox__item
+                =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
+                  %figure.item_detail__1
+                    .item_figure__1
+                      %span.item_figure__1__price{"aria-label" => "Price"}
+                        %p ¥#{item.price}
+                      = image_tag "#{item.images[0].image_url}", class:"item_figure__1__img",width:"188",height:"188px"
+                      .buied_label
+                    .captionbox
+                      %figcaption
+                        %span
+                          = item.name
+            - else
+              %li.category__body__1__itemlist__itembox__item
+                =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
+                  %figure.item_detail__1
+                    .item_figure__1
+                      %span.item_figure__1__price{"aria-label" => "Price"}
+                        %p ¥#{item.price}
+                      = image_tag "#{item.images[0].image_url}", class:"item_figure__1__img",width:"188",height:"188px"
+                    .captionbox
+                      %figcaption
+                        %span
+                          = item.name
       / ##ナイキ
       .category__body__1
         .category__body__1__text
@@ -188,14 +283,28 @@
             %i.fas.fa-angle-right.fa-large
         %ul.category__body__1__itemlist__itembox
           - @nikes.each do |item|
-            %li.category__body__1__itemlist__itembox__item
-              =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
-                %figure.item_detail__1
-                  .item_figure__1
-                    %span.item_figure__1__price{"aria-label" => "Price"}
-                      %p ¥#{item.price}
-                    = image_tag "#{item.images[0].image_url}", class:"item_figure__1__img",width:"188",height:"188px"
-                  .captionbox
-                    %figcaption
-                      %span
-                        = item.name
+            - if item.buyer_id.present?
+              %li.category__body__1__itemlist__itembox__item
+                =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
+                  %figure.item_detail__1
+                    .item_figure__1
+                      %span.item_figure__1__price{"aria-label" => "Price"}
+                        %p ¥#{item.price}
+                      = image_tag "#{item.images[0].image_url}", class:"item_figure__1__img",width:"188",height:"188px"
+                      .buied_label
+                    .captionbox
+                      %figcaption
+                        %span
+                          = item.name
+            - else
+              %li.category__body__1__itemlist__itembox__item
+                =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
+                  %figure.item_detail__1
+                    .item_figure__1
+                      %span.item_figure__1__price{"aria-label" => "Price"}
+                        %p ¥#{item.price}
+                      = image_tag "#{item.images[0].image_url}", class:"item_figure__1__img",width:"188",height:"188px"
+                    .captionbox
+                      %figcaption
+                        %span
+                          = item.name
