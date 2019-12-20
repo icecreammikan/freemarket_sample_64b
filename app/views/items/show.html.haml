@@ -76,10 +76,10 @@
         %p.product-listing__info__hidden__price ¥#{@item.price}
         %p.product-listing__info__hidden__tax (税込)
         %p.product-listing__info__hidden__postage 送料込み
-      -# = link_to "#{/transactions/buy}" do
-      %input.product-listing__purchase-btn{type:"submit", value:"購入画面に進む"}/
-      -# = link_to "#{/transactions/buy}" do
-      %input.product-listing__sride-btn{type:"submit", value:"購入画面に進む"}/
+      = link_to "/items/buy/#{@item.id}" do
+        %input.product-listing__purchase-btn{type:"submit", value:"購入画面に進む"}/
+      = link_to "/items/buy/#{@item.id}" do
+        %input.product-listing__sride-btn{type:"submit", value:"購入画面に進む"}/
       %p.product-listing__puroduct-overview #{@item.description}
       .product-listing__product-info-bottom-btns
         .product-listing__product-info-bottom-btns__box

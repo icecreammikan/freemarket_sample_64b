@@ -11,7 +11,13 @@ Rails.application.routes.draw do
 
 
   #itemsの仮root<<<<<<< 商品出品のサーバサイド
-  resources :items, only: [:show, :new, :create, :edit,:update,]
+  resources :items, except: :index do
+    collection do
+      get 'buy/:id', to: 'items#buy'
+      post 'pay/:id', to: 'items#pay'
+      get 'done', to: 'items#done'
+    end
+  end
 
   #仮置き
   get 'posts', to: 'posts#index'
@@ -42,6 +48,4 @@ Rails.application.routes.draw do
   get '/mypage/identification', to:'mypage#identification'
   get '/mypage/profile', to: 'mypage#profile'
   get '/mypage/logout', to: 'mypage#logout'
-  #取引ページ関連のルーティング（仮置き。商品購入の機能を実装時に修正の必要有り！）
-  get '/transactions/buy', to: 'transactions#buy'
 end
