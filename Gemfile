@@ -104,3 +104,5 @@ gem 'ancestry'
 gem "font-awesome-rails"
 
 gem "gretel"
+
+gem 'ancestry'

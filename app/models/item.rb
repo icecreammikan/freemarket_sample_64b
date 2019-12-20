@@ -7,8 +7,8 @@ class Item < ApplicationRecord
   belongs_to :brand_id, optional: true
   has_many :messages
   # has_many :coments, optional: true
-  belongs_to_active_hash :category
   belongs_to_active_hash :condition
   belongs_to_active_hash :prefecture
   accepts_nested_attributes_for :images, allow_destroy: true
+  belongs_to :category
 end
