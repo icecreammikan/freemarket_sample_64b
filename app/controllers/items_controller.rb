@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :set_item
+before_action :set_item
+before_action :authenticate_user!, only: [:new, :create, :buy, :pay]
+  
   require 'payjp'
 
   def index

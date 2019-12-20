@@ -1,6 +1,6 @@
 .user-sign-up-header
   .user-sign-up-header-logo
-    = link_to "#" do
+    = link_to root_path do
       = image_tag "fmarket_logo_red.svg", alt: "ロゴマーク", class: "user-sign-up-header-logo__mark"
   .user-sign-up-header-right
     .line-start
@@ -29,7 +29,7 @@
         %br>/
         会員登録が完了しました。
     .done-nextbtn
-      %form.done-form
+      =link_to root_path, class:"done-form" do
         .done-next
           %input.done-next__btn{type: "submit", value: "メルカリをはじめる"}/
           %br/
