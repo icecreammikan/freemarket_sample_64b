@@ -1,4 +1,4 @@
--class Category < ActiveHash::Base
+class Category < ActiveHash::Base
   include ActiveHash::Associations
 
   self.data = [
