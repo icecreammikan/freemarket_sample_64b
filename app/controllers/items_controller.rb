@@ -20,7 +20,6 @@ class ItemsController < ApplicationController
   end
 
   def create
-
     @item = Item.new(item_params)
     @item.profit = @item.price * 0.9
     if @item.save
@@ -29,17 +28,24 @@ class ItemsController < ApplicationController
       @item.images.build
       render :new
     end
-
   end
 
   def show
     @item = Item.find(params[:id])
     @user = User.find(@item.seller_id)
-    @items = Item.where(seller_id:@item.seller_id)
-    id1 = params[:id].to_i + 1
-    @item1 = Item.find(id1)
-    id2 = params[:id].to_i - 1
-    @item2 = Item.find(id2)
+    @items = Item.where(seller_id: @item.seller_id)
+    @maxid = Item.maximum(:id)
+    @minimumid = Item.minimum(:id)
+
+    if @item.id != @maxid
+      id1 = params[:id].to_i + 1
+      @item1 = Item.find(id1)
+    end
+
+    if @item.id != @minimumid
+      id2 = params[:id].to_i - 1
+      @item2 = Item.find(id2)
+    end
   end
 
   def edit
