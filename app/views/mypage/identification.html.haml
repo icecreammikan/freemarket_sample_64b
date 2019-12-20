@@ -9,14 +9,15 @@
   .id-main
     %main.id-container
       .id-contents
-        %h2.id-contents__chapter 本人情報の登録
-        %section.id-items
-          %form.id-form
-            %p.id-form__p-elements
+        = form_with model:@identification, local:true do |f|
+          %h2.id-contents__chapter 本人情報の登録
+          %section.id-items
+            %form.id-form
+              %p.id-form__p-elements
               お客さまの本人情報をご登録ください。
               %br>/
               登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
-            %p.id-form__p-elements.text-right
+              %p.id-form__p-elements.text-right
               =link_to "#", class: "text-right__link" do
                 本人確認書類のアップロードについて
                 = fa_icon 'chevron-right'
@@ -38,7 +39,7 @@
               %span.form-arbitrary 任意
               .select-wrap
                 %i.icon-arrow-bottom
-                %select.select-default{name: "prefecture"}
+                  = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: '----'}, {class: "select-default"}
             .id-form__form-group
               %label.id-form-label{for: "city"} 市区町村
               %span.form-arbitrary 任意
