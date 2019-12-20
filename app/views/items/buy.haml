@@ -55,11 +55,9 @@
                     %h3 配送先
                     = link_to "変更する"
                   .user-info-text
-                    〒〇〇〇-〇〇〇〇
+                    〒#{current_user.user_address.postcode}
                     %br/
-                    〇〇県 〇〇市 〇〇0000-0 〇〇マンション 〇〇号室
-                    %br/
-                    〇〇 〇〇
+                    #{current_user.user_address.prefecture.name}#{current_user.user_address.city}#{current_user.user_address.address}
               %section.buy-content__product
                 = link_to "/items/pay/#{@item.id}", method: :post do
                   %button.btn{type:"submit",class:"btn-default"} 購入する
