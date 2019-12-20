@@ -3,8 +3,8 @@
     .mypage-user-icon
       =link_to "mypage-user-icon__link"do
         %figure.mypage-fig
-          = image_tag "default_icon.png", class:"mypage-user-icon__img", alt:"アイコン",size: "60x60"
-        %h2.mypage__bold フリマ太郎
+          = image_tag "#{@user.icon}", class:"mypage-user-icon__img", alt:"アイコン",size: "60x60"
+        %h2.mypage__bold #{@user.nickname}
         .mypage-number
           .mypage-evaldisplay
             評価
