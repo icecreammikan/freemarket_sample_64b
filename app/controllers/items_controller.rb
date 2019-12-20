@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-
+  before_action :set_item
   require 'payjp'
 
   def index
@@ -33,7 +33,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
     @user = User.find(@item.seller_id)
     @items = Item.where(seller_id: @item.seller_id)
     @maxid = Item.maximum(:id)
@@ -51,16 +50,14 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
   end
 
   def update
   end
 
   def destroy
-    @item = Item.find_by(id: params[:id])
-    @item.destroy
-    redirect_to("/mypage/index")
+    @item.destroy_all.current_user.id
+    redirect_to  mypage_index_path
   end
 
 
