@@ -1,0 +1,122 @@
+.exhibition-header
+  %nav.bread-crumbs
+%main.exhibition-main
+  .exhibition-main-box 
+    .exhibition-content
+      %section.exhibition-item-box-container
+        %h2.exhibition-item-name エコムートンショートジャケット
+        .exhibition-listing__info
+          .exhibition-listing__info__img
+            .exhibition-listing__info__img__p
+              .exhibition-listing__info__img__big
+                = image_tag "stunninglure1.jpg", class:"exhibition-listing__info__img__big__img", alt:"stunninglure1-img"
+              .exhibition-listing__info__img__small
+                = image_tag "stunninglure2.jpg", class:"exhibition-listing__info__img__small__low", alt:"product-img"
+                = image_tag "stunninglure3.jpg", class:"exhibition-listing__info__img__small__low", alt:"product-img"
+                = image_tag "stunninglure4.jpg", class:"exhibition-listing__info__img__small__low", alt:"product-img"
+                = image_tag "stunninglure1.jpg", class:"exhibition-listing__info__img__small__low", alt:"product-img"
+                = image_tag "stunninglure1.jpg", class:"exhibition-listing__info__img__small__low", alt:"product-img"
+                = image_tag "stunninglure1.jpg", class:"exhibition-listing__info__img__small__low", alt:"product-img"
+                = image_tag "stunninglure1.jpg", class:"exhibition-listing__info__img__small__low", alt:"product-img"
+                = image_tag "stunninglure1.jpg", class:"exhibition-listing__info__img__small__low", alt:"product-img"
+                = image_tag "stunninglure1.jpg", class:"exhibition-listing__info__img__small__low", alt:"product-img"
+                = image_tag "stunninglure1.jpg", class:"exhibition-listing__info__img__small__low", alt:"product-img"
+                
+            %table.exhibition-listing__info__table
+
+              %tr.exhibition-listing__info__table__tr-seller
+                %th.exhibition-listing__info__table__th 出品者
+                %td.exhibition-listing__info__table__td-seller
+                  =link_to '　出品者名', "#",class:"exhibition-listing__info__table__seller-name"
+
+              %tr.exhibition-listing__info__table__tr-category
+                %th.exhibition-listing__info__table__th カテゴリー
+                %td.exhibition-listing__info__table__td
+                  =link_to "#", class:"choice-category__link1" do
+                    　カテゴリー
+                  %br/
+                  =link_to "#", class:"choice-category__link2" do
+                    = fa_icon 'chevron-right'
+                    カテゴリー
+                  %br/
+                  =link_to "#", class:"choice-category__link3" do
+                    = fa_icon 'chevron-right'
+                    カテゴリー
+              %tr.exhibition-listing__info__table__tr-brand
+                %th.exhibition-listing__info__table__th ブランド
+                %td.exhibition-listing__info__table__td
+                  =link_to '　ブランド名',"#"
+              %tr.exhibition-listing__info__table__tr-brand
+                %th.exhibition-listing__info__table__th 商品のサイズ
+                %td.exhibition-listing__info__table__td
+                  =link_to '　サイズ名',"#"
+              %tr.exhibition-listing__info__table__tr-product-status
+                %th.exhibition-listing__info__table__th 商品の状態
+                %td.exhibition-listing__info__table__td
+                  %p 　新品、未使用
+              %tr.exhibition-listing__info__table__tr-delivery-fee
+                %th.exhibition-listing__info__table__th 配送料の負担
+                %td.exhibition-listing__info__table__td
+                  %p 　送料込み（出品者負担）
+              %tr.exhibition-listing__info__table__tr-delivery-method
+                %th.exhibition-listing__info__table__th 配送の方法
+                %td.exhibition-listing__info__table__td
+                  %p 　らくらくメルカリ便
+              %tr
+                %th.exhibition-listing__info__table__th 配送元地域
+                %td.exhibition-listing__info__table__td
+                  =link_to '　大阪府',"#"
+              %tr.exhibition-listing__info__table__tr-time
+                %th.exhibition-listing__info__table__th 発送日の目安
+                %td.exhibition-listing__info__table__td
+                  %p 　1~2日で発送
+        .exhibition-detail
+          %p.exhibition-detail__price ¥60,000
+          %p.exhibition-detail__tax (税込)
+          %p.exhibition-detail__postage 着払い
+        -# %input.exhibition__purchase-btn{type:"submit", value:"購入画面に進む"}/
+        %p.exhibition-listing__puroduct-overview 商品説明
+        .item-description.f14
+          %p.item-description-inner
+            スタニングルアー　19AW
+            
+            エコムートンショートジャケット
+            
+            カラー　ライトブルー
+            サイズ　0
+            
+            オンラインでも店頭でも完売になっているアイテムです
+            
+            一度だけ数時間のみ着用しました
+            形崩れなどもなく状態かなり綺麗です
+            
+            上品なデザインなので綺麗目にもカジュアルにもいけます
+            
+            完売品で入手困難な為お値下げはご遠慮くださいませ
+            
+            また１度人の手に渡った品物になりますので、神経質な方のご購入はご遠慮くださいませ。
+            
+            
+            【公式オンラインサイトより】
+            ぎゅっと密度のあるエコムートンジャケットは、程よいボリューム感がスタイルにメリハリを。
+            襟をベルトで留めるとよりモードな印象に。
+            生地の特徴：エコムートンならではの軽量さ。保温性も抜群で、防寒対策として活躍間違いなし。もっちりとした上品な質感が特徴です。
+    .before-item-box 
+      .listing-item-change-box
+        %button.btn-default.btn-red{type: "submit"} 商品の編集
+        %p.text-center or
+        
+        %form{:action => "", :method => "POST", :novalidate => "novalidate"}
+          %input{:name => "__csrf_value", :type => "hidden", :value => ""}/
+          %button.btn-default.btn-gray{:type => "submit"} 出品を一旦停止する
+
+
+        %button.btn-default.btn-gray{type: "submit"} この商品を削除する
+    .before-purchase-content
+      .before-purchase-messe
+      %form
+        %p.before-purchase-messe__comments__caution 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        .before-purchase-messe__comments__brock
+          %textarea.before-purchase-messe__comments__brock__textarea{name:"commenttext", placeholder:""}
+          %input.before-purchase-messe__comments__brock__send-btn{type:"submit", value:"コメントする"}/
+
