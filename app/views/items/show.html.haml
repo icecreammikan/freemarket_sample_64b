@@ -34,7 +34,7 @@
           %tr.product-listing__info__table__tr-category
             %th.product-listing__info__table__th カテゴリー
             %td.product-listing__info__table__td
-              =link_to "#{@item.category_id}","#"
+              =link_to "#{@item.category.name}","#"
               /カテゴリーテーブルが完成後要修正↑
               %br/
               =link_to do
@@ -55,23 +55,23 @@
           %tr.product-listing__info__table__tr-product-status
             %th.product-listing__info__table__th 商品の状態
             %td.product-listing__info__table__td
-              %p #{@item.condition_id}
+              %p #{@item.condition.name}
           %tr.product-listing__info__table__tr-delivery-fee
             %th.product-listing__info__table__th 配送料の負担
             %td.product-listing__info__table__td
-              %p #{@item.postageburden_id}
+              %p #{@item.postageburden.name}
           %tr.product-listing__info__table__tr-delivery-method
             %th.product-listing__info__table__th 配送方法
             %td.product-listing__info__table__td
-              %p #{@item.sendingmethod_id}
+              %p #{@item.sendingmethod.name}
           %tr
             %th.product-listing__info__table__th 配送元地域
             %td.product-listing__info__table__td
-              =link_to "#{@item.prefecture_id}","#"
+              =link_to "#{@item.prefecture.name}","#"
           %tr.product-listing__info__table__tr-time
             %th.product-listing__info__table__th 発送日の目安
             %td.product-listing__info__table__td
-              %p #{@item.shippingday_id}
+              %p #{@item.shippingday.name}
       .product-listing__info__hidden
         %p.product-listing__info__hidden__price ¥#{@item.price}
         %p.product-listing__info__hidden__tax (税込)
