@@ -11,9 +11,16 @@ Rails.application.routes.draw do
 
 
   #itemsの仮root<<<<<<< 商品出品のサーバサイド
-  resources :items 
-  
-  
+
+  resources :items, except: :index do
+    collection do
+      get 'buy/:id', to: 'items#buy'
+      post 'pay/:id', to: 'items#pay'
+      get 'done', to: 'items#done'
+    end
+  end
+
+
   #仮置き
   get 'posts', to: 'posts#index'
 
@@ -37,7 +44,10 @@ Rails.application.routes.draw do
   get '/card/new', to: 'card#step5'
 
   #mypage関連のルーティング
-
-  #取引ページ関連のルーティング（仮置き。商品購入の機能を実装時に修正の必要有り！）
-  get '/transactions/buy', to: 'transactions#buy'
+  get '/mypage/index', to: 'mypage#index'
+  get '/mypage/card', to: 'mypage#card'
+  get '/mypage/add_card', to: 'mypage#add'
+  get '/mypage/identification', to:'mypage#identification'
+  get '/mypage/profile', to: 'mypage#profile'
+  get '/mypage/logout', to: 'mypage#logout'
 end

@@ -96,7 +96,9 @@
     font-weight: 400;
   }
 }
-
+.product-listing__puroduct-overview{
+  text-align: left;
+}
 .product-listing__purchase-btn{
   background-color: red;
   color:white;
@@ -135,6 +137,25 @@
     line-height: 40px;
   }
 
+}
+.seller-other-products__else__product{
+  display: flex;
+  flex-wrap: wrap;
+  &__box{
+    display: flex;
+    flex-direction: column;
+    &__img{
+      height:220px;
+      width:220px;
+      margin-right:13px;
+    }
+    &__name{
+      display: block;
+    }
+    &__price{
+      display: block;
+    }
+  }
 }
 
 .before-purchase-messages{
@@ -343,6 +364,21 @@
     width:100%;
   }
 }
+.produdts-edit-link__text{
+  height:45px;
+  width:100px;
+  background:limegreen;
+  color: white;
+  text-align: center;
+  position: fixed;
+  bottom: 5px;
+  right:5px;
+  z-index:1;
+  display: block;
+  cursor: pointer;
+  padding-top:8px;
+}
+
 
 @media screen and (max-width:313px) {
   .product-listing__product-info-bottom-btns__box{

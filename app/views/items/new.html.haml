@@ -86,7 +86,7 @@
                   %span.require 必須
                 .select-wrapp
                   %i.icon-arrow-bottom
-                  = f.select :postageburden_id, [[ "---",""], [ "送料込み(出品者負担)", 2 ], [ "着払い(購入者負担)", 3 ]],{}, {class: "select-default"}
+                  = f.collection_select :postageburden_id, Postageburden.all, :id, :name ,{include_blank: "----"}, {class: "select-default"}
                 - if @item.errors.any?
                   - if @item.errors[:postageburden_id]
                     .error-messages
@@ -125,7 +125,7 @@
                   %span.require 必須
                 .select-wrapp
                   %i.icon-arrow-bottom
-                  = f.select :shippingday_id, [[ "---",""], [ "1~2日で発送", 2 ], [ "2~3日で発送", 3 ],[ "4~7日で発送", 4]],{}, {class: "select-default"}
+                  = f.collection_select :shippingday_id, Shippingday.all, :id, :name, {include_blank: "----"}, {class: "select-default"}
                 - if @item.errors.any?
                   - if @item.errors[:shippingday_id]
                     .error-messages

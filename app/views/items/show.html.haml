@@ -1,32 +1,26 @@
-
+= render "shared/top_page_header"
 .product-details-main
   .product-details-container
     .product-listing
-      %h1.product-listing__title 商品名
+      %h1.product-listing__title
+        = @item.name
       .product-listing__info
         .product-listing__info__img
           .product-listing__info__img__big
-            = image_tag "product.jpg", class:"product-listing__info__img__big", alt:"product-img"
+            = image_tag "#{@item.images[0].image_url}", class:"product-listing__info__img__big", alt:"product-img"
           .product-listing__info__img__small
-            = image_tag "product.jpg", class:"product-listing__info__img__small__low", alt:"product-img"
-            = image_tag "product.jpg", class:"product-listing__info__img__small__low", alt:"product-img"
-            = image_tag "product.jpg", class:"product-listing__info__img__small__low", alt:"product-img"
-            = image_tag "product.jpg", class:"product-listing__info__img__small__low", alt:"product-img"
-            = image_tag "product.jpg", class:"product-listing__info__img__small__low", alt:"product-img"
-            = image_tag "product.jpg", class:"product-listing__info__img__small__low", alt:"product-img"
-            = image_tag "product.jpg", class:"product-listing__info__img__small__low", alt:"product-img"
-            = image_tag "product.jpg", class:"product-listing__info__img__small__low", alt:"product-img"
-            = image_tag "product.jpg", class:"product-listing__info__img__small__low", alt:"product-img"
-            = image_tag "product.jpg", class:"product-listing__info__img__small__low", alt:"product-img"
+            - @item.images.each do |image|
+              = image_tag "#{image.image_url}", class:"product-listing__info__img__small__low", alt:"product-img"
+
           .product-listing__info__shadow
-            %p.product-listing__info__hidden__price ¥1,500
+            %p.product-listing__info__hidden__price ¥#{@item.price}
             %p.product-listing__info__hidden__tax (税込)
             %p.product-listing__info__hidden__postage 送料込み
         %table.product-listing__info__table
           %tr.product-listing__info__table__tr-seller
             %th.product-listing__info__table__th 出品者
             %td.product-listing__info__table__td-seller
-              =link_to '出品者名', "#",class:"product-listing__info__table__seller-name"
+              =link_to "#{@user.nickname}", "#",class:"product-listing__info__table__seller-name"
               .product-listing__info__table__evaluation
                 %p.product-listing__info__table__evaluation__good
                   %i.far.fa-smile-beam>
@@ -40,47 +34,53 @@
           %tr.product-listing__info__table__tr-category
             %th.product-listing__info__table__th カテゴリー
             %td.product-listing__info__table__td
-              =link_to 'カテゴリー',"#"
+              =link_to "#{@item.category.name}","#"
+              /カテゴリーテーブルが完成後要修正↑
               %br/
               =link_to do
                 %i.fas.fa-angle-right>
                 カテゴリー
+                /カテゴリーテーブルが完成後要修正↑
               %br/
               =link_to do
                 %i.fas.fa-angle-right>
                 カテゴリー
+                /カテゴリーテーブルが完成後要修正↑
               %br/
           %tr.product-listing__info__table__tr-brand
             %th.product-listing__info__table__th ブランド
             %td.product-listing__info__table__td
               =link_to 'ブランド名',"#"
+              /ブランドテーブルが完成後要修正↑
           %tr.product-listing__info__table__tr-product-status
             %th.product-listing__info__table__th 商品の状態
             %td.product-listing__info__table__td
-              %p 新品、未使用
+              %p #{@item.condition.name}
           %tr.product-listing__info__table__tr-delivery-fee
             %th.product-listing__info__table__th 配送料の負担
             %td.product-listing__info__table__td
-              %p 送料込み（出品者負担）
+              %p #{@item.postageburden.name}
           %tr.product-listing__info__table__tr-delivery-method
             %th.product-listing__info__table__th 配送方法
             %td.product-listing__info__table__td
-              %p らくらくメルカリ便
+              %p #{@item.sendingmethod.name}
           %tr
             %th.product-listing__info__table__th 配送元地域
             %td.product-listing__info__table__td
-              =link_to '千葉県',"#"
+              =link_to "#{@item.prefecture.name}","#"
           %tr.product-listing__info__table__tr-time
             %th.product-listing__info__table__th 発送日の目安
             %td.product-listing__info__table__td
-              %p 1~2日で発送
+              %p #{@item.shippingday.name}
       .product-listing__info__hidden
-        %p.product-listing__info__hidden__price ¥1,500
+        %p.product-listing__info__hidden__price ¥#{@item.price}
         %p.product-listing__info__hidden__tax (税込)
         %p.product-listing__info__hidden__postage 送料込み
-      %input.product-listing__purchase-btn{type:"submit", value:"購入画面に進む"}/
-      %input.product-listing__sride-btn{type:"submit", value:"購入画面に進む"}/
-      %p.product-listing__puroduct-overview 商品説明、商品説明、商品説明、商品説明。商品説明、商品説明、商品説明、商品説明。商品説明、商品説明、商品説明、商品説明。商品説明、商品説明、商品説明、商品説明。商品説明、商品説明、商品説明、商品説明。商品説明、商品説明、商品説明、商品説明。商品説明、商品説明、商品説明、商品説明。商品説明、商品説明、商品説明、商品説明。商品説明、商品説明、商品説明、商品説明。商品説明、商品説明、商品説明、商品説明。
+      = link_to "/items/buy/#{@item.id}" do
+        %input.product-listing__purchase-btn{type:"submit", value:"購入画面に進む"}/
+      = link_to "/items/buy/#{@item.id}" do
+        %input.product-listing__sride-btn{type:"submit", value:"購入画面に進む"}/
+      %p.product-listing__puroduct-overview #{@item.description}
       .product-listing__product-info-bottom-btns
         .product-listing__product-info-bottom-btns__box
           .product-listing__product-info-bottom-btns__box__group
@@ -103,12 +103,14 @@
         %textarea.before-purchase-messages__comments__brock__textarea{name:"commenttext", placeholder:""}
         %input.before-purchase-messages__comments__brock__send-btn{type:"submit", value:"コメントする"}/
   .related-products-transition
-    =link_to "#",class:"related-products-transition__before" do
-      %i.fas.fa-angle-left.fa-large>
-      前の商品
-    =link_to "#",class:"related-products-transition__next" do
-      次の商品
-      %i.fas.fa-angle-right.fa-large
+    - if @item.id != @maxid
+      =link_to "/items/#{@item.id + 1}",class:"related-products-transition__before" do
+        %i.fas.fa-angle-left.fa-large
+        #{@item1.name}
+    - if @item.id != @minimumid
+      =link_to "/items/#{@item.id - 1}",class:"related-products-transition__next" do
+        #{@item2.name}
+        %i.fas.fa-angle-right.fa-large
   .sns-btns
     %ul.sns-btns__box
       %li.sns-btns__box__facebook
@@ -129,17 +131,23 @@
         %i.fas.fa-angle-left.fa-large>
         売主のその他の出品
       .seller-other-products__else__product
-        = image_tag "product.jpg", class:"seller-other-products__else__img", alt:"seller-other-products-product__product__img"
-        %p.seller-other-products__else__soldtag SOLD
-        %p.seller-other-products__else__product-name 商品名
-        %p.seller-other-products__else__price ¥17,800
+        - @items.last(6).each do |item|
+          .seller-other-products__else__product__box
+            = image_tag "#{item.images[0].image_url}", class:"seller-other-products__else__product__box__img", alt:"seller-other-products-product__product__img"
+            %p.seller-other-products__else__product__box__name #{item.name}
+            %p.seller-other-products__else__product__box__price ¥#{item.price}
     .related-other-products
       %h2.related-other-products__title
         %i.fas.fa-angle-left.fa-large>
         カテゴリーのその他の出品
       .related-other-products__product
-        = image_tag "product.jpg", class:"related-other-products__img", alt:"related-other-products-product__product__img"
-        %p.related-other-products__soldtag SOLD
-        %p.related-other-products__product-name 商品名
-        %p.related-other-products__price ¥17,800
-
+        /カテゴリーテーブル実装後
+.produdts-edit
+  - if current_user.id == @item.seller_id
+    .produdts-edit-link
+      =link_to "#{edit_item_path}" do
+        %span.produdts-edit-link__text 商品の編集
+      =link_to "#" do
+        %span.produdts-edit-link__
+  - else
+= render "shared/top_page_footer"

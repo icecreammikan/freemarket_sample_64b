@@ -1,0 +1,27 @@
+= render "shared/top_page_header"
+- breadcrumb :mypage_card
+.bread  
+  .bread__name
+    =breadcrumbs
+.mypage-index
+  = render "sidebar"
+  .credit-main
+    .credit-container
+      %h2.credit-chapter 支払い方法
+      .credit-contents
+        .credit-items
+          %h3.credit-items__title クレジットカード一覧
+        .credit-content
+          .credit-form
+            %form
+              .credit-form__btn
+                =link_to mypage_add_card_path do
+                  %button.credit-btn-default.button-red{type: "submit"} 
+                    = fa_icon 'credit-card' 
+                    クレジットカードを追加する
+        .settings-add-credit
+          =link_to "#", class:"settings-add-credit__link" do
+            支払い方法について
+            = fa_icon 'chevron-right'
+= render "shared/top_page_footer"
+= render "shared/exhibit_logo"

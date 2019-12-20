@@ -102,3 +102,7 @@ gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 gem 'ancestry'
 
 gem "font-awesome-rails"
+
+gem "gretel"
+
+gem 'ancestry'

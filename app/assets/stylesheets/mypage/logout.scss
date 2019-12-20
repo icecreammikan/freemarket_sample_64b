@@ -1,14 +1,18 @@
+* {
+  box-sizing: border-box;
+}
 .logout-container{
   background-color: rgb(235,235,235);
   width: 700px;
 }
 .logout-signout{
-  height: 131px;
+  height: 179px;
   text-align: center;
-  line-height: 131px;
+  line-height: 10;
   background-color: rgb(255,255,255);
 
-  &__btn{
+  
+    .btn-logout{
     width: 318px;
     height: 48px;
     background-color: rgb(234,53,45);

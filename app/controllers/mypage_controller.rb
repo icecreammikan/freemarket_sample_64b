@@ -1,0 +1,22 @@
+class MypageController < ApplicationController
+
+  def index
+    @user = User.find(current_user.id)
+  end
+
+  def card
+  end
+
+  def add
+  end
+
+  def identification
+  end
+
+  def profile
+  end
+
+  def logout
+  end
+
+end

@@ -1,0 +1,14 @@
+= render "shared/top_page_header"
+- breadcrumb :mypage_logout
+.bread  
+  .bread__name
+    =breadcrumbs
+.mypage-index
+  = render "sidebar"
+  .logout-main
+    .logout-container
+      .logout-signout
+        =link_to destroy_user_session_path, class:"logout-signout__btn", method: :delete do
+          %button.btn-logout{type: "submit"} ログアウト
+= render "shared/top_page_footer"
+= render "shared/exhibit_logo"
