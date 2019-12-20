@@ -99,11 +99,9 @@
         %p.text-center or
         
         %form{:action => "", :method => "POST", :novalidate => "novalidate"}
-          %input{:name => "__csrf_value", :type => "hidden", :value => ""}/
-          %button.btn-default.btn-gray{:type => "submit"} 出品を一旦停止する
-
-          = link_to "/items/#{@item.id}",method:"delete" do
-            %button.btn-default.btn-gray{type: "submit"} この商品を削除する
+          %input{:name => "__csrf_value", type: "hidden", :value => ""}/
+          %button.btn-default.btn-gray{type: "submit"} 出品を一旦停止する
+          = button_to'この商品を削除する',"/items/#{@item.id}", class: "btn-default btn-gray",method:"delete"
     .before-purchase-content
       .before-purchase-messe
       %form
