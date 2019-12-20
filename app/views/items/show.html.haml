@@ -103,10 +103,13 @@
         %textarea.before-purchase-messages__comments__brock__textarea{name:"commenttext", placeholder:""}
         %input.before-purchase-messages__comments__brock__send-btn{type:"submit", value:"コメントする"}/
   .related-products-transition
-    =link_to "/items/#{@item.id - 1}",class:"related-products-transition__before" do
-      %i.fas.fa-angle-left.fa-large>
-      #{@item1.name}
-    =link_to "/items/#{@item.id + 1}",class:"related-products-transition__next" do
+    - if @item.id != @maxid
+      =link_to "/items/#{@item.id + 1}",class:"related-products-transition__before" do
+        %i.fas.fa-angle-left.fa-large
+        #{@item1.name}
+    - else
+      .blank
+    =link_to "/items/#{@item.id - 1}",class:"related-products-transition__next" do
       #{@item2.name}
       %i.fas.fa-angle-right.fa-large
   .sns-btns
@@ -129,7 +132,7 @@
         %i.fas.fa-angle-left.fa-large>
         売主のその他の出品
       .seller-other-products__else__product
-        - @items.each do |item|
+        - @items.last(6).each do |item|
           .seller-other-products__else__product__box
             = image_tag "#{item.images[0].image_url}", class:"seller-other-products__else__product__box__img", alt:"seller-other-products-product__product__img"
             %p.seller-other-products__else__product__box__name #{item.name}
@@ -140,4 +143,12 @@
         カテゴリーのその他の出品
       .related-other-products__product
         /カテゴリーテーブル実装後
+.produdts-edit
+  - if current_user.id == @item.seller_id
+    .produdts-edit-link
+      =link_to "#{edit_item_path}" do
+        %span.produdts-edit-link__text 商品の編集
+      =link_to "#" do
+        %span.produdts-edit-link__
+  - else
 = render "shared/top_page_footer"

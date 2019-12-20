@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
 
   #itemsの仮root<<<<<<< 商品出品のサーバサイド
+
   resources :items, except: :index do
     collection do
       get 'buy/:id', to: 'items#buy'
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
       get 'done', to: 'items#done'
     end
   end
+
 
   #仮置き
   get 'posts', to: 'posts#index'
