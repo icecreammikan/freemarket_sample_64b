@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-before_action :set_item
+# before_action :set_item
 before_action :authenticate_user!, only: [:new, :create, :buy, :pay]
   
   require 'payjp'
@@ -35,6 +35,7 @@ before_action :authenticate_user!, only: [:new, :create, :buy, :pay]
   end
 
   def show
+    @item = Item.find(params[:id])
     @user = User.find(@item.seller_id)
     @items = Item.where(seller_id: @item.seller_id)
     @maxid = Item.maximum(:id)
@@ -52,13 +53,17 @@ before_action :authenticate_user!, only: [:new, :create, :buy, :pay]
   end
 
   def edit
+    @item = Item.find(params[:id])
   end
 
   def update
   end
 
   def destroy
-    @item.destroy_all.current_user.id
+    @item = Item.find(params[:id])
+    if @item.seller_id == current_user.id
+      @item.destroy
+    end
     redirect_to  mypage_index_path
   end
 
