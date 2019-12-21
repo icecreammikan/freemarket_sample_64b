@@ -129,13 +129,13 @@
           %input.before-purchase-messages__comments__brock__send-btn{type:"submit", value:"コメントする"}/
 
   .related-products-transition
-    - if @item.id != @maxid
-      =link_to "/items/#{@item.id + 1}",class:"related-products-transition__before" do
+    - if @item.previous.present?
+      =link_to item_path(@item.previous.id),class:"related-products-transition__before" do
         %i.fas.fa-angle-left.fa-large
-        #{@item1.name}
-    - if @item.id != @minimumid
-      =link_to "/items/#{@item.id - 1}",class:"related-products-transition__next" do
-        #{@item2.name}
+        = @item.previous.name
+    - if @item.next.present?
+      =link_to item_path(@item.next.id),class:"related-products-transition__next" do
+        = @item.next.name
         %i.fas.fa-angle-right.fa-large
   .sns-btns
     %ul.sns-btns__box

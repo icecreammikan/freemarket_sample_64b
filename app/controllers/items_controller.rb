@@ -38,18 +38,6 @@ before_action :authenticate_user!, only: [:new, :create, :buy, :pay]
     @item = Item.find(params[:id])
     @user = User.find(@item.seller_id)
     @items = Item.where(seller_id: @item.seller_id)
-    @maxid = Item.maximum(:id)
-    @minimumid = Item.minimum(:id)
-
-    if @item.id != @maxid
-      id1 = params[:id].to_i + 1
-      @item1 = Item.find(id1)
-    end
-
-    if @item.id != @minimumid
-      id2 = params[:id].to_i - 1
-      @item2 = Item.find(id2)
-    end
   end
 
   def edit
