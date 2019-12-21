@@ -129,14 +129,18 @@
           %input.before-purchase-messages__comments__brock__send-btn{type:"submit", value:"コメントする"}/
 
   .related-products-transition
-    - if @item.previous.present?
-      =link_to item_path(@item.previous.id),class:"related-products-transition__before" do
-        %i.fas.fa-angle-left.fa-large
-        = @item.previous.name
     - if @item.next.present?
-      =link_to item_path(@item.next.id),class:"related-products-transition__next" do
+      =link_to item_path(@item.next.id),class:"related-products-transition__before" do
+        %i.fas.fa-angle-left.fa-large
         = @item.next.name
+    - else
+      .none
+    - if @item.previous.present?
+      =link_to item_path(@item.previous.id),class:"related-products-transition__next" do
+        = @item.previous.name
         %i.fas.fa-angle-right.fa-large
+    - else
+      .none
   .sns-btns
     %ul.sns-btns__box
       %li.sns-btns__box__facebook
