@@ -12,6 +12,9 @@
       &__app{
         margin-top: 50px;
         margin-bottom: 0px;
+        display: flex;
+        list-style: none;
+        padding-left: 15px;
       }
       &__text{
         font-size: 34px;
@@ -21,34 +24,37 @@
       }
       &__icon{
         display: flex;
+        margin-top:10px;
       }
     }
   }
 }
 
 
-
 .mercari__icon{
-  height: 68px;
-  margin-right: 20px;
-  width: 68px;
+  height: 85px;
 }
-.banner{
-  position: relative;
-  &__app{
-    display: flex;
-    list-style: none;
-    padding-left: 15px;
-    &__icon{
-      margin-top:10px;
-    }
-    &__phon{
-      position: absolute;
-      bottom:0px;
-      right:300px
-    }
-  }
+.banner__app{
+  display: flex;
+  margin:30px;
 }
+
+// .banner{
+//   position: relative;
+//   &__app{
+//     display: flex;
+//     list-style: none;
+//     padding-left: 15px;
+//     &__icon{
+//       margin-top:10px;
+//     }
+//     &__phon{
+//       position: absolute;
+//       bottom:0px;
+//       right:300px
+//     }
+//   }
+// }
 
 .sc-bRBYWo.sc-erNlkL.jruhZz{
   margin: 30px 10px 10px 1px;
@@ -121,25 +127,22 @@
   }
 }
 
-
-.lower-logo {
-  width: 100%;
-  display: flex;
-  line-height: 50px;
-  display: flex;
-  justify-content: space-between;
+.footer-bottom{
+  width: 1020px;
+  margin: 0 auto;
 }
-.footer-bottom__img {
-  width: 139px;
-  height: 40px;
-  display: flex;
-  margin-left: 24.5%;
+.lower-logo {
+  line-height: 50px;
+  text-align: left;
+}
+.footer-bottom__img2{
+  height: 55px;
 }
 .footer-country{
   width: auto;
 }
 .footer-bottom__inc{
-  margin-left: 47%;
+  text-align: center;
 }
 
 @media screen and (max-width: 1068px) {
@@ -158,10 +161,11 @@
     margin-top: 50px;
     &__block{
       margin: 0 auto;
+      text-align: left;
       width: 700px;
     }
     &__inc{
-      margin-left: 47%;
+      text-align: center;
       }
     }
   }
