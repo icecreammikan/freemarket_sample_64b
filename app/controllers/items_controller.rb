@@ -1,6 +1,9 @@
 class ItemsController < ApplicationController
 # before_action :set_item
 before_action :authenticate_user!, only: [:new, :create, :buy, :pay, :edit, :update, :destroy, :done]
+before_action :page_limit, only: [:edit, :destroy, :update]
+before_action :payjp_limit, only: [:pay, :buy, :done]
+before_action :payjp_item_limit, only: [:pay, :buy, :done]
   
   require 'payjp'
 
@@ -84,6 +87,7 @@ before_action :authenticate_user!, only: [:new, :create, :buy, :pay, :edit, :upd
     @card = Card.find_by(user_id: current_user.id)
     # Cardテーブルからpayjpの顧客IDを検索
     @item = Item.find(params[:id])
+    @user_address = UserAddress.find_by(user_id: current_user.id)
     if @card.blank?
       redirect_to controller: "card", action: "step5"
       #登録された情報が無い場合にカード登録画面に移動
@@ -93,6 +97,10 @@ before_action :authenticate_user!, only: [:new, :create, :buy, :pay, :edit, :upd
       #保管した顧客IDでpayjpから情報取得
       @default_card_information = customer.cards.retrieve(@card.card_id)
       #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
+    end
+
+    if @user_address.blank?
+      redirect_to user_address_new_path
     end
   end
 
@@ -105,13 +113,13 @@ before_action :authenticate_user!, only: [:new, :create, :buy, :pay, :edit, :upd
       customer: @card.customer_id,
       currency: 'jpy'
     )
-    @item.update(buyer_id: current_user.id)
     redirect_to "/items/done/#{@item.id}"
   end
 
   def done
     @card = Card.find_by(user_id: current_user.id)
     @item = Item.find(params[:id])
+    @item.update(buyer_id: current_user.id)
     customer = Payjp::Customer.retrieve(@card.customer_id)
     @default_card_information = customer.cards.retrieve(@card.card_id)
   end
@@ -135,6 +143,27 @@ before_action :authenticate_user!, only: [:new, :create, :buy, :pay, :edit, :upd
       :shippingday_id,
       :price,
       images_attributes: [:image_url]).merge(seller_id: current_user.id,)
+  end
+
+  def page_limit
+    @item = Item.find(params[:id])
+    if current_user.id != @item.seller_id
+      redirect_to item_path(@item.id)
+    end
+  end
+
+  def payjp_limit
+    @item = Item.find(params[:id])
+    if current_user.id == @item.seller_id
+      redirect_to item_path(@item.id)
+    end
+  end
+
+  def payjp_item_limit
+    @item = Item.find(params[:id])
+    if @item.buyer_id.present?
+      redirect_to item_path(@item.id)
+    end
   end
 
 end
