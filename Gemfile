@@ -106,3 +106,5 @@ gem "font-awesome-rails"
 gem "gretel"
 
 gem 'ancestry'
+
+gem 'gon'

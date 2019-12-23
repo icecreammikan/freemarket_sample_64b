@@ -105,13 +105,12 @@ $(function(){
       //inputタグに入ったファイルを削除
       $('input[type=file]').val(null)
       dataBox.clearData();
-      console.log(dataBox)
     }else{
       //プレビューが複数の場合
       $.each(file_field.files, function(i){
         //削除を押された要素と一致した時、index番号に基づいてdataBoxに格納された要素を削除する
         if(i+1==target_number){
-          dataBox.items.remove(i) 
+          dataBox.items.remove(i)
         }
       })
       //DataTransferオブジェクトに入ったfile一覧をfile_fieldの中に再度代入
