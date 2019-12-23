@@ -12,7 +12,7 @@ crumb :mypage_profile do
 end
 
 crumb :mypage_card do
-  link "カード", mypage_card_path
+  link "支払い方法", mypage_card_path
 end
 
 crumb :mypage_identification do
@@ -22,3 +22,5 @@ end
 crumb :mypage_logout do
   link "ログアウト", mypage_logout_path
 end
+
+
