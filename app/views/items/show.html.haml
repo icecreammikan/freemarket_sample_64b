@@ -85,17 +85,23 @@
         .soldout__button
           %p 売り切れました。残念！       
       - else
-        - if current_user.id == @item.seller_id
-          .listing-item-change-box
-            = link_to edit_item_path(@item.id) do
-              %button.btn-default.btn-red{type: "submit"} 商品の編集
-            %p.text-center or
-            
-            = link_to "#" do
-              %button.btn-default.btn-gray{:type => "submit"} 出品を一旦停止する
+        - if user_signed_in?
+          - if current_user.id == @item.seller_id
+            .listing-item-change-box
+              = link_to edit_item_path(@item.id) do
+                %button.btn-default.btn-red{type: "submit"} 商品の編集
+              %p.text-center or
+              
+              = link_to "#" do
+                %button.btn-default.btn-gray{:type => "submit"} 出品を一旦停止する
 
-            = link_to item_path(@item.id), method: :delete do
-              %button.btn-default.btn-gray{type: "submit"} この商品を削除する
+              = link_to item_path(@item.id), method: :delete do
+                %button.btn-default.btn-gray{type: "submit"} この商品を削除する
+          - else
+            = link_to "/items/buy/#{@item.id}" do
+              %input.product-listing__purchase-btn{type:"submit", value:"購入画面に進む"}/
+            = link_to "/items/buy/#{@item.id}" do
+              %input.product-listing__sride-btn{type:"submit", value:"購入画面に進む"}/
         - else
           = link_to "/items/buy/#{@item.id}" do
             %input.product-listing__purchase-btn{type:"submit", value:"購入画面に進む"}/
