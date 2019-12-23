@@ -1,8 +1,23 @@
 .main
   %noscript
   .slide-screen
-    =link_to "#", target:"_blank" do
-      =image_tag "img2.jpg", class:"mypage-user-icon_img",width:"100%",height:"390px"
+    .slide-screen__block
+      .slide-screen__block__left
+        %p.slide-screen__block__left__text1 スマホでかんたん
+        %p.slide-screen__block__left__text2 フリマアプリ
+        %p.slide-screen__block__left__text3 Fmarketはスマホカメラからすぐに出品できる
+        %p.slide-screen__block__left__text4 購入時も安心な独自システムのアプリです
+        .slide-screen__block__left__icon
+          %ul.slide__app
+            %li.slide__app__icon
+              = link_to "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", class: "_blank" do
+                =image_tag "images_apple.png", class:"app__icon", height: "40", width: "133"
+            %li.slide__app__icon
+              = link_to "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", class: "_blank" do
+                =image_tag "google-1-320x197.png", class:"google__icon", alt: "Mercari",height: "40", width: "133"
+      .slide-screen__block__right
+        %figure
+          =image_tag "top-banner-main-device.png", class:"main-img", alt: "Mercari",height: "350", width: "320"
   / ##人気のカテゴリーリンク
   .popular__link
     %h2.popular__link__h 人気のカテゴリー
