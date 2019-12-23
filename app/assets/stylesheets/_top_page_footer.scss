@@ -50,7 +50,12 @@
   }
 }
 
-
+.sc-bRBYWo.sc-erNlkL.jruhZz{
+  margin: 30px 10px 10px 1px;
+}
+.sc-kEYyzF.sc-lnmtFM.cyauNs{
+  margin: 30px 10px 10px 1px;
+}
 
 .google__icon{
   margin-left:10px;
@@ -115,11 +120,26 @@
     padding-left: 10px;
   }
 }
+
+
+.lower-logo {
+  width: 100%;
+  display: flex;
+  line-height: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+.footer-bottom__img {
+  width: 139px;
+  height: 40px;
+  display: flex;
+  margin-left: 24.5%;
+}
 .footer-country{
   width: auto;
 }
 .footer-bottom__inc{
-  margin-left: 40%;
+  margin-left: 47%;
 }
 
 @media screen and (max-width: 1068px) {
@@ -141,11 +161,10 @@
       width: 700px;
     }
     &__inc{
-      margin: 0;
+      margin-left: 47%;
+      }
     }
   }
-
-}
 
 @media screen and (max-width: 767px) {
   .footer-top{
