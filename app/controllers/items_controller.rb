@@ -90,7 +90,7 @@ before_action :authenticate_user!, only: [:new, :create, :buy, :pay]
       redirect_to controller: "card", action: "step5"
       #登録された情報が無い場合にカード登録画面に移動
     else
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
       customer = Payjp::Customer.retrieve(@card.customer_id)
       #保管した顧客IDでpayjpから情報取得
       @default_card_information = customer.cards.retrieve(@card.card_id)
@@ -101,7 +101,7 @@ before_action :authenticate_user!, only: [:new, :create, :buy, :pay]
   def pay
     @card = Card.find_by(user_id: current_user.id)
     @item = Item.find(params[:id])
-    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
     Payjp::Charge.create(
       amount: @item.price,
       customer: @card.customer_id,
