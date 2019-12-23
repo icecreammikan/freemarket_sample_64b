@@ -17,7 +17,7 @@
               お客さまの本人情報をご登録ください。
               %br>/
               登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
-              %p.id-form__p-elements.text-right
+            %p.id-form__form-group.text-right
               =link_to "#", class: "text-right__link" do
                 本人確認書類のアップロードについて
                 = fa_icon 'chevron-right'
@@ -53,7 +53,7 @@
               %span.form-arbitrary 任意
               %input.input-default{name: "address2", placeholder: "例) 難波パークス１９０１", type: "text", value: ""}/
             %button.btn-default.btn-red{type: "submit"} 登録する
-            .id-form__form-group.text-right
+            %p.id-form__form-group.text-right
               =link_to "#", class:"text-right__link" do
                 本人情報の登録について
                 = fa_icon 'chevron-right'
