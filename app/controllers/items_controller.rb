@@ -42,6 +42,29 @@ before_action :authenticate_user!, only: [:new, :create, :buy, :pay]
 
   def edit
     @item = Item.find(params[:id])
+    gon.item = @item
+    gon.images = @item.images
+
+    require 'base64'
+
+    gon.images_binary_datas = []
+
+    if Rails.env.production?
+      client = Aws::S3::Client.new(
+                             region: 'ap-northeast-1',
+                             access_key_id: Rails.application.credentials.aws[:access_key_id],
+                             secret_access_key: Rails.application.credentials.aws[:secret_access_key],
+                             )
+      @item.images.each do |image|
+        binary_data = client.get_object(bucket: 'freemarket_sample_64b', key: image.image_url.file.path).body.read
+        gon.images_binary_datas << Base64.strict_encode64(binary_data)
+      end
+    else
+      @item.images.each do |image|
+        binary_data = File.read(image.image_url.file.file)
+        gon.images_binary_datas << Base64.strict_encode64(binary_data)
+      end
+    end
   end
 
   def update

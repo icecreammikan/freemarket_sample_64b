@@ -1,112 +1,193 @@
-= render "shared/top_page_header"
-.exhibition-header
-  %nav.bread-crumbs
-%main.exhibition-main
-  .exhibition-main-box 
-    .exhibition-content
-      %section.exhibition-item-box-container
-        %h2.exhibition-item-name エコムートンショートジャケット
-        .exhibition-listing__info
-          .exhibition-listing__info__img
-            .exhibition-listing__info__img__p
-              .exhibition-listing__info__img__big
-                = image_tag "#{@item.images[0].image_url}", class:"exhibition-listing__info__img__big__img", alt:"stunninglure1-img"
-              .exhibition-listing__info__img__small
-                - @item.images.each do |image|
-                  = image_tag "#{image.image_url}", class:"exhibition-listing__info__img__small__low", alt:"product-img"
-            %table.exhibition-listing__info__table
-
-              %tr.exhibition-listing__info__table__tr-seller
-                %th.exhibition-listing__info__table__th 出品者
-                %td.exhibition-listing__info__table__td-seller
-                  =link_to '　出品者名', "#",class:"exhibition-listing__info__table__seller-name"
-
-              %tr.exhibition-listing__info__table__tr-category
-                %th.exhibition-listing__info__table__th カテゴリー
-                %td.exhibition-listing__info__table__td
-                  =link_to "#", class:"choice-category__link1" do
-                    　カテゴリー
-                  %br/
-                  =link_to "#", class:"choice-category__link2" do
-                    = fa_icon 'chevron-right'
-                    カテゴリー
-                  %br/
-                  =link_to "#", class:"choice-category__link3" do
-                    = fa_icon 'chevron-right'
-                    カテゴリー
-              %tr.exhibition-listing__info__table__tr-brand
-                %th.exhibition-listing__info__table__th ブランド
-                %td.exhibition-listing__info__table__td
-                  =link_to '　ブランド名',"#"
-              %tr.exhibition-listing__info__table__tr-brand
-                %th.exhibition-listing__info__table__th 商品のサイズ
-                %td.exhibition-listing__info__table__td
-                  =link_to '　サイズ名',"#"
-              %tr.exhibition-listing__info__table__tr-product-status
-                %th.exhibition-listing__info__table__th 商品の状態
-                %td.exhibition-listing__info__table__td
-                  %p 　新品、未使用
-              %tr.exhibition-listing__info__table__tr-delivery-fee
-                %th.exhibition-listing__info__table__th 配送料の負担
-                %td.exhibition-listing__info__table__td
-                  %p 　送料込み（出品者負担）
-              %tr.exhibition-listing__info__table__tr-delivery-method
-                %th.exhibition-listing__info__table__th 配送の方法
-                %td.exhibition-listing__info__table__td
-                  %p 　らくらくメルカリ便
-              %tr
-                %th.exhibition-listing__info__table__th 配送元地域
-                %td.exhibition-listing__info__table__td
-                  =link_to '　大阪府',"#"
-              %tr.exhibition-listing__info__table__tr-time
-                %th.exhibition-listing__info__table__th 発送日の目安
-                %td.exhibition-listing__info__table__td
-                  %p 　1~2日で発送
-        .exhibition-detail
-          %p.exhibition-detail__price ¥60,000
-          %p.exhibition-detail__tax (税込)
-          %p.exhibition-detail__postage 着払い
-        -# %input.exhibition__purchase-btn{type:"submit", value:"購入画面に進む"}/
-        %p.exhibition-listing__puroduct-overview 商品説明
-        .item-description.f14
-          %p.item-description-inner
-            スタニングルアー　19AW
-            
-            エコムートンショートジャケット
-            
-            カラー　ライトブルー
-            サイズ　0
-            
-            オンラインでも店頭でも完売になっているアイテムです
-            
-            一度だけ数時間のみ着用しました
-            形崩れなどもなく状態かなり綺麗です
-            
-            上品なデザインなので綺麗目にもカジュアルにもいけます
-            
-            完売品で入手困難な為お値下げはご遠慮くださいませ
-            
-            また１度人の手に渡った品物になりますので、神経質な方のご購入はご遠慮くださいませ。
-            
-            
-            【公式オンラインサイトより】
-            ぎゅっと密度のあるエコムートンジャケットは、程よいボリューム感がスタイルにメリハリを。
-            襟をベルトで留めるとよりモードな印象に。
-            生地の特徴：エコムートンならではの軽量さ。保温性も抜群で、防寒対策として活躍間違いなし。もっちりとした上品な質感が特徴です。
-    .before-item-box 
-      .listing-item-change-box
-        %button.btn-default.btn-red{type: "submit"} 商品の編集
-        %p.text-center or
-        
-        %form{:action => "", :method => "POST", :novalidate => "novalidate"}
-          %input{:name => "__csrf_value", type: "hidden", :value => ""}/
-          %button.btn-default.btn-gray{type: "submit"} 出品を一旦停止する
-          = button_to'この商品を削除する',"/items/#{@item.id}", class: "btn-default btn-gray",method:"delete"
-    .before-purchase-content
-      .before-purchase-messe
-      %form
-        %p.before-purchase-messe__comments__caution 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        .before-purchase-messe__comments__brock
-          %textarea.before-purchase-messe__comments__brock__textarea{name:"commenttext", placeholder:""}
-          %input.before-purchase-messe__comments__brock__send-btn{type:"submit", value:"コメントする"}/
-
+#sell
+  %header.header
+    %h1
+      = link_to "/" do
+        = image_tag 'fmarket_logo_red.svg', alt: 'mercari', height: '49px', width: '185', class: 'header__logo'
+  %main.main
+    %section.main__block
+      = form_with model:@item, local:true do |f|
+        %h2.sell__block__head
+          商品の情報を入力
+        .sell__block__form
+          .sell__block__form__upload
+            %h3.sell__block__form__upload__head
+              出品画像
+              %span.require 必須
+            %p 最大10枚までアップロードできます
+            #image-box-1
+              .item-num-0#image-box__container
+                = f.fields_for :images, @item.images.first do |i|
+                  .input-area
+                    = i.file_field :image, type: 'file', name: "item[images_attributes][][image_url]", value:"", style: "display:none", id:"img-file"
+                    %label{for: "img-file"}
+                      %i.fas.fa-camera
+          .sell__block__form__name
+            .form-group__name
+              %label
+                商品名
+                %span.require 必須
+              %div
+                = f.text_field :name, placeholder:"商品名（必須 40文字まで)",class: "form__group__name"
+              - if @item.errors.any?
+                - if @item.errors[:name]
+                  .error-messages
+                    - @item.errors.full_messages_for(:name).each do |error|
+                      .error-message
+                        入力してください
+            .form-group__description
+              %label
+                商品の説明
+                %span.require 必須
+              %div
+                = f.text_area :description, {placeholder:"商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。",rows: "5", class: "textarea__default" }
+              - if @item.errors.any?
+                - if @item.errors[:description]
+                  .error-messages
+                    - @item.errors.full_messages_for(:description).each do |error|
+                      .error-message
+                        入力してください
+          .sell__block__form__detail
+            %h3.sell__detail 商品の詳細
+            .sell__block__form__detail__box
+              .form-group
+                %label
+                  カテゴリー
+                  %span.require 必須
+                  .select-wrapp
+                    = f.collection_select :category_id, Category.all, :id, :name, {include_blank: '----'}, {class: "select-default"}
+                - if @item.errors.any?
+                  - if @item.errors[:category_id]
+                    .error-messages
+                      - @item.errors.full_messages_for(:category_id).each do |error|
+                        .error-message
+                          選択してください
+                    %i.icon-arrow-bottom
+              .form-group
+                %label
+                  商品の状態
+                  %span.require 必須
+                %div
+                  .select-wrapp
+                    %i.icon-arrow-bottom
+                    = f.collection_select :condition_id, Condition.all, :id, :name, {include_blank: '---'}, {class: "select-default"}
+                  - if @item.errors.any?
+                    - if @item.errors[:condition_id]
+                      .error-messages
+                        - @item.errors.full_messages_for(:condition_id).each do |error|
+                          .error-message
+                            選択してください
+          .sell__block__form__delivery
+            %h3.sell__delivery 配送について
+            = link_to "?", "/jp/help_center/article/68/", class:"form-question",target: "_blank"
+            .sell__block__form__delivery__box
+              .form-group
+                %label
+                  配送料の負担
+                  %span.require 必須
+                .select-wrapp
+                  %i.icon-arrow-bottom
+                  = f.collection_select :postageburden_id, Postageburden.all, :id, :name ,{include_blank: "----"}, {class: "select-default"}
+                - if @item.errors.any?
+                  - if @item.errors[:postageburden_id]
+                    .error-messages
+                      - @item.errors.full_messages_for(:postageburden_id).each do |error|
+                        .error-message
+                          選択してください
+              .form-group
+                %label
+                  配送の方法
+                  %span.require 必須
+                .select-wrapp
+                  %i.icon-arrow-bottom
+                  = f.collection_select :sendingmethod_id,  Sendingmethod.all, :id, :name, {include_blank: '----'}, {class: "select-default"}
+                - if @item.errors.any?
+                  - if @item.errors[:sendingmethod_id]
+                    .error-messages
+                      - @item.errors.full_messages_for(:sendingmethod_id).each do |error|
+                        .error-message
+                          選択してください
+              .form-group
+                %label
+                  配送元の地域
+                  %span.require 必須
+                .select-wrapp
+                  %i.icon-arrow-bottom
+                  = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: '----'}, {class: "select-default"}
+                - if @item.errors.any?
+                  - if @item.errors[:prefecture_id]
+                    .error-messages
+                      - @item.errors.full_messages_for(:prefecture_id).each do |error|
+                        .error-message
+                          選択してください
+              .form-group
+                %label
+                  発送までの日数
+                  %span.require 必須
+                .select-wrapp
+                  %i.icon-arrow-bottom
+                  = f.collection_select :shippingday_id, Shippingday.all, :id, :name, {include_blank: "----"}, {class: "select-default"}
+                - if @item.errors.any?
+                  - if @item.errors[:shippingday_id]
+                    .error-messages
+                      - @item.errors.full_messages_for(:shippingday_id).each do |error|
+                        .error-message
+                          選択してください
+          .sell__block__form__price
+            %h3.sell__price 販売価格(300〜9,999,999)
+            = link_to "?", "/jp/help_center/article/68/", class:"form-question",target: "_blank"
+            .sell__form__box
+              %ul.sell-price
+                %li.form-group__price
+                  .sell__form__box__price
+                    %label
+                      価格
+                      %span.require 必須
+                    .sell-price-input  
+                      ¥　
+                      = f.number_field :price, {placeholder: "例）300 ", value:  "",type: "number", id: "input-default", value: "#{@item.price}"}
+                - if @item.errors.any?
+                  - if @item.errors[:price]
+                    .error-messages
+                      - @item.errors.full_messages_for(:price).each do |error|
+                        .error-message
+                          300以上9999999以下で入力してください
+                %li.commission
+                  .l-left
+                    販売手数料 (10%)
+                  .l-right
+                    \-
+                %li.profit.bold
+                  .profit__left
+                    販売利益
+                    = f.number_field :profit, style: "display: none", id: "sales_profit"
+                  .profit__right
+                    \-
+          .sell__block__form__btn
+            %div
+              %p
+                = link_to "禁止されている出品", "#",target: "_blank",class:"link"
+                、
+                = link_to "行為", "/",target: "_blank",class:"link"
+                を必ずご確認ください。
+              %p
+                またブランド品でシリアルナンバー等がある場合はご記載ください。
+                = link_to "行為", "#",target: "_blank",class:"link"
+                は犯罪であり処罰される可能性があります。
+              %p
+                また、出品をもちまして
+                = link_to "加盟店規約", "/jp/seller_terms/",class:"link"
+                に同意したことになります。
+                = f.submit "出品する",class: "btn-default__btn-red"
+                = link_to "もどる", root_path, class: "btn-default__btn-gray"
+  %footer.footer
+    %ul.footer__bar
+      %li
+        = link_to "プライバシーポリシー", "#",class:"footer__link"
+      %li
+        = link_to "メルカリ利用規約", "#",class:"footer__link"
+      %li
+        = link_to "特定商取引に関する表記", "#",class:"footer__link"
+    = link_to "/" do
+      = image_tag 'logo_gray.svg', alt: 'mercari', height: '64', width: '80', class: 'single-footer-logo'
+    %p
+      %small © Mercari, Inc.
