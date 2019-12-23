@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 # before_action :set_item
-before_action :authenticate_user!, only: [:new, :create, :buy, :pay]
+before_action :authenticate_user!, only: [:new, :create, :buy, :pay, :edit, :update, :destroy, :done]
   
   require 'payjp'
 
@@ -44,8 +44,6 @@ before_action :authenticate_user!, only: [:new, :create, :buy, :pay]
     @item = Item.find(params[:id])
     gon.item = @item
     gon.images = @item.images
-
-    require 'base64'
 
     gon.images_binary_datas = []
 
