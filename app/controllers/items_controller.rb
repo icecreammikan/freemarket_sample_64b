@@ -1,10 +1,11 @@
 class ItemsController < ApplicationController
 # before_action :set_item
 before_action :authenticate_user!, only: [:new, :create, :buy, :pay, :edit, :update, :destroy, :done]
+before_action :set_item, only: [:show, :edit, :update, :destroy, :buy, :pay, :done]
 before_action :page_limit, only: [:edit, :destroy, :update]
 before_action :payjp_limit, only: [:pay, :buy, :done]
 before_action :payjp_item_limit, only: [:pay, :buy, :done]
-  
+
   require 'payjp'
 
   def index
@@ -21,7 +22,6 @@ before_action :payjp_item_limit, only: [:pay, :buy, :done]
 
   def new
     @item = Item.new
-    @images = @item.images.build
   end
 
   def create
@@ -32,47 +32,27 @@ before_action :payjp_item_limit, only: [:pay, :buy, :done]
     if @item.save
       redirect_to mypage_index_path
     else
-      @item.images.build
       render :new
     end
   end
 
   def show
-    @item = Item.find(params[:id])
     @user = User.find(@item.seller_id)
     @items = Item.where(seller_id: @item.seller_id)
   end
 
   def edit
-    @item = Item.find(params[:id])
-    gon.item = @item
-    gon.images = @item.images
-
-    gon.images_binary_datas = []
-
-    if Rails.env.production?
-      client = Aws::S3::Client.new(
-                             region: 'ap-northeast-1',
-                             access_key_id: Rails.application.credentials.aws[:access_key_id],
-                             secret_access_key: Rails.application.credentials.aws[:secret_access_key],
-                             )
-      @item.images.each do |image|
-        binary_data = client.get_object(bucket: 'freemarket_sample_64b', key: image.image_url.file.path).body.read
-        gon.images_binary_datas << Base64.strict_encode64(binary_data)
-      end
-    else
-      @item.images.each do |image|
-        binary_data = File.read(image.image_url.file.file)
-        gon.images_binary_datas << Base64.strict_encode64(binary_data)
-      end
-    end
   end
 
   def update
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def destroy
-    @item = Item.find(params[:id])
     if @item.destroy
       redirect_to  mypage_index_path
     else
@@ -86,7 +66,6 @@ before_action :payjp_item_limit, only: [:pay, :buy, :done]
   def buy
     @card = Card.find_by(user_id: current_user.id)
     # Cardテーブルからpayjpの顧客IDを検索
-    @item = Item.find(params[:id])
     @user_address = UserAddress.find_by(user_id: current_user.id)
     if @card.blank?
       redirect_to controller: "card", action: "step5"
@@ -106,7 +85,6 @@ before_action :payjp_item_limit, only: [:pay, :buy, :done]
 
   def pay
     @card = Card.find_by(user_id: current_user.id)
-    @item = Item.find(params[:id])
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
     Payjp::Charge.create(
       amount: @item.price,
@@ -118,7 +96,6 @@ before_action :payjp_item_limit, only: [:pay, :buy, :done]
 
   def done
     @card = Card.find_by(user_id: current_user.id)
-    @item = Item.find(params[:id])
     @item.update(buyer_id: current_user.id)
     customer = Payjp::Customer.retrieve(@card.customer_id)
     @default_card_information = customer.cards.retrieve(@card.card_id)
@@ -142,7 +119,7 @@ before_action :payjp_item_limit, only: [:pay, :buy, :done]
       :postageburden_id,
       :shippingday_id,
       :price,
-      images_attributes: [:image_url]).merge(seller_id: current_user.id,)
+      :image).merge(seller_id: current_user.id,)
   end
 
   def page_limit
