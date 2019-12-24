@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 # before_action :set_item
 before_action :authenticate_user!, only: [:new, :create, :buy, :pay, :edit, :update, :destroy, :done]
-  
+before_action :set_item, only: [:show, :edit, :update, :destroy, :buy, :pay, :done]
   require 'payjp'
 
   def index
@@ -33,17 +33,14 @@ before_action :authenticate_user!, only: [:new, :create, :buy, :pay, :edit, :upd
   end
 
   def show
-    @item = Item.find(params[:id])
     @user = User.find(@item.seller_id)
     @items = Item.where(seller_id: @item.seller_id)
   end
 
   def edit
-    @item = Item.find(params[:id])
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to root_path
     else
@@ -52,7 +49,6 @@ before_action :authenticate_user!, only: [:new, :create, :buy, :pay, :edit, :upd
   end
 
   def destroy
-    @item = Item.find(params[:id])
     if @item.destroy
       redirect_to  mypage_index_path
     else
@@ -66,7 +62,6 @@ before_action :authenticate_user!, only: [:new, :create, :buy, :pay, :edit, :upd
   def buy
     @card = Card.find_by(user_id: current_user.id)
     # Cardテーブルからpayjpの顧客IDを検索
-    @item = Item.find(params[:id])
     if @card.blank?
       redirect_to controller: "card", action: "step5"
       #登録された情報が無い場合にカード登録画面に移動
@@ -81,7 +76,6 @@ before_action :authenticate_user!, only: [:new, :create, :buy, :pay, :edit, :upd
 
   def pay
     @card = Card.find_by(user_id: current_user.id)
-    @item = Item.find(params[:id])
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
     Payjp::Charge.create(
       amount: @item.price,
@@ -94,7 +88,6 @@ before_action :authenticate_user!, only: [:new, :create, :buy, :pay, :edit, :upd
 
   def done
     @card = Card.find_by(user_id: current_user.id)
-    @item = Item.find(params[:id])
     customer = Payjp::Customer.retrieve(@card.customer_id)
     @default_card_information = customer.cards.retrieve(@card.card_id)
   end
