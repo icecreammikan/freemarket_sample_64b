@@ -18,7 +18,6 @@ before_action :authenticate_user!, only: [:new, :create, :buy, :pay, :edit, :upd
 
   def new
     @item = Item.new
-    @images = @item.images.build
   end
 
   def create
@@ -29,7 +28,6 @@ before_action :authenticate_user!, only: [:new, :create, :buy, :pay, :edit, :upd
     if @item.save
       redirect_to mypage_index_path
     else
-      @item.images.build
       render :new
     end
   end
@@ -42,30 +40,15 @@ before_action :authenticate_user!, only: [:new, :create, :buy, :pay, :edit, :upd
 
   def edit
     @item = Item.find(params[:id])
-    gon.item = @item
-    gon.images = @item.images
-
-    gon.images_binary_datas = []
-
-    if Rails.env.production?
-      client = Aws::S3::Client.new(
-                             region: 'ap-northeast-1',
-                             access_key_id: Rails.application.credentials.aws[:access_key_id],
-                             secret_access_key: Rails.application.credentials.aws[:secret_access_key],
-                             )
-      @item.images.each do |image|
-        binary_data = client.get_object(bucket: 'freemarket_sample_64b', key: image.image_url.file.path).body.read
-        gon.images_binary_datas << Base64.strict_encode64(binary_data)
-      end
-    else
-      @item.images.each do |image|
-        binary_data = File.read(image.image_url.file.file)
-        gon.images_binary_datas << Base64.strict_encode64(binary_data)
-      end
-    end
   end
 
   def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -134,7 +117,7 @@ before_action :authenticate_user!, only: [:new, :create, :buy, :pay, :edit, :upd
       :postageburden_id,
       :shippingday_id,
       :price,
-      images_attributes: [:image_url]).merge(seller_id: current_user.id,)
+      :image).merge(seller_id: current_user.id,)
   end
 
 end

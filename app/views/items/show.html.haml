@@ -8,13 +8,12 @@
         .product-listing__info__img
           .product-listing__info__img__big
             -if @item.buyer_id.present?
-              = image_tag "#{@item.images[0].image_url}", class:"product-listing__info__img__big", alt:"product-img"
+              = image_tag "#{@item.image}", class:"product-listing__info__img__big", alt:"product-img"
               .buied_item
             - else
-              = image_tag "#{@item.images[0].image_url}", class:"product-listing__info__img__big", alt:"product-img"
+              = image_tag "#{@item.image}", class:"product-listing__info__img__big", alt:"product-img"
           .product-listing__info__img__small
-            - @item.images.each do |image|
-              = image_tag "#{image.image_url}", class:"product-listing__info__img__small__low", alt:"product-img"
+            = image_tag "#{@item.image}", class:"product-listing__info__img__small__low", alt:"product-img"
 
           .product-listing__info__shadow
             %p.product-listing__info__hidden__price ¥#{@item.price}
@@ -169,7 +168,7 @@
       .seller-other-products__else__product
         - @items.last(6).each do |item|
           .seller-other-products__else__product__box
-            = image_tag "#{item.images[0].image_url}", class:"seller-other-products__else__product__box__img", alt:"seller-other-products-product__product__img"
+            = image_tag "#{item.image}", class:"seller-other-products__else__product__box__img", alt:"seller-other-products-product__product__img"
             %p.seller-other-products__else__product__box__name #{item.name}
             %p.seller-other-products__else__product__box__price ¥#{item.price}
     .related-other-products
