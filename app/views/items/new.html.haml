@@ -20,6 +20,12 @@
                   = f.file_field :image, style: "display:none", id:"img-file"
                   %label{for: "img-file"}
                     %i.fas.fa-camera
+              - if @item.errors.any?
+                - if @item.errors[:image]
+                  .error-messages
+                    - @item.errors.full_messages_for(:image).each do |error|
+                      .error-message
+                        画像がありません
           .sell__block__form__name
             .form-group__name
               %label

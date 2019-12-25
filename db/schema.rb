@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 2019_12_24_090852) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
+    t.index ["name"], name: "index_categories_on_name"
+  end
+
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "item_id", null: false
     t.text "image_url", null: false
@@ -42,7 +51,7 @@ ActiveRecord::Schema.define(version: 2019_12_24_090852) do
     t.bigint "postageburden_id", null: false
     t.bigint "shippingday_id", null: false
     t.integer "price", null: false
-    t.integer "profit", null: false
+    t.integer "profit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "image"
