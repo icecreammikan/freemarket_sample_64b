@@ -1,0 +1,37 @@
+.user-sign-up-header
+  .user-sign-up-logo
+    = link_to root_path do
+      = image_tag "fmarket_logo_red.svg", alt: "ロゴマーク", class: "user-sign-up-logo__mark"
+  .user-sign-up-header-right
+    .line-start
+      .line-start__line1
+      .line-start__line2
+    .progress
+      %p.progress__pages 会員情報
+      %p.progress__point.active ●
+    .progress
+      %p.progress__pages.active 電話番号認証
+      %p.progress__point.active ●
+    .progress
+      %p.progress__pages お届け先住所入力
+      %p.progress__point ●
+    .progress
+      %p.progress__pages 支払い方法
+      %p.progress__point ●
+    .progress
+      %p.progress__pages 完了
+      %p.progress__point ●
+.sms-confirmed-main
+  .sms-confirmed-container
+    %h2.sms-confirmed-container__top 電話番号の確認
+    .sms-confirmed-content
+      = form_with(model: @user, url: user_registration_path, local: true, method: :post, class: "sms-confirmed-form") do |f|
+        .sms-confirmed-phonenum
+          %p.sms-confirmed-phonenum__top 認証番号
+          = f.text_field :authentication_number, placeholder: "暗証番号を入力", class: "sms-confirmed-phonenum__input", value: ""
+          %br/
+        %p.sms-confirmed-caution SMSで届いた認証番号を入力してください
+        .sms-confirmed-next
+          = f.submit "認証して完了", class: "sms-confirmed-next__btn"
+          %br/
+= render "sign_up/login_footer"

@@ -1,0 +1,10 @@
+= render "shared/top_page_header"
+- breadcrumb :mypage_index
+.bread  
+  .bread__name
+    =breadcrumbs
+.mypage-index
+  = render "sidebar"
+  = render "mainbox"
+= render "shared/top_page_footer"
+= render "shared/exhibit_logo"

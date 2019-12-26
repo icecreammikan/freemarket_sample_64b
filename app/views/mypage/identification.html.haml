@@ -1,0 +1,63 @@
+= render "shared/top_page_header"
+- breadcrumb :mypage_identification
+.bread  
+  .bread__name
+    =breadcrumbs
+.mypage-index
+  = render "sidebar"
+  .id-header
+  .id-main
+    %main.id-container
+      .id-contents
+        = form_with model:@identification, local:true do |f|
+          %h2.id-contents__chapter 本人情報の登録
+          %section.id-items
+            %form.id-form
+              %p.id-form__p-elements
+              お客さまの本人情報をご登録ください。
+              %br>/
+              登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+            %p.id-form__form-group.text-right
+              =link_to "#", class: "text-right__link" do
+                本人確認書類のアップロードについて
+                = fa_icon 'chevron-right'
+            .id-form__form-group
+              %label.id-form-label お名前
+              %p.identification-item 杉森 笑
+            .id-form__form-group
+              %label.id-form-label お名前カナ
+              %p.identification-item スギモリ エミ
+            .id-form__form-group
+              %label.id-form-label{for: "birthday"} 生年月日
+              %p.identification-item 1985/03/03
+            .id-form__form-group
+              %label.id-form-label{for: "zip_code"} 郵便番号
+              %span.form-arbitrary 任意
+              %input.input-default{name: "zip_code", placeholder: "例）1234567", type: "text", value: ""}/
+            .id-form__form-group
+              %label.id-form-label{for: "prefecture"} 都道府県
+              %span.form-arbitrary 任意
+              .select-wrap
+                %i.icon-arrow-bottom
+                  = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: '----'}, {class: "select-default"}
+            .id-form__form-group
+              %label.id-form-label{for: "city"} 市区町村
+              %span.form-arbitrary 任意
+              %input.input-default{name: "city", placeholder: "例) 大阪市浪速区", type: "text", value: ""}/
+            .id-form__form-group
+              %label.id-form-label{for: "address1_label"} 番地
+              %span.form-arbitrary 任意
+              %input.input-default{name: "address1", placeholder: "例) 難波中2-10-70", type: "text", value: ""}/
+            .id-form__form-group
+              %label.id-form-label{for: "address2_label"} 建物名
+              %span.form-arbitrary 任意
+              %input.input-default{name: "address2", placeholder: "例) 難波パークス１９０１", type: "text", value: ""}/
+            %button.btn-default.btn-red{type: "submit"} 登録する
+            %p.id-form__form-group.text-right
+              =link_to "#", class:"text-right__link" do
+                本人情報の登録について
+                = fa_icon 'chevron-right'
+= render "shared/top_page_footer"
+= render "shared/exhibit_logo"
+
+

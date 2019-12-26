@@ -1,0 +1,8 @@
+.footer
+  = link_to “プライバシーポリシー”, href:"#" class:"footer__menu privacy"
+  = link_to “メルカリ利用規約”, href:"#" class:"footer__menu terms"
+  = link_to “特定商取引に関するん表記”, href:"#" class:"footer__menu notaiton"
+  = link_to root_path, class:"footer__menu logo" do
+    = image_tag "logo_gray.svg", class: "logo__mercari-logo"
+  %p.footer__copymark
+    %small © 2019 Mercari

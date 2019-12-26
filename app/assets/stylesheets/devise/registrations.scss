@@ -1,0 +1,485 @@
+//新規登録のヘッダー
+.user-sign-up-header{
+  top: 0;
+  left: 0;
+  height: 128px;
+  display: flex;
+  justify-content: center;
+  .user-sign-up-logo{
+    display: flex;
+    align-items: center;
+    margin-right: 40px;
+    &__mark{
+      width: 185px;
+      height: 49px;
+      display: inline-block;
+    }
+
+    &__mark:hover{
+      opacity: 0.7;
+    }
+  }
+}
+.user-sign-up-header-right{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  .progress{
+    width: 110px;
+    height: 32px;
+    &__pages{
+      margin: 0;
+      font-size: 12px;
+      color: rgb(136,136,136);
+      font-weight: 400;
+    }
+    &__point{
+      margin: 0;
+      font-size: 12px;
+      color: rgb(204,204,204);
+      font-weight: 400;
+    }
+    .active{
+      font-weight: 600;
+      color: #ea352d;
+      z-index: 1;
+    }
+  }
+}
+
+.line-start{
+  position: absolute;
+  top: 10px;
+  left: 50px;
+  position: relative;
+  &__line1{
+    width: 440px;
+    height: 2px;
+    background-color: rgb(204,204,204);
+    position: absolute;
+    left: 10px;
+    z-index: 0;
+  }
+  &__line2{
+    width: 120px;
+    height: 2px;
+    background-color: #ea352d;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+  &__line3{
+    width: 230px;
+    height: 2px;
+    background-color: #ea352d;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+  &__line4{
+    width: 340px;
+    height: 2px;
+    background-color: #ea352d;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+  &__line5{
+    width: 440px;
+    height: 2px;
+    background-color: #ea352d;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+}
+
+//ユーザー登録画面
+.registration-main{
+  .registration-container{
+    width: 700px;
+    background-color: #fff;
+    margin: 0 auto;
+    &__top{
+      text-align: center;
+      height: 33px;
+      padding: 32px;
+      margin: 0;
+      border-bottom: 0.5px solid #f3f3f3;
+      color: #333;
+    }
+    .registration-contents{
+      padding: 24px 16px 40px;
+      &-form{
+        width: 343px;
+        margin: 0 auto;
+        .registration-items{
+          .info_item{
+            font-size: 14px;
+            font-weight: bold;
+            color: rgb(51,51,51);
+            cursor: default;
+          }
+          .required{
+            font-size: 12px;
+            margin-left: 8px;
+            padding: 2px 4px;
+            background-color: rgb(234,53,45);
+            border-radius: 2px;
+            color: rgb(255,255,255);
+          }
+          .input::-webkit-input-placeholder {
+            font-size: 16px;
+          }
+          .input{
+            width: 309px;
+            height: 28px;
+            margin-top: 8px;
+            padding: 10px 16px 8px;
+            border: 1px solid rgb(204,204,204);
+            border-radius: 4px;
+            font-size: 16px;
+          }
+
+          &__p-element{
+            display: inline-block;
+            margin: 0;
+          }
+        }
+
+        .registration-mailadress{
+          margin-top: 24px;
+        }
+
+        .registration-password{
+          margin-top: 24px;
+
+          &__text{
+            margin-top: 8px;
+            font-size: 14px;
+            color: rgb(136,136,136);
+          }
+
+          &__checkbox{
+            margin-top: 16px;
+            height: 16px;
+            width: 18px;
+            cursor: pointer;
+          }
+
+          &__display{
+            font-size: 14px;
+            color: rgb(51,51,51);
+            cursor: pointer;
+          }
+        }
+
+        .registration-identification{
+          margin-top: 24px;
+
+          &__top-left{
+            font-size: 16px;
+            cursor: text;
+          }
+
+          &__text{
+            font-size: 14px;
+            margin-top: 8px;
+            color: rgb(51,51,51)
+          }
+        }
+        .registration-name{
+          margin-top: 24px;
+          .registration-name__inputbox{
+            display: flex;
+            justify-content: space-between;
+            .input-lastname{
+              height: 28px;
+              width: 131.5px;
+              margin: 8px 4px 0 0;
+              padding: 10px 16px 8px;
+              border-radius: 4px;
+              border: 1px solid rgb(204,204,204);
+              font-size: 16px;
+            }
+            .input-firstname{
+              height: 28px;
+              width: 131.5px;
+              margin-top: 8px;
+              padding: 10px 16px 8px;
+              border-radius: 4px;
+              border: 1px solid rgb(204,204,204);
+              font-size: 16px;
+            }
+          }
+        }
+        .registration-borndate{
+          margin-top: 24px;
+
+          .registration-ymd-block{
+            margin-top: 8px;
+            height: 50px;
+            &__content{
+              width: 76px;
+              display: inline-block;
+              position: relative;
+              select{
+                font-size: 16px;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                width: 100%;
+                height: 48px;
+                border: 1px solid rgb(204,204,204);
+                border-radius: 4px;
+                display: inline-block;
+                padding: 0 10px;
+                text-align: right;
+                background-color: #fff;
+                text-decoration: none;
+                cursor: pointer;
+              }
+              .fas{
+                line-height: 48px;
+                font-size: 24px;
+                color: rgb(136,136,136);
+                position: absolute;
+                right: 10px;
+                top: 0;
+                cursor: pointer;
+              }
+            }
+          }
+
+          &__caution{
+            margin: 8px 0 40px;
+            font-size: 14px;
+            color: rgb(136,136,136);
+          }
+        }
+
+        .registration-next{
+          margin-top: 24px;
+          font-size: 14px;
+          color: rgb(51,51,51);
+          text-align: center;
+
+          .registration-nextbtn-top{
+
+            &__terms{
+              text-decoration: none;
+              color: rgb(0,153,232);
+            }
+
+            &__terms:hover{
+              opacity: 0.7;
+              border-bottom: 1px solid rgba(0,153,232,0.7);
+            }
+          }
+
+          &__btn{
+            display: inline-block;
+            margin-top: 24px;
+            height: 50px;
+            width: 344px;
+            color: rgb(255,255,255);
+            background-color: rgb(234,53,45);
+            border: 1px solid rgb(234,53,45);
+            font-size: 14px;
+            cursor: pointer;
+          }
+        }
+
+        .registration-registor{
+          height: 18px;
+          margin-top: 24px;
+          text-align: right;
+          font-size: 14px;
+          line-height: 18px;
+
+          &__terms{
+            text-decoration: none;
+            color: rgb(0,153,232);
+
+            .fas{
+              font-size: 16px;
+            }
+          }
+
+          &__terms:hover{
+            opacity: 0.7;
+            border-bottom: 0.7px solid  rgba(0,153,232,0.7);
+          }
+        }
+      }
+    }
+  }
+}
+
+
+//認証番号の入力画面
+.sms-confirmed-main{
+  .sms-confirmed-container{
+    width: 700px;
+    background-color: #fff;
+    margin: 0 auto;
+    &__top{
+      text-align: center;
+      height: 33px;
+      padding: 32px;
+      margin: 0;
+      border-bottom: 0.5px solid #f3f3f3;
+      color: #333;
+    }
+
+    .sms-confirmed-content{
+      padding: 24px 16px 40px;
+      .sms-confirmed-form{
+        width: 343px;
+        margin: 0 auto;
+        .sms-confirmed-phonenum{
+
+          &__input::-webkit-input-placeholder {
+            font-size: 16px;
+          }
+
+          &__top{
+            display: inline-block;
+            margin: 0;
+            font-size: 14px;
+            font-weight: bold;
+            color: rgb(51,51,51);
+            cursor: default;
+          }
+
+          &__input{
+            width: 309px;
+            height: 28px;
+            margin-top: 8px;
+            padding: 10px 16px 8px;
+            border: 1px solid rgb(204,204,204);
+            border-radius: 4px;
+            font-size: 16px;
+          }
+        }
+
+        .sms-confirmed-caution{
+          display: inline-block;
+          margin: 0;
+          margin-top: 16px;
+          font-size: 14px;
+        }
+
+        .sms-confirmed-next{
+          margin-top: 24px;
+          font-size: 14px;
+          color: rgb(51,51,51);
+          text-align: center;
+
+          &__btn{
+            display: inline-block;
+            margin-top: 24px;
+            height: 50px;
+            width: 344px;
+            color: rgb(255,255,255);
+            background-color: rgb(234,53,45);
+            border: 1px solid rgb(234,53,45);
+            font-size: 14px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+//電話番号送信画面
+.sms-confirmation-main{
+  width: 700px;
+  background-color: #fff;
+  margin: 0 auto;
+
+  .sms-confirmation-container{
+    &__top{
+      text-align: center;
+      height: 33px;
+      padding: 32px;
+      margin: 0;
+      border-bottom: 0.5px solid #f3f3f3;
+      color: #333;
+    }
+    .sms-confirmation-content{
+      padding: 24px 16px 40px;
+      .sms-confirmation-form{
+        width: 343px;
+        margin: 0 auto;
+        .sms-confirmation-phonenum{
+          &__top{
+            display: inline-block;
+            margin: 0;
+            font-size: 14px;
+            font-weight: bold;
+            color: rgb(51,51,51);
+          }
+          &__input{
+            border: 1px solid rgb(204,204,204);
+            border-radius: 4px;
+            font-size: 16px;
+            width: 100%;
+            height: 48px;
+            margin-top: 8px;
+          }
+          &__input::-webkit-input-placeholder {
+            font-size: 16px;
+            padding: 10px 16px 8px;
+          }
+        }
+
+        .sms-confirmation-caution{
+          margin-top: 16px;
+          font-size: 14px;
+        }
+
+        .sms-confirmation-next{
+          input{
+            display: inline-block;
+            margin-top: 24px;
+            height: 50px;
+            width: 344px;
+            color: rgb(255,255,255);
+            background-color: rgb(234,53,45);
+            border: 1px solid rgb(234,53,45);
+            font-size: 14px;
+            cursor: pointer;
+          }
+          &__btn{
+            margin-top: 24px;
+            font-size: 14px;
+            color: rgb(51,51,51);
+            text-align: center;
+          }
+        }
+        .sms-confirmation-registor{
+          height: 18px;
+          margin-top: 24px;
+          text-align: right;
+          font-size: 14px;
+          line-height: 18px;
+          &__link{
+            text-decoration: none;
+            font-size: 14px;
+            color: rgb(0,153,232);
+          }
+          &__link:hover{
+            opacity: 0.7;
+            border-bottom: 0.7px solid  rgba(0,153,232,0.7);
+            .fas{
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

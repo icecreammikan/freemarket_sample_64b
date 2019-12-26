@@ -1,0 +1,151 @@
+.mypage-container{
+  margin: 0 auto 0;
+  width: 1020px;
+}
+.myapage-content{
+  width: 700px;
+}
+.mypage-user-icon {
+  height: 200px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  padding-top:50px;
+  background-image:url('cookie0I9A9685_TP_V.jpg');
+  &__img{
+    display: block;
+    color: #333;
+  }
+}
+.mypage-fig {
+  overflow: hidden;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+.mypage__bold {
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 600;
+  color: black;
+}
+.mypage-number {
+  margin: 8px 0 0;
+  font-size: 0;
+  color: black;
+  .mypage-evaldisplay{
+    display: inline-block;
+    font-size: 14px;
+    margin-left:16px;
+  }
+}
+
+
+
+
+
+.mypage-tabarea1{
+  text-align: center;
+  .mypage-tabs__1{
+  background-color: white;
+  border-top: 3px solid red;
+  }
+}
+
+.mypage-tabbody1{
+  background-color: white;
+  color:#cccccc;
+  height:300px;
+  .mypage-tabbody__noticelist__bold{
+    padding:150px;
+  }
+  .mypage-tabbody__todolist{
+  display:none;
+  }
+}
+
+.mypage-tabarea2{
+  text-align: center;
+  margin-top:40px;
+  .mypage-tabs__1{
+    background-color: white;
+    border-top: 3px solid red;
+  }
+}
+.mypage-tabbody2{
+  background-color: white;
+  color:#cccccc;
+  height:300px;
+  .mypage-tabbody__trading__bold{
+    padding:150px;
+  }
+  .mypage-tabbody__past-trading{
+  display:none;
+  }
+}
+.tab-content {
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+}
+
+/* 購入した商品 */
+
+.mypage-tab-head {
+  padding: 0 4%;
+  background: #fafafa;
+  font-size: 16px;
+  line-height: 72px;
+  margin: 0;
+}
+
+/* 使い回し */
+
+.mypage-tabs {
+  border: 0;
+  background: #eee;
+  font-size: 0px;
+
+  li {
+    width: 50%;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    list-style: none;
+  }
+
+  a {
+    position: relative;
+    display: block;
+    color: #333;
+    font-size: 16px;
+    line-height: 72px;
+  }
+}
+
+.mypage-item-not-found {
+  padding: 160px 0 60px;
+  background-repeat: no-repeat;
+  background-position: center 40px;
+  background-size: 78px 85px;
+  text-align: center;
+  font-size: 16px;
+  color: #ccc;
+}
+
+@media screen and (max-width:1067px) {
+  .mypage-container{
+    width:700px;
+  }
+  .myapage-content{
+    width: 700px;
+    margin:0 auto;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .myapage-content{
+    width: 100vw;
+  }
+}

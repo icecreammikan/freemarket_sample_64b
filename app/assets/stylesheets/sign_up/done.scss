@@ -1,0 +1,47 @@
+
+.done-main{
+  width: 700px;
+  background-color: #fff;
+  margin: 0 auto;
+
+  .done-container{
+
+    &__top{
+      text-align: center;
+      height: 33px;
+      padding: 32px;
+      margin: 0;
+      border-bottom: 0.5px solid #f3f3f3;
+      color: #333;
+    }
+    .done-content{
+      text-align: center;
+      color: #333;
+      font-size: 18px;
+      margin-top: 40px;
+    }
+    .done-nextbtn{
+      padding: 24px 16px 40px;
+
+      .done-form{
+        width: 343px;
+        text-align: center;
+
+        .done-next{
+
+          &__btn{
+            display: inline-block;
+            margin-top: 24px;
+            height: 50px;
+            width: 344px;
+            color: rgb(255,255,255);
+            background-color: rgb(234,53,45);
+            border: 1px solid rgb(234,53,45);
+            font-size: 14px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

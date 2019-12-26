@@ -1,0 +1,92 @@
+.banner
+  .banner__block
+    .banner__block__left
+      %h2.banner__block__left__app スマホでかんたんフリマアプリ
+      %p.banner__block__left__text 今すぐ無料ダウンロード!
+      .banner__block__left__icon
+        =image_tag "logo_red.svg", class:"mercari__icon", alt: "Mercari"
+        %ul.banner__app
+          %li.banner__app__icon
+            = link_to "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", class: "_blank" do
+              =image_tag "images_apple.png", class:"app__icon", height: "40", width: "133"
+          %li.banner__app__icon
+            = link_to "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", class: "_blank" do
+              =image_tag "google-1-320x197.png", class:"google__icon", alt: "Mercari",height: "40", width: "133"
+    .banner__block__right
+      %figure
+        =image_tag "download_content_pc.png", class:"footer-bottom__img", alt: "Mercari",height: "250", width: "270"
+.mypage-footer
+  .footer-top
+    .footer-about.footer-cell
+      %h2.footer-cell__title メルカリについて
+      %ul.about-blocks.cell-blocks
+        %li.about-blocks__list.cell-blocks__block
+          = link_to "会社概要(運営会社)", "https://yahoo.co.jp", class: "blocks-list-link"
+        %li.about-blocks__list.cell-blocks__block
+          = link_to "採用情報", "https://yahoo.co.jp", class: "blocks-list-link"
+        %li.about-blocks__list.cell-blocks__block
+          = link_to "プレスリリース", "https://yahoo.co.jp", class: "blocks-list-link"
+        %li.about-blocks__list.cell-blocks__block
+          = link_to "公式ブログ", "https://yahoo.co.jp", class: "blocks-list-link"
+        %li.about-blocks__list.cell-blocks__block
+          = link_to "メルカリロゴ利用ガイドライン", "https://yahoo.co.jp", class: "blocks-list-link"
+        %a.about-blocks__icon{href: "https://twitter.com/mercari_jp", target: "_blank"}
+          %svg.sc-bRBYWo.sc-erNlkL.jruhZz{"aria-hidden" => "true", height: "26", viewbox: "0 0 21 16", width: "31"}
+            %path{d: "M6.343 15.969c7.61 0 11.773-6.134 11.773-11.444 0-.172 0-.345-.008-.517a8.303 8.303 0 0 0 2.066-2.086 8.576 8.576 0 0 1-2.38.635A4.07 4.07 0 0 0 19.616.329a8.377 8.377 0 0 1-2.63.973 4.186 4.186 0 0 0-3.019-1.27c-2.283 0-4.14 1.803-4.14 4.023 0 .314.041.62.106.918A11.866 11.866 0 0 1 1.404.769a3.936 3.936 0 0 0-.557 2.023c0 1.396.735 2.628 1.84 3.35a4.278 4.278 0 0 1-1.872-.503v.055c0 1.945 1.428 3.577 3.317 3.945-.347.094-.71.141-1.09.141-.266 0-.524-.023-.774-.07.524 1.6 2.057 2.76 3.865 2.792a8.452 8.452 0 0 1-5.14 1.725 8.19 8.19 0 0 1-.985-.054 12.02 12.02 0 0 0 6.335 1.796", :fill => "currentColor", "fill-rule" => "evenodd"}
+        %a.about-blocks__icon{href: "https://www.facebook.com/mercarijp", target:"_blank"}
+          %svg.sc-kEYyzF.sc-lnmtFM.cyauNs{"aria-hidden" => "true", height: "26", viewbox: "0 0 16 16", width: "26"}
+            %path{d: "M15.111 0H.89A.889.889 0 0 0 0 .889V15.11c0 .491.398.889.889.889h7.658V9.813H6.469V7.391h2.078V5.613c0-2.066 1.262-3.193 3.11-3.193.623-.002 1.244.03 1.863.096v2.15h-1.276c-1.002 0-1.197.478-1.197 1.178v1.543h2.397l-.31 2.422h-2.087V16h4.064c.491 0 .889-.398.889-.889V.89A.889.889 0 0 0 15.111 0z", fill: "currentColor", "fill-rule" => "evenodd"}
+    .footer-guide.footer-cell
+      %h2.footer-cell__title ヘルプ&amp;ガイド
+      %ul.guide-blocks.cell-blocks
+        %li.guide-blocks__list.cell-blocks__block
+          = link_to "メルカリガイド", "https://yahoo.co.jp", class: "blocks-list-link"
+        %li.guide-blocks__list.cell-blocks__block
+          = link_to "らくらくメルカリ便", "https://yahoo.co.jp", class: "blocks-list-link"
+        %li.guide-blocks__list.cell-blocks__block
+          = link_to "ゆうゆうメルカリ便", "https://yahoo.co.jp", class: "blocks-list-link"
+        %li.guide-blocks__list.cell-blocks__block
+          = link_to "大型メルカリ便", "https://yahoo.co.jp", class: "blocks-list-link"
+        %li.guide-blocks__list.cell-blocks__block
+          = link_to "車体取引ガイド", "https://yahoo.co.jp", class: "blocks-list-link"
+        %li.guide-blocks__list.cell-blocks__block
+          = link_to "メルカリあんしん・あんぜん宣言！", "https://yahoo.co.jp", class: "blocks-list-link"
+        %li.guide-blocks__list.cell-blocks__block
+          = link_to "偽ブランド品撲滅への取り組み", "https://yahoo.co.jp", class: "blocks-list-link"
+        %li.guide-blocks__list.cell-blocks__block
+          = link_to "メルカリボックス", "https://yahoo.co.jp", class: "blocks-list-link"
+    .footer-service.footer-cell
+      %h2.footer-cell__title プライバシーと利用規約
+      .footer-service-blocks
+        .footer-service-blocks__left
+          %ul.service-blocks.cell-blocks
+            %li.service-blocks__list.cell-blocks__block
+              = link_to "プライバシーポリシー", "https://yahoo.co.jp", class: "blocks-list-link"
+            %li.service-blocks__list.cell-blocks__block
+              = link_to "メルカリ利用規約", "https://yahoo.co.jp", class: "blocks-list-link"
+            %li.service-blocks__list.cell-blocks__block
+              = link_to "あんしんスマホサポート制度に関する利用規約", "https://yahoo.co.jp", class: "blocks-list-link"
+            %li.service-blocks__list.cell-blocks__block
+              = link_to "コンプライアンスポリシー", "https://yahoo.co.jp", class: "blocks-list-link"
+        .footer-service-blocks__right
+          %ul.service-blocks.cell-blocks
+            %li.service-blocks__list.cell-blocks__block
+              = link_to "個人データの安全管理に係る基本方針", "https://yahoo.co.jp", class: "blocks-list-link"
+            %li.service-blocks__list.cell-blocks__block
+              = link_to "特定商取引に関する表記", "https://yahoo.co.jp", class: "blocks-list-link"
+            %li.service-blocks__list.cell-blocks__block
+              = link_to "資金決済法に基づく表示", "https://yahoo.co.jp", class: "blocks-list-link"
+            %li.service-blocks__list.cell-blocks__block
+              = link_to "法令遵守と犯罪抑止のために", "https://yahoo.co.jp", class: "blocks-list-link"
+    .footer-country.footer-cell
+      %h2.footer-cell__title 国
+      %ul.country-blocks.cell-blocks
+        %li.country-blocks__list.cell-blocks__block
+          = link_to "日本", "https://yahoo.co.jp", class: "blocks-list-link"
+        %li.country-blocks__list.cell-blocks__block
+          = link_to "United States", "https://yahoo.co.jp", class: "blocks-list-link"
+  .footer-bottom
+    .footer-bottom__block
+      .lower-logo
+        = image_tag 'fmarket_logo_white.svg', class:'footer-bottom__img2'
+    .footer-bottom__inc © Mercari, Inc.

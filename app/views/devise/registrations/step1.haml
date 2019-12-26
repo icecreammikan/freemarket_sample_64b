@@ -1,0 +1,162 @@
+%body.registration-body.user-sign-up-body
+  .registration-header.user-sign-up-header
+    .registration-logo.user-sign-up-logo
+      = link_to root_path do
+        = image_tag "fmarket_logo_red.svg", alt: "ロゴマーク", class: "registration-logo__mark user-sign-up-logo__mark"
+    .registration-header-right.user-sign-up-header-right
+      .line-start
+        .line-start__line1
+      .progress
+        %p.progress__pages.active 会員情報
+        %p.progress__point.active ●
+      .progress
+        %p.progress__pages 電話番号認証
+        %p.progress__point ●
+      .progress
+        %p.progress__pages お届け先住所入力
+        %p.progress__point ●
+      .progress
+        %p.progress__pages 支払い方法
+        %p.progress__point ●
+      .progress
+        %p.progress__pages 完了
+        %p.progress__point ●
+
+  .registration-main
+    .registration-container
+      %h2.registration-container__top  会員情報入力
+      .registration-contents
+        = form_with(model: @user, url: users_sign_up_sms_confirmation_path, local: true, method: :get, class: "registration-contents-form") do |f|
+          .registration-nickname.registration-items
+            %p.registration-nickname__top-left.info_item.registration-items__p-element ニックネーム
+            %p.registration-nickname__top-right.required.registration-items__p-element  必須
+            %br/
+            = f.text_field :nickname,  placeholder: "例）メルカリ太郎", class:"registration-nickname__input input"
+            %br/
+          - if @user.errors.any?
+            - if @user.errors[:nickname]
+              .error-messages
+                - @user.errors.full_messages_for(:nickname).each do |error|
+                  .error-message
+                    = error
+          .registration-mailadress.registration-items
+            %p.registration-mailadress__top-left.info_item.registration-items__p-element メールアドレス
+            %p.registration-mailadress__top-right.required.registration-items__p-element 必須
+            %br/
+            = f.email_field :email,  placeholder: "PC・携帯どちらでも可", class:"registration-mailadress__input input"
+            %br/
+          - if @user.errors.any?
+            - if @user.errors[:email]
+              .error-message
+                - @user.errors.full_messages_for(:email).each do |error|
+                  .error-message
+                    = error
+          .registration-password.registration-items
+            %p.registration-password__top-left.info_item.registration-items__p-element パスワード
+            %p.registration-password__top-right.required.registration-items__p-element 必須
+            %br/
+            = f.password_field :password,  placeholder: "6文字以上", class:"input", id: "registration-password__input"
+            %br/
+            %p.registration-password__text.registration-items__p-element ※英字と数字の両方を含めて設定してください
+            %br/
+            %input#password_checkbox.registration-password__checkbox{:type => "checkbox", :value => "1"}/
+            %p.registration-password__display.registration-items__p-element パスワードを表示する
+          - if @user.errors.any?
+            - if @user.errors[:password]
+              .error-message
+                - @user.errors.full_messages_for(:password).each do |error|
+                  .error-message
+                    = error
+          .registration-identification.registration-items
+            %p.registration-identification__top-left.info_item.registration-items__p-element 本人確認
+            %p.registration-identification__text.registration-items__p-element 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+          .registration-name.registration-items
+            %p.registration-name__top-left.info_item.registration-items__p-element お名前(全角)
+            %p.registration-name__top-right.required.registration-items__p-element 必須
+            %br/
+            .registration-name__inputbox
+              = f.text_field :last_name, value:"", placeholder:"例)山田", class:"input-lastname"
+              = f.text_field :first_name, value:"", placeholder:"例)彩", class: "input-firstname"
+          - if @user.errors.any?
+            - if @user.errors[:last_name]
+              .error-message
+                - @user.errors.full_messages_for(:last_name).each do |error|
+                  .error-message
+                    = error
+          - if @user.errors.any?
+            - if @user.errors[:first_name]
+              .error-message
+                - @user.errors.full_messages_for(:first_name).each do |error|
+                  .error-message
+                    = error
+          .registration-name.registration-items
+            %p.registration-name__top-left.info_item.registration-items__p-element お名前カナ(全角)
+            %p.registration-name__top-right.required.registration-items__p-element 必須
+            %br/
+            .registration-name__inputbox
+              = f.text_field :last_name_kana, value:"", placeholder:"例)ヤマダ", class:"input-lastname"
+              = f.text_field :first_name_kana, value:"", placeholder:"例)アヤ", class:"input-firstname"
+          - if @user.errors.any?
+            - if @user.errors[:last_name_kana]
+              .error-message
+                - @user.errors.full_messages_for(:last_name_kana).each do |error|
+                  .error-message
+                    = error
+          - if @user.errors.any?
+            - if @user.errors[:first_name_kana]
+              .error-message
+                - @user.errors.full_messages_for(:first_name_kana).each do |error|
+                  .error-message
+                    = error
+          .registration-borndate.registration-items
+            %p.registration-borndate__top-left.info_item.registration-items__p-element 生年月日
+            %p.registration-borndate__top-right.required.registration-items__p-element 必須
+            %br/
+            .registration-ymd-block
+              .registration-ymd-block__content
+                = f.collection_select :birthyear_id, Birthyear.all, :id, :name, include_blank: '--', class: 'registration-ymd-block__content__select year'
+                %i.fas.fa-angle-down.fa-large
+              %p.registration-ymd-block__ymd.registration-items__p-element 年
+              .registration-ymd-block__content
+                = f.collection_select :birthmonth_id, Birthmonth.all, :id, :name, include_blank: '--', class: 'registration-ymd-block__content__select month'
+                %i.fas.fa-angle-down.fa-large
+              %p.registration-ymd-block__ymd.registration-items__p-element 月
+              .registration-ymd-block__content
+                = f.select :birthday, options_for_select(1..31), prompt: "--", class: 'registration-ymd-block__content__select day'
+                %i.fas.fa-angle-down.fa-large
+              %p.registration-ymd-block__ymd.registration-items__p-element 日
+            - if @user.errors.any?
+              - if @user.errors[:birthyear_id]
+                .error-message
+                  - @user.errors.full_messages_for(:birthyear_id).each do |error|
+                    .error-message
+                      = error
+            - if @user.errors.any?
+              - if @user.errors[:birthmonth_id]
+                .error-message
+                  - @user.errors.full_messages_for(:birthmonth_id).each do |error|
+                    .error-message
+                      = error
+            - if @user.errors.any?
+              - if @user.errors[:birthday]
+                .error-message
+                  - @user.errors.full_messages_for(:birthday).each do |error|
+                    .error-message
+                      = error
+            %p.registration-borndate__caution.registration-items__p-element ※本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+          / https://liapoc.com/recaptcha.html　ロボット認証の導入方法
+          .registration-robot.registration-items
+            = image_tag("https://i.gyazo.com/ce5541bb0a64b4d3a55f24edb0f9b140.png")
+          .registration-next.registration-items
+            %p.registration-nextbtn-top.registration-items__p-element
+              「次へ進む」のボタンを押すことにより、
+              %a{:href => "#"}> 利用規約
+              に同意したものとみなします
+            = f.submit "次へ進む", class: "registration-next__btn btn"
+            %br/
+          .registration-registor.registration-items
+            %a{:href => "#"}
+              本人情報の登録について
+              %i.fas.fa-angle-right.fa-large
+
+    = render "sign_up/login_footer"

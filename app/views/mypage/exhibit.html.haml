@@ -1,0 +1,27 @@
+= render "shared/top_page_header"
+.mypage-exhibit
+  = render "sidebar"
+  %section.mypage-tabarea1
+    %h2.mypage-tab-head 購入した商品
+    %ul.exhibit-mypage-tabs
+      %li.active
+        =link_to '出品中', "#", class:"mypage-tabs__1"
+      %li.active
+        =link_to "取引中", "#",class:"mypage-tabs__2"
+      %li.active
+        =link_to "売却済", "#",class:"mypage-tabs__3"
+    .mypage-tabbody1
+      %ul.mypage-tabbody__noticelist
+        %li.mypage-tabbody__noticelist__bold 出品中の商品はありません
+      %ul.mypage-tabbody__todolist
+        %li.mypage-tabbody__todolist__bold 取引中の商品はありません
+      %ul.mypage-tabbody__todolist
+        %li.mypage-tabbody__todolist__bold 売却済みの商品はありません
+    %ul.mypage-exhibit__box
+      %li.mypage-exhibit__box__a
+        =link_to "", class:"" do
+          %i.fas.fa-chevron-left.fa-large
+      %li.mypage-exhibit__box__a
+        =link_to "", class:"" do
+          %i.fas.fa-chevron-right.fa-large
+= render "shared/top_page_footer"

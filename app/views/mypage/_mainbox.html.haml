@@ -1,0 +1,41 @@
+%main.mypage-container
+  .myapage-content
+    .mypage-user-icon
+      =link_to "mypage-user-icon__link"do
+        %figure.mypage-fig
+          = image_tag "#{@user.icon}", class:"mypage-user-icon__img", alt:"アイコン",size: "60x60"
+        %h2.mypage__bold #{@user.nickname}
+        .mypage-number
+          .mypage-evaldisplay
+            評価
+            %span.mypage__bold 50
+          .mypage-evaldisplay
+            出品数
+            %span.mypage__bold 100
+    %section.mypage-tabarea1
+      %ul.mypage-tabs
+        %li.active
+          %h3
+            =link_to 'お知らせ', "#", class:"mypage-tabs__1"
+        %li.active
+          %h3
+            =link_to "やることリスト", "#",class:"mypage-tabs__2"
+      .mypage-tabbody1
+        %ul.mypage-tabbody__noticelist
+          %li.mypage-tabbody__noticelist__bold お知らせリスト
+        %ul.mypage-tabbody__todolist
+          %li.mypage-tabbody__todolist__bold 現在やることはありません
+    %section.mypage-tabarea2
+      %h2.mypage-tab-head 購入した商品
+      %ul.mypage-tabs
+        %li.active
+          %h3
+            =link_to '取引中', "#", class:"mypage-tabs__1"
+        %li.active
+          %h3
+            =link_to "過去の取引", "#",class:"mypage-tabs__2"
+      .mypage-tabbody2
+        %ul.mypage-tabbody__trading
+          %li.mypage-tabbody__trading__bold 取引中の商品がありません
+        %ul.mypage-tabbody__past-trading
+          %li.mypage-tabbody__past-trading__bold 過去に取引した商品がありません

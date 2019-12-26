@@ -1,0 +1,195 @@
+.banner{
+  background:image-url("cookie0I9A9685_TP_V.jpg");
+  background-position: center;
+  background-size: cover;
+  .banner__block{
+    width: 750px;
+    height: 260px;
+    overflow: hidden;
+    margin: 0 auto;
+    display: flex;
+    &__left{
+      &__app{
+        margin-top: 50px;
+        margin-bottom: 0px;
+        display: flex;
+        list-style: none;
+        padding-left: 15px;
+      }
+      &__text{
+        font-size: 34px;
+        font-weight: bold;
+        margin: 0 0 5px 0;
+        width: 130%;
+      }
+      &__icon{
+        display: flex;
+        margin-top:10px;
+      }
+    }
+  }
+}
+
+
+.mercari__icon{
+  height: 85px;
+}
+.banner__app{
+  display: flex;
+  margin:30px;
+}
+
+// .banner{
+//   position: relative;
+//   &__app{
+//     display: flex;
+//     list-style: none;
+//     padding-left: 15px;
+//     &__icon{
+//       margin-top:10px;
+//     }
+//     &__phon{
+//       position: absolute;
+//       bottom:0px;
+//       right:300px
+//     }
+//   }
+// }
+
+.sc-bRBYWo.sc-erNlkL.jruhZz{
+  margin: 30px 10px 10px 1px;
+}
+.sc-kEYyzF.sc-lnmtFM.cyauNs{
+  margin: 30px 10px 10px 1px;
+}
+
+.google__icon{
+  margin-left:10px;
+}
+
+.mypage-footer{
+  background-color: rgb(34, 34, 34);
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  padding: 0px 20px 10px;
+  font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+}
+.footer-top{
+  width: 1020px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+.footer-cell{
+  margin-top: 18px;
+  padding-right: 20px;
+  &__title{
+    font-size: 16px;
+    font-weight: 700;
+  }
+}
+.cell-blocks__block{
+  margin-top: 16px;
+}
+.blocks-list-link{
+  color: rgb(155,155,155);
+  font-weight: 500;
+}
+.footer-about{
+  width: 20%;
+  &__icon{
+    padding: 20px 10px 0 0;
+    display: inline-block;
+  }
+}
+
+.sc-bRBYWo{
+  color: #FFF;
+}
+.sc-kEYyzF{
+  color: #fff;
+}
+.footer-guide{
+  width: 23%;
+}
+.footer-service{
+  width: 42%;
+}
+.footer-service-blocks{
+  display: flex;
+  &__left{
+    width: 50%;
+    padding-right: 10px;
+  }
+  &__right{
+    width: 50%;
+    padding-left: 10px;
+  }
+}
+
+.footer-bottom{
+  width: 1020px;
+  margin: 0 auto;
+}
+.lower-logo {
+  line-height: 50px;
+  text-align: left;
+}
+.footer-bottom__img2{
+  height: 55px;
+}
+.footer-country{
+  width: auto;
+}
+.footer-bottom__inc{
+  text-align: center;
+}
+
+@media screen and (max-width: 1068px) {
+  .footer-top{
+    flex-wrap: wrap;
+    justify-content: left;
+    width: 700px;
+  }
+  .footer-cell{
+    width: 50%;
+  }
+  .footer-service{
+    width: 100%;
+  }
+  .footer-bottom{
+    margin-top: 50px;
+    &__block{
+      margin: 0 auto;
+      text-align: left;
+      width: 700px;
+    }
+    &__inc{
+      text-align: center;
+      }
+    }
+  }
+
+@media screen and (max-width: 767px) {
+  .footer-top{
+    flex-wrap: wrap;
+    justify-content: left;
+    width: 100%;
+  }
+  .footer-cell{
+    width: 50%;
+  }
+  .footer-service{
+    width: 100%;
+  }
+  .footer-bottom{
+    margin-top: 50px;
+    &__block{
+      margin: 0 auto;
+      width: 100%;
+    }
+    &__inc{
+      margin: 0;
+    }
+  }
+}

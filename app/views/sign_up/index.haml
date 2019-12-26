@@ -1,0 +1,21 @@
+.user-sign-up-header
+  .user-sign-up-header-logo
+    = link_to root_path do
+      = image_tag "fmarket_logo_red.svg", alt: "ロゴマーク", class: "user-sign-up-header-logo__mark"
+.sign-up-main
+  .sign-up-container
+    %h2.sign-up-container__top 新規会員登録
+    %ul.sign-up-content
+      %li.sign-up-content__menu.mail
+        = link_to users_sign_up_registration_path do
+          メールアドレスで登録する
+          %i.far.fa-envelope.fa-large
+      %li.sign-up-content__menu.facebook
+        = link_to user_facebook_omniauth_authorize_path, method: :post do
+          %i.fab.fa-facebook-square.fa-large
+          Facebookで登録する
+      %li.sign-up-content__menu.google
+        = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class:"googletext" do
+          Googleで登録する
+          %i.fab.fa-google.fa-large
+= render "login_footer"

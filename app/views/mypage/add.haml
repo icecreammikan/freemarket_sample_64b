@@ -1,0 +1,43 @@
+= render "shared/top_page_header"
+.mypage-index
+  = render "sidebar"
+  .payment-main
+    .payment-container
+      %h2.payment-container__top お支払い方法
+      .payment-contents
+        = form_with id: "card_form", url: "/card", method: :post, local: true, class: "payment-contents-form" do |f|
+          .payment-cardnum.payment-items
+            %p.payment-cardnum__top-left.info_item カード番号
+            %p.payment-cardnum__top-right.required 必須
+            %br/
+            = f.text_field :number, class: "payment-cardnum__input input",  placeholder: "半角英数のみ",id: "card_number"
+            %br/
+            = image_tag "creditcard.png", class: "payment-cardnum__creditimg", alt: "クレジットカード"
+          .payment-expiration-date.payment-items
+            %p.payment-expiration-date__top-left.info_item 有効期限
+            %p.payment-expiration-date__top-right.required 必須
+            %br/
+            .ymd-block
+              .ymd-block__cards
+                = f.select :exp_month,[["01"], ["02"], ["03"], ["04"], ["05"], ["06"], ["07"], ["08"], ["09"], ["10"], ["11"], ["12"]], include_blank: '--', id: "exp_month"
+                %i.fas.fa-angle-down.fa-large
+              %p.ymd-block__ymd 月
+              .ymd-block__cards
+                = f.select :exp_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]], include_blank: '--', id: "exp_year"
+                %i.fas.fa-angle-down.fa-large
+              %p.ymd-block__ymd 年
+          .payment-securitycode.payment-items
+            %p.payment-securitycode__top-left.info_item セキュリティコード
+            %p.payment-securitycode__top-right.required 必須
+            %br/
+            = f.text_field :cvc, class: "payment-securitycode__input input", placeholder: "カード背面4桁もしくは3桁の番号", id: "card_cvc"
+            %br/
+          .payment-register.payment-items
+            = link_to href:"#" do
+              %i.fas.fa-question-circle>
+              カード裏面の番号とは？
+          .payment-next.payment-items
+            = f.submit "次へ進む", class:"payment-next__btn",id: "token_submit"
+            %br/
+= render "shared/top_page_footer"
+= render "shared/exhibit_logo"

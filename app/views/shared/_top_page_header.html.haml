@@ -1,0 +1,38 @@
+%header
+  .header-box-top
+    .header-upper
+      .header-upper-left
+        .upper-logo
+          =link_to root_path do
+            = image_tag 'fmarket_logo_red.svg', class:'mercari-icon'
+      .header-upper-right
+        %input{type: 'text', placeholder: "何かお探しですか？", class:"search-bar"}
+        #sbtn{type: "submit", class:"search-bar-submit"}
+          = fa_icon 'search'
+    .header-lower
+      .header-lower-left
+        = fa_icon 'list'
+        %span.category-chapter カテゴリーから探す
+        = fa_icon 'tags'
+        %span.brand-chapter ブランドから探す
+      .header-lower-right
+        - if user_signed_in?
+          .header-lower-right__in
+            =link_to "#", class:"li-heart" do
+              = fa_icon 'heart heart-click fa-lg'
+              %h2.good-chapter.fa-heart-click いいね！一覧
+            =link_to "#", class:"li-bell" do
+              = fa_icon 'bell bell-click fa-lg'
+              %h2.notification-chapter.fa-bell-click お知らせ
+            =link_to "#", class:"li-check" do
+              = fa_icon 'check check-click fa-lg'
+              %h2.todo-chapter.fa-check-click やることリスト
+            =link_to mypage_index_path, class:"li-user-circle" do
+              = image_tag "#{current_user.icon}",class:"li-user-circle__img"
+              %h2.mypage-chapter.fa-user-circle-click マイページ
+        - else
+          .header-lower-right__out
+            =link_to sign_up_index_path, class:"li-check" do
+              %span.header-lower-right__out__sign_up 新規会員登録
+            =link_to new_user_session_path, class:"li-user-circle",method: :new do
+              %span.header-lower-right__out__sign_in ログイン

@@ -1,0 +1,38 @@
+ja:
+  attributes:
+    nickname: ニックネーム
+    email: メールアドレス
+    password: パスワード
+    password_confirmation: パスワード (確認) 
+    last_name: 姓
+    first_name: 名
+    last_name_kana: 姓カナ
+    first_name_kana: 名カナ
+    birthyear_id: 年
+    birthmonth_id: 月
+    birthday: 日
+    phone_number: 電話番号
+    authentication_number: 認証番号
+    a_last_name: 姓
+    a_first_name: 名
+    a_last_name_kana: 姓カナ
+    a_first_name_kana: 名カナ
+    postcode: 郵便番号
+    prefecture_id: 県名
+    city: 市
+    address: 番地
+    send_phone_number: 電話番号
+
+    images: 画像
+    name : 商品名
+    description : 商品の説明
+    category_id : カテゴリー
+    size_id : サイズ
+    brand_id : ブランド
+    condition_id : 商品の状態
+    pefecture_id : 地域
+    sendingmethod_id : 配送方法
+    postageburden_id : 配送料の負担
+    shippingday_id : 発送までの日数
+    price : 価格
+    profit : 販売利益

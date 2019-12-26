@@ -1,0 +1,21 @@
+= render "shared/top_page_header"
+- breadcrumb :mypage_profile
+.bread  
+  .bread__name
+    =breadcrumbs
+.mypage-index
+  = render  "sidebar"
+  .profile-main
+    .profile-container
+      .profile-contents
+        %h2.profile-contents__title プロフィール
+        %form.profile-items
+          .profile-blocks 
+            .profile-blocks-top
+              %img.profile-blocks-top__img{alt: "profileimg", src: "http://gahag.net/img/201605/22s/gahag-0088473936-1.jpg"}/
+              %input.profile-blocks-top__nickname{laceholder: "", type: "text", value: "#{@user.nickname}"}/
+            .profile-blocks-under
+              %textarea.profile-blocks-under__profiletext{name: "profiletext", placeholder: "例）こんにちは☆ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるように心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
+              %input.profile-blocks-under__submitbtn{type: "submit", value: "変更する"}/
+= render "shared/top_page_footer"
+= render "shared/exhibit_logo"

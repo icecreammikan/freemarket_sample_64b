@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+}
+.mypage-exhibit{
+  display:flex;
+  margin: 40px auto 0;
+  padding: 0 0 40px;
+  width: 1020px;
+}
+.exhibit-mypage-tabs{
+  display:flex;
+  border: 0;
+  background: #eee;
+  font-size: 0px;
+  width:700px;
+  li {
+    width: 50%;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    list-style: none;
+  }
+
+  a {
+    position: relative;
+    display: block;
+    color: #333;
+    font-size: 16px;
+    line-height: 72px;
+  }
+}
+.mypage-exhibit__box{
+  display: flex;
+  justify-content: space-between;
+  &__a{
+    background-color: white;
+    color:black;
+    border:1px solid;
+    border-color:lightgray;
+    border-radius: 4px;
+    padding:0 8px;
+    margin-top:40px;
+    cursor: pointer;
+  }
+}

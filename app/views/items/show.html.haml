@@ -1,0 +1,180 @@
+= render "shared/top_page_header"
+.product-details-main
+  .product-details-container
+    .product-listing
+      %h1.product-listing__title
+        = @item.name
+      .product-listing__info
+        .product-listing__info__img
+          .product-listing__info__img__big
+            -if @item.buyer_id.present?
+              = image_tag "#{@item.image}", class:"product-listing__info__img__big", alt:"product-img"
+              .buied_item
+            - else
+              = image_tag "#{@item.image}", class:"product-listing__info__img__big", alt:"product-img"
+          .product-listing__info__img__small
+            = image_tag "#{@item.image}", class:"product-listing__info__img__small__low", alt:"product-img"
+
+          .product-listing__info__shadow
+            %p.product-listing__info__hidden__price ¥#{@item.price}
+            %p.product-listing__info__hidden__tax (税込)
+            %p.product-listing__info__hidden__postage 送料込み
+        %table.product-listing__info__table
+          %tr.product-listing__info__table__tr-seller
+            %th.product-listing__info__table__th 出品者
+            %td.product-listing__info__table__td-seller
+              =link_to "#{@user.nickname}", "#",class:"product-listing__info__table__seller-name"
+              .product-listing__info__table__evaluation
+                %p.product-listing__info__table__evaluation__good
+                  %i.far.fa-smile-beam>
+                  0
+                %p.product-listing__info__table__evaluation__usually
+                  %i.far.fa-meh>
+                  0
+                %p.product-listing__info__table__evaluation__bad
+                  %i.far.fa-tired>
+                  0
+          %tr.product-listing__info__table__tr-category
+            %th.product-listing__info__table__th カテゴリー
+            %td.product-listing__info__table__td
+              =link_to "#{@item.category.name}","#"
+              /カテゴリーテーブルが完成後要修正↑
+              %br/
+              =link_to do
+                %i.fas.fa-angle-right>
+                カテゴリー
+                /カテゴリーテーブルが完成後要修正↑
+              %br/
+              =link_to do
+                %i.fas.fa-angle-right>
+                カテゴリー
+                /カテゴリーテーブルが完成後要修正↑
+              %br/
+          %tr.product-listing__info__table__tr-brand
+            %th.product-listing__info__table__th ブランド
+            %td.product-listing__info__table__td
+              =link_to "#" do
+                %div
+              /ブランドテーブルが完成後要修正↑
+          %tr.product-listing__info__table__tr-product-status
+            %th.product-listing__info__table__th 商品の状態
+            %td.product-listing__info__table__td
+              %p #{@item.condition.name}
+          %tr.product-listing__info__table__tr-delivery-fee
+            %th.product-listing__info__table__th 配送料の負担
+            %td.product-listing__info__table__td
+              %p #{@item.postageburden.name}
+          %tr.product-listing__info__table__tr-delivery-method
+            %th.product-listing__info__table__th 配送方法
+            %td.product-listing__info__table__td
+              %p #{@item.sendingmethod.name}
+          %tr
+            %th.product-listing__info__table__th 配送元地域
+            %td.product-listing__info__table__td
+              =link_to "#{@item.prefecture.name}","#"
+          %tr.product-listing__info__table__tr-time
+            %th.product-listing__info__table__th 発送日の目安
+            %td.product-listing__info__table__td
+              %p #{@item.shippingday.name}
+      .product-listing__info__hidden
+        %p.product-listing__info__hidden__price ¥#{@item.price}
+        %p.product-listing__info__hidden__tax (税込)
+        %p.product-listing__info__hidden__postage 送料込み
+      - if @item.buyer_id.present?
+        .soldout__button
+          %p 売り切れました。残念！       
+      - else
+        - if user_signed_in?
+          - if current_user.id == @item.seller_id
+            .listing-item-change-box
+              = link_to edit_item_path(@item.id) do
+                %button.btn-default.btn-red{type: "submit"} 商品の編集
+              %p.text-center or
+              
+              = link_to "#" do
+                %button.btn-default.btn-gray{:type => "submit"} 出品を一旦停止する
+
+              = link_to item_path(@item.id), method: :delete do
+                %button.btn-default.btn-gray{type: "submit"} この商品を削除する
+          - else
+            = link_to "/items/buy/#{@item.id}" do
+              %input.product-listing__purchase-btn{type:"submit", value:"購入画面に進む"}/
+            = link_to "/items/buy/#{@item.id}" do
+              %input.product-listing__sride-btn{type:"submit", value:"購入画面に進む"}/
+        - else
+          = link_to "/items/buy/#{@item.id}" do
+            %input.product-listing__purchase-btn{type:"submit", value:"購入画面に進む"}/
+          = link_to "/items/buy/#{@item.id}" do
+            %input.product-listing__sride-btn{type:"submit", value:"購入画面に進む"}/
+      %p.product-listing__puroduct-overview #{@item.description}
+      .product-listing__product-info-bottom-btns
+        .product-listing__product-info-bottom-btns__box
+          .product-listing__product-info-bottom-btns__box__group
+            %p.product-listing__product-info-bottom-btns__box__group__a
+              %i.far.fa-heart>いいね！0
+          .product-listing__product-info-bottom-btns__box__group
+            =link_to "#",class:"product-listing__product-info-bottom-btns__box__group__a" do
+              %i.far.fa-flag>不適切な商品の報告
+        =link_to "#",class:"product-listing__product-info-bottom-btns__style" do
+          %i.far.fa-briefcase>あんしん・あんぜんへの取り組み
+
+
+  .before-purchase-messages
+    .before-purchase-messages__chat-space
+    -##コメント表示スペース
+    .before-purchase-messages__comments
+      %form
+        %p.before-purchase-messages__comments__caution 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      .before-purchase-messages__comments__brock
+        %textarea.before-purchase-messages__comments__brock__textarea{name:"commenttext", placeholder:""}
+        - if @item.buyer_id.present?
+          .soldout__button
+            %p 売り切れのためコメントできません
+        - else
+          %input.before-purchase-messages__comments__brock__send-btn{type:"submit", value:"コメントする"}/
+
+  .related-products-transition
+    - if @item.next.present?
+      =link_to item_path(@item.next.id),class:"related-products-transition__before" do
+        %i.fas.fa-angle-left.fa-large
+        = @item.next.name
+    - else
+      .none
+    - if @item.previous.present?
+      =link_to item_path(@item.previous.id),class:"related-products-transition__next" do
+        = @item.previous.name
+        %i.fas.fa-angle-right.fa-large
+    - else
+      .none
+  .sns-btns
+    %ul.sns-btns__box
+      %li.sns-btns__box__facebook
+        =link_to "#" do
+          %i.fab.fa-facebook.fa-2x>
+      %li.sns-btns__box__twitter
+        =link_to "#" do
+          %i.fab.fa-twitter.fa-2x>
+      %li.sns-btns__box__line
+        =link_to "#" do
+          %i.fab.fa-line.fa-2x>
+      %li.sns-btns__box__pinterest
+        =link_to "#" do
+          %i.fab.fa-pinterest.fa-2x>
+  .seller-other-products
+    .seller-other-products__else
+      %h2.seller-other-products__else__title
+        %i.fas.fa-angle-left.fa-large>
+        売主のその他の出品
+      .seller-other-products__else__product
+        - @items.last(6).each do |item|
+          .seller-other-products__else__product__box
+            = image_tag "#{item.image}", class:"seller-other-products__else__product__box__img", alt:"seller-other-products-product__product__img"
+            %p.seller-other-products__else__product__box__name #{item.name}
+            %p.seller-other-products__else__product__box__price ¥#{item.price}
+    .related-other-products
+      %h2.related-other-products__title
+        %i.fas.fa-angle-left.fa-large>
+        カテゴリーのその他の出品
+      .related-other-products__product
+        /カテゴリーテーブル実装後
+= render "shared/top_page_footer"

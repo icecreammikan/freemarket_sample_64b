@@ -1,0 +1,325 @@
+.main
+  %noscript
+  .slide-screen
+    .slide-screen__block
+      .slide-screen__block__left
+        %p.slide-screen__block__left__text1 スマホでかんたん
+        %p.slide-screen__block__left__text2 フリマアプリ
+        %p.slide-screen__block__left__text3 Fmarketはスマホカメラからすぐに出品できる
+        %p.slide-screen__block__left__text4 購入時も安心な独自システムのアプリです
+        .slide-screen__block__left__icon
+          %ul.slide__app
+            %li.slide__app__icon
+              = link_to "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", class: "_blank" do
+                =image_tag "images_apple.png", class:"app__icon", height: "40", width: "133"
+            %li.slide__app__icon
+              = link_to "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", class: "_blank" do
+                =image_tag "google-1-320x197.png", class:"google__icon", alt: "Mercari",height: "40", width: "133"
+      .slide-screen__block__right
+        %figure
+          =image_tag "top-banner-main-device.png", class:"main-img", alt: "Mercari",height: "350", width: "320"
+  / ##人気のカテゴリーリンク
+  .popular__link
+    %h2.popular__link__h 人気のカテゴリー
+    .category__box
+      %ul.category__box__text
+        %li.category__box__text__1
+          =link_to ' レディース ', "#", class:"category__box__text__a"
+        %li.category__box__text__1
+          =link_to ' メンズ ', "#", class:"category__box__text__a"
+        %li.category__box__text__1
+          =link_to ' 家電・スマホ・カメラ ', "#", class:"category__box__text__a"
+        %li.category__box__text__1
+          =link_to ' おもちゃ・ホビー・グッズ ', "#", class:"category__box__text__a"
+  / ##人気カテゴリー本体
+  .popular__body
+    / ##レディース
+    .category__body__1
+      .category__body__1__text
+        %h.category__body__1__text__h レディース新着アイテム
+        =link_to "#", class:"category__body__1__text__a" do
+          もっと見る
+          %i.fas.fa-angle-right.fa-large
+      / ##商品１
+      %ul.category__body__1__itemlist__itembox
+        - @ladys.each do |item|
+          - if item.buyer_id.present?
+            %li.category__body__1__itemlist__itembox__item
+              =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
+                %figure.item_detail__1
+                  .item_figure__1
+                    %span.item_figure__1__price{"aria-label" => "Price"}
+                      ¥#{item.price}
+                    = image_tag "#{item.image}", class:"item_figure__1__img",width:"188",height:"188px",alt:"no_image"
+                    .buied_label
+                  .captionbox
+                    %figcaption
+                      %span
+                        = item.name
+          - else
+            %li.category__body__1__itemlist__itembox__item
+              =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
+                %figure.item_detail__1
+                  .item_figure__1
+                    %span.item_figure__1__price{"aria-label" => "Price"}
+                      ¥#{item.price}
+                    = image_tag "#{item.image}", class:"item_figure__1__img",width:"188",height:"188px",alt:"no_image"
+                  .captionbox
+                    %figcaption
+                      %span
+                        = item.name
+    / ##メンズ
+    .category__body__1
+      .category__body__1__text
+        %h.category__body__1__text__h メンズ新着アイテム
+        =link_to "#", class:"category__body__1__text__a" do
+          もっと見る
+          %i.fas.fa-angle-right.fa-large
+      %ul.category__body__1__itemlist__itembox
+        - @mans.each do |item|
+          - if item.buyer_id.present?
+            %li.category__body__1__itemlist__itembox__item
+              =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
+                %figure.item_detail__1
+                  .item_figure__1
+                    %span.item_figure__1__price{"aria-label" => "Price"}
+                      %p ¥#{item.price}
+                    = image_tag "#{item.image}", class:"item_figure__1__img",width:"188",height:"188px"
+                    .buied_label
+                  .captionbox
+                    %figcaption
+                      %span
+                        = item.name
+          - else
+            %li.category__body__1__itemlist__itembox__item
+              =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
+                %figure.item_detail__1
+                  .item_figure__1
+                    %span.item_figure__1__price{"aria-label" => "Price"}
+                      %p ¥#{item.price}
+                    -# = image_tag "#{item.image}", class:"item_figure__1__img",width:"188",height:"188px"
+                  .captionbox
+                    %figcaption
+                      %span
+                        = item.name
+
+    / ##家電
+    .category__body__1
+      .category__body__1__text
+        .category__body__1__text__h 家電・スマホ・カメラ新着アイテム
+        =link_to "#", class:"category__body__1__text__a" do
+          もっと見る
+          %i.fas.fa-angle-right.fa-large
+      %ul.category__body__1__itemlist__itembox
+        - @appliances.each do |item|
+          - if item.buyer_id.present?
+            %li.category__body__1__itemlist__itembox__item
+              =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
+                %figure.item_detail__1
+                  .item_figure__1
+                    %span.item_figure__1__price{"aria-label" => "Price"}
+                      %p ¥#{item.price}
+                    = image_tag "#{item.image}", class:"item_figure__1__img",width:"188",height:"188px"
+                    .buied_label
+                  .captionbox
+                    %figcaption
+                      %span
+                        = item.name
+          - else
+            %li.category__body__1__itemlist__itembox__item
+              =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
+                %figure.item_detail__1
+                  .item_figure__1
+                    %span.item_figure__1__price{"aria-label" => "Price"}
+                      %p ¥#{item.price}
+                    = image_tag "#{item.image}", class:"item_figure__1__img",width:"188",height:"188px"
+                  .captionbox
+                    %figcaption
+                      %span
+                        = item.name
+
+    / ##ホビー
+    .category__body__1
+      .category__body__1__text
+        .category__body__1__text__h おもちゃ・ホビー・グッズ新着アイテム
+        =link_to "#", class:"category__body__1__text__a" do
+          もっと見る
+          %i.fas.fa-angle-right.fa-large
+      %ul.category__body__1__itemlist__itembox
+        - @toys.each do |item|
+          - if item.buyer_id.present?
+            %li.category__body__1__itemlist__itembox__item
+              =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
+                %figure.item_detail__1
+                  .item_figure__1
+                    %span.item_figure__1__price{"aria-label" => "Price"}
+                      %p ¥#{item.price}
+                    = image_tag "#{item.image}", class:"item_figure__1__img",width:"188",height:"188px"
+                    .buied_label
+                  .captionbox
+                    %figcaption
+                      %span
+                        = item.name
+          - else
+            %li.category__body__1__itemlist__itembox__item
+              =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
+                %figure.item_detail__1
+                  .item_figure__1
+                    %span.item_figure__1__price{"aria-label" => "Price"}
+                      %p ¥#{item.price}
+                    = image_tag "#{item.image}", class:"item_figure__1__img",width:"188",height:"188px"
+                  .captionbox
+                    %figcaption
+                      %span
+                        = item.name
+    / ##人気のブランドリンク
+    .popular__link
+      %h2.popular__link__h 人気のカテゴリー
+      .category__box
+        %ul.category__box__text
+          %li.category__box__text__1
+            =link_to 'シャネル', "#", class:"category__box__text__a"
+          %li.category__box__text__1
+            =link_to 'ルイヴィトン', "#", class:"category__box__text__a"
+          %li.category__box__text__1
+            =link_to 'シュプリーム', "#", class:"category__box__text__a"
+          %li.category__box__text__1
+            =link_to 'ナイキ', "#", class:"category__box__text__a"
+    / ##人気ブランドー本体
+    .popular__body
+      / ##シャネル
+      .category__body__1
+        .category__body__1__text
+          %h.category__body__1__text__h シャネル新着アイテム
+          =link_to "#", class:"category__body__1__text__a" do
+            もっと見る
+            %i.fas.fa-angle-right.fa-large
+        %ul.category__body__1__itemlist__itembox
+          - @chanels.each do |item|
+            - if item.buyer_id.present?
+              %li.category__body__1__itemlist__itembox__item
+                =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
+                  %figure.item_detail__1
+                    .item_figure__1
+                      %span.item_figure__1__price{"aria-label" => "Price"}
+                        %p ¥#{item.price}
+                      = image_tag "#{item.image}", class:"item_figure__1__img",width:"188",height:"188px"
+                      .buied_label
+                    .captionbox
+                      %figcaption
+                        %span
+                          = item.name
+            - else
+              %li.category__body__1__itemlist__itembox__item
+                =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
+                  %figure.item_detail__1
+                    .item_figure__1
+                      %span.item_figure__1__price{"aria-label" => "Price"}
+                        %p ¥#{item.price}
+                      = image_tag "#{item.image}", class:"item_figure__1__img",width:"188",height:"188px"
+                    .captionbox
+                      %figcaption
+                        %span
+                          = item.name
+      / ##ルイヴィトン
+      .category__body__1
+        .category__body__1__text
+          %h.category__body__1__text__h ルイヴィトン新着アイテム
+          =link_to "#", class:"category__body__1__text__a" do
+            もっと見る
+            %i.fas.fa-angle-right.fa-large
+        %ul.category__body__1__itemlist__itembox
+          - @vuittons.each do |item|
+            - if item.buyer_id.present?
+              %li.category__body__1__itemlist__itembox__item
+                =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
+                  %figure.item_detail__1
+                    .item_figure__1
+                      %span.item_figure__1__price{"aria-label" => "Price"}
+                        %p ¥#{item.price}
+                      = image_tag "#{item.image}", class:"item_figure__1__img",width:"188",height:"188px"
+                      .buied_label
+                    .captionbox
+                      %figcaption
+                        %span
+                          = item.name
+            - else
+              %li.category__body__1__itemlist__itembox__item
+                =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
+                  %figure.item_detail__1
+                    .item_figure__1
+                      %span.item_figure__1__price{"aria-label" => "Price"}
+                        %p ¥#{item.price}
+                      = image_tag "#{item.image}", class:"item_figure__1__img",width:"188",height:"188px"
+                    .captionbox
+                      %figcaption
+                        %span
+                          = item.name
+      / ##シュプリーム
+      .category__body__1
+        .category__body__1__text
+          .category__body__1__text__h シュプリーム新着アイテム
+          =link_to "#", class:"category__body__1__text__a" do
+            もっと見る
+            %i.fas.fa-angle-right.fa-large
+        %ul.category__body__1__itemlist__itembox
+          - @supremes.each do |item|
+            - if item.buyer_id.present?
+              %li.category__body__1__itemlist__itembox__item
+                =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
+                  %figure.item_detail__1
+                    .item_figure__1
+                      %span.item_figure__1__price{"aria-label" => "Price"}
+                        %p ¥#{item.price}
+                      = image_tag "#{item.image}", class:"item_figure__1__img",width:"188",height:"188px"
+                      .buied_label
+                    .captionbox
+                      %figcaption
+                        %span
+                          = item.name
+            - else
+              %li.category__body__1__itemlist__itembox__item
+                =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
+                  %figure.item_detail__1
+                    .item_figure__1
+                      %span.item_figure__1__price{"aria-label" => "Price"}
+                        %p ¥#{item.price}
+                      = image_tag "#{item.image}", class:"item_figure__1__img",width:"188",height:"188px"
+                    .captionbox
+                      %figcaption
+                        %span
+                          = item.name
+      / ##ナイキ
+      .category__body__1
+        .category__body__1__text
+          .category__body__1__text__h ナイキ新着アイテム
+          =link_to "#", class:"category__body__1__text__a" do
+            もっと見る
+            %i.fas.fa-angle-right.fa-large
+        %ul.category__body__1__itemlist__itembox
+          - @nikes.each do |item|
+            - if item.buyer_id.present?
+              %li.category__body__1__itemlist__itembox__item
+                =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
+                  %figure.item_detail__1
+                    .item_figure__1
+                      %span.item_figure__1__price{"aria-label" => "Price"}
+                        %p ¥#{item.price}
+                      = image_tag "#{item.image}", class:"item_figure__1__img",width:"188",height:"188px"
+                      .buied_label
+                    .captionbox
+                      %figcaption
+                        %span
+                          = item.name
+            - else
+              %li.category__body__1__itemlist__itembox__item
+                =link_to "#{item_path(item.id)}", class:"link_to_item__1" do
+                  %figure.item_detail__1
+                    .item_figure__1
+                      %span.item_figure__1__price{"aria-label" => "Price"}
+                        %p ¥#{item.price}
+                      = image_tag "#{item.image}", class:"item_figure__1__img",width:"188",height:"188px"
+                    .captionbox
+                      %figcaption
+                        %span
+                          = item.name

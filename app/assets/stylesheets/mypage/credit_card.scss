@@ -1,0 +1,78 @@
+// クレジットカード登録画面
+* {
+  box-sizing: border-box;
+}
+.credit-main{
+  background-color: rgb(245, 245, 245);
+}
+.credit-container{
+  width: 700px;
+  background-color: white;
+  margin: auto;
+}
+.credit-chapter{
+  font-size: 24px;
+  padding: 8px 24px;
+  border-bottom: 2px solid rgb(245, 245, 245);
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+}
+.credit-contents{
+  padding: 64px;
+}
+.credit-items{
+  width: 320px;
+  margin: 0 auto;
+  color: #333;
+  &__title{
+    font-weight: bold;
+  }
+}
+.credit-content{
+  width: 100%;
+  border-bottom: 1px solid rgb(245, 245, 245);
+}
+.credit-form{
+  margin: 0 auto;
+  width: 320px;
+  background-color: white;
+  padding: 24px 0;
+}
+.credit-btn-default {
+  display: block;
+  width: 320px;
+  line-height: 48px;
+  font-size: 14px;
+  border: 1px solid transparent;
+  -webkit-transition: all ease-out .3s;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  text-align: center;
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+}
+.credit-btn-default:hover {
+    opacity: 0.7;
+  }
+
+
+.fa-credit-card{
+  padding: 0 16px 0 0;
+}
+
+.settings-add-credit{
+  text-align: right;
+  margin-top: 40px;
+  &__link{
+    text-decoration: none;
+    color: #0099e8;
+    font-size: 14px;
+  }
+  &:hover {
+    color: #197d96;
+    text-decoration: underline;
+    vertical-align: inherit;
+  }
+}

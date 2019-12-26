@@ -1,0 +1,126 @@
+//本人情報登録画面
+* {
+  box-sizing: border-box;
+}
+.id-header {
+  height: 40px;
+  background-color: rgb(245, 245, 245);
+}
+
+.id-main {
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  background-color: rgb(245, 245, 245);
+  padding-bottom: 40px;
+  font-size: 14px;
+  color: #333333;
+}
+.id-container {
+  margin:0 auto 0;
+}
+.id-contents {
+  margin: 0 auto;
+  width: 700px;
+  background-color: white;
+  position: relative;
+  &__chapter {
+    font-size: 24px;
+    padding: 8px 24px;
+    border-bottom: 2px solid rgb(245, 245, 245);
+    text-align: center;
+    font-weight: bold;
+  }
+}
+.id-items{
+  width: 100%;
+  margin: 0 auto;
+  padding: 64px;
+}
+.id-form {
+  width: 100%;
+
+  &__p-element{
+    font-size: 14px;
+    width: 572px;
+    color: #333333;
+    text-align: left;
+    margin:0 auto 0;
+    line-height: 1.5;
+  }
+  &__form-group{
+    margin:40px auto 0;
+    width: 572px;
+    .identification-item{
+      font-size: 14px;
+      width: 572px;
+      color: #333333;
+      text-align: left;
+      margin:0 auto 0;
+      line-height: 1.5;
+    }
+    .id-form-label{
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .input-default {
+      width: 100%;
+      height: 48px;
+      padding: 0 12px 0;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    .select-default {
+      width: 100%;
+      height: 48px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    } 
+    .form-arbitrary {
+      background: #ccc;
+      margin: 0 0 0 8px;
+      padding: 2px 4px;
+      border-radius: 2px;
+      color: #fff;
+      font-size: 12px;
+      vertical-align: top;
+    }
+    .input-default {
+      margin: 8px 0 0;
+    }
+  }
+  .btn-red {
+    color: rgb(255, 255, 255);
+    width: 572px;
+    line-height: 48px;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    background: rgb(234, 53, 45);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(234, 53, 45);
+    border-image: initial;
+    margin: 40px 0 0 0;
+    padding: 0px 30px;
+    transition: all 0.3s ease-out 0s;
+  }
+
+  .btn-red:hover {
+    opacity: 0.7;
+  }
+}
+.text-right{
+  text-align: right;
+  padding: 8px;
+  .text-right__link{
+    color: #0099e8;
+    text-decoration: none;
+  }
+  .text-right__link:hover {
+    color: #197d96;
+    text-decoration: underline;
+    vertical-align: inherit;
+  }
+  .chevron-right{
+    text-align: right;
+  }
+}

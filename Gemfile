@@ -5,10 +5,8 @@ ruby '2.5.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 4.3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -44,6 +42,13 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  #テストツール
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
+  gem 'capybara', '>= 2.15'
 end
 
 group :development do
@@ -71,5 +76,35 @@ group :production do
 end
 
 gem 'carrierwave'
-gem 'rmagick', require: 'RMagick'
+gem 'mini_magick'
+gem 'fog-aws'
+gem 'haml-rails'
+#ユーザー管理
+gem 'devise'
+#active_hashの生成
+gem 'active_hash'
+#日本語化
+gem 'rails-i18n'
+#omniauth認証関係
+gem 'omniauth-rails_csrf_protection'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
+gem 'dotenv-rails'
+#pay.jpの導入
+gem 'payjp'
+#js
+gem 'jquery-rails'
 
+#mysqlの導入
+gem 'mysql2', '>= 0.4.4', '< 0.6.0'
+
+#カテゴリでの多階層のgem
+gem 'ancestry'
+
+gem "font-awesome-rails"
+
+gem "gretel"
+
+gem 'ancestry'
+
+gem 'gon'
